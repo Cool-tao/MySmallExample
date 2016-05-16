@@ -1,0 +1,30 @@
+<resources>
+
+    <style name="AppBaseTheme" parent="android:Theme.Holo.Light">
+        <item name="windowActionBar">false</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!--<item name="android:windowBackground">@color/transparent</item>-->
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="line_v">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.1dip</item>
+        <item name="android:background">@color/gray</item>
+    </style>
+    <style name="main_tab_item2">
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">@dimen/textSize5</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/main_menu_text</item>
+        <item name="android:background">@null</item>
+    </style>
+
+</resources>

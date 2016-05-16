@@ -1,0 +1,61 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <View
+        android:id="@+id/tab_menu_line"
+        style="@style/line_v"
+        android:layout_above="@+id/lv_tab_menu" />
+
+    <LinearLayout
+        android:id="@+id/lv_tab_menu"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv_tab_menu0"
+            style="@style/main_tab_item2"
+            android:drawablePadding="0dp"
+            android:drawableTop="@drawable/tabmenu_recommend"
+            android:text="@string/main_menu0_text" />
+
+        <TextView
+            android:id="@+id/tv_tab_menu1"
+            style="@style/main_tab_item2"
+            android:drawableTop="@drawable/tabmenu_rank"
+            android:text="@string/main_menu1_text" />
+
+        <TextView
+            android:id="@+id/tv_tab_menu2"
+            style="@style/main_tab_item2"
+            android:drawableTop="@drawable/tabmenu_classify"
+            android:text="@string/main_menu2_text" />
+
+        <TextView
+            android:id="@+id/tv_tab_menu3"
+            style="@style/main_tab_item2"
+            android:drawableTop="@drawable/tabmenu_my"
+            android:gravity="center"
+            android:text="@string/main_menu3_text" />
+    </LinearLayout>
+
+    <example.mysmallexample.MyViewPager
+        android:id="@+id/main_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/tab_menu_line"
+        android:layout_alignWithParentIfMissing="true" />
+
+    <ImageView
+        android:id="@+id/iv_trans"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:contentDescription="@null"
+        android:visibility="gone" />
+
+</RelativeLayout>

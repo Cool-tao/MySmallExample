@@ -18,7 +18,7 @@ public class FragmentMe extends BaseFragment {
 
     private int linesize = 4;
     private BaseFragment[] fragments;
-    private ViewPager viewPager;
+    private AutoScrollViewPager viewPager;
     private MainPagerAdapter adapter;
     /**
      * ViewPager的当前选中页
@@ -44,7 +44,7 @@ public class FragmentMe extends BaseFragment {
 
     private void initLayout(View layout) {
         // TODO Auto-generated method stub
-        viewPager = (ViewPager) layout.findViewById(R.id.rank_pager);
+        viewPager = (AutoScrollViewPager) layout.findViewById(R.id.rank_pager);
         adapter = new MainPagerAdapter(getActivity()
                 .getSupportFragmentManager());
         fragments = new BaseFragment[4];
@@ -61,6 +61,7 @@ public class FragmentMe extends BaseFragment {
         viewPager.setCurrentItem(currentIndex);
         viewPager.addOnPageChangeListener(new MyOnPageChangeListener());
         viewPager.setOffscreenPageLimit(adapter.getCount());
+        viewPager.startAutoScroll();
         initTabLineWidth();
         InitTextView(layout);
         viewPager.setCurrentItem(0);

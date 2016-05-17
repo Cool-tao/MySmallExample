@@ -26,5 +26,13 @@
         <item name="android:textColor">@color/main_menu_text</item>
         <item name="android:background">@null</item>
     </style>
-
+    <style name="rank_tab_item">
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/rank_menu_text</item>
+        <item name="android:background">@null</item>
+    </style>
 </resources>

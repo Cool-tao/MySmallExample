@@ -1,13 +1,17 @@
 package example.mysmallexample;
 
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.view.ViewPager;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends FragmentActivity {
@@ -52,27 +56,6 @@ public class MainActivity extends FragmentActivity {
         viewPager.setOffscreenPageLimit(adapter.getCount());
         viewPager.setAdapter(adapter);
         onClickIndex(0);
-
-
-//        int a,b,c,d;
-viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-    @Override
-    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-    }
-
-    @Override
-    public void onPageSelected(int position) {
-
-    }
-
-    @Override
-    public void onPageScrollStateChanged(int state) {
-
-    }
-});
-
-
 
     }
 
@@ -119,5 +102,42 @@ viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             winParams.flags &= ~bits;
         }
         win.setAttributes(winParams);
+    }
+
+    // 获取点击事件
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        // TODO Auto-generated method stub
+        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
+            View view = getCurrentFocus();
+            if (isHideInput(view, ev)) {
+                HideSoftInput(view.getWindowToken());
+            }
+        }
+        return super.dispatchTouchEvent(ev);
+    }
+    // 判定是否需要隐藏
+    private boolean isHideInput(View v, MotionEvent ev) {
+        if (v != null && (v instanceof EditText)) {
+            int[] l = { 0, 0 };
+            v.getLocationInWindow(l);
+            int left = l[0], top = l[1], bottom = top + v.getHeight(), right = left
+                    + v.getWidth();
+            if (ev.getX() > left && ev.getX() < right && ev.getY() > top
+                    && ev.getY() < bottom) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        return false;
+    }
+    // 隐藏软键盘
+    private void HideSoftInput(IBinder token) {
+        if (token != null) {
+            InputMethodManager manager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            manager.hideSoftInputFromWindow(token,
+                    InputMethodManager.HIDE_NOT_ALWAYS);
+        }
     }
 }

@@ -3,10 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <LinearLayout
+
+    <View
+        android:id="@+id/top_layout"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:background="@color/colorPrimary"></LinearLayout>
+        android:background="@color/colorPrimary"></View>
 
     <TextView
         android:layout_width="wrap_content"
@@ -16,5 +18,12 @@
         android:gravity="center"
         android:text="Rank"
         android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="测试点击屏幕外输入法消失"
+        android:padding="20dp" />
 
 </LinearLayout>

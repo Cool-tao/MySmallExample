@@ -41,6 +41,7 @@ public class FragmentRecommend extends BaseFragment implements ViewSwitcher.View
 
     private TimeTextView mTimeText;
     private TimeDownView timedownview;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -70,7 +71,8 @@ public class FragmentRecommend extends BaseFragment implements ViewSwitcher.View
         int hour = c.get(Calendar.HOUR_OF_DAY);
         int minute = c.get(Calendar.MINUTE);
         int second = c.get(Calendar.SECOND);
-		int[] time = { date, hour, minute, second };
+//		int[] time = { date, hour, minute, second };
+        int[] time = {0, 1, 35, 57};
 //        int[] time = { 0, 0, 0, 10};
 
         mTimeText.setTimes(time);
@@ -115,7 +117,7 @@ public class FragmentRecommend extends BaseFragment implements ViewSwitcher.View
 
                 if (myTimer == null) {
                     // 第一参数是总的时间，第二个是间隔时间
-                    myTimer = new MyTimer(1000 * 60 * 60, 1000);
+                    myTimer = new MyTimer(1000 * 60, 1000);
                 }
 
                 myTimer.start();

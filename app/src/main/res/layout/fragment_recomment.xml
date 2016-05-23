@@ -24,12 +24,49 @@
         android:id="@+id/textSwitcher"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
         android:layout_centerVertical="true"
+        android:layout_marginTop="40dp"
         android:inAnimation="@android:anim/slide_in_left"
+        android:onClick="next"
         android:outAnimation="@android:anim/slide_out_right"
-        android:onClick="next" />
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/btn_count_down_timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="倒计时开始" />
+
+
+    <Button
+        android:id="@+id/btn_send"
+        style="@style/txt_titleStyle1"
+        android:layout_width="80dp"
+        android:layout_height="32dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_enable_green"
+        android:enabled="false"
+        android:gravity="center"
+        android:text="发送验证码"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
+
+
+    <example.mysmallexample.TimeTextView
+        android:id="@+id/temai_timeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+
+    <example.mysmallexample.TimeDownView
+        android:id="@+id/timedownview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp" />
 
 </LinearLayout>

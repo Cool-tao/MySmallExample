@@ -1,4 +1,4 @@
-package example.mysmallexample;
+package example.mysmallexample.ui.fragment;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import example.mysmallexample.R;
 
 public class FragmentClassify extends BaseFragment {
 

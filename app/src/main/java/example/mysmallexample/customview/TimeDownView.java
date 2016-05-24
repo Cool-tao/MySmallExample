@@ -1,4 +1,4 @@
-package example.mysmallexample;
+package example.mysmallexample.customview;
 
 import android.content.Context;
 import android.graphics.Paint;
@@ -6,6 +6,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import example.mysmallexample.R;
 
 public class TimeDownView extends RelativeLayout implements Runnable{
 

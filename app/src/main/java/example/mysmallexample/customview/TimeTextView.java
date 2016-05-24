@@ -1,10 +1,12 @@
-package example.mysmallexample;
+package example.mysmallexample.customview;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.widget.TextView;
+
+import example.mysmallexample.R;
 
 /**
  * 自定义倒计时文本控件

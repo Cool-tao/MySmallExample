@@ -1,4 +1,4 @@
-package example.mysmallexample;
+package example.mysmallexample.ui.fragment;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -17,9 +17,14 @@ import java.util.Calendar;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class FragmentRecommend extends BaseFragment implements ViewSwitcher.ViewFactory, View.OnClickListener {
+import example.mysmallexample.R;
+import example.mysmallexample.customview.TimeDownView;
+import example.mysmallexample.customview.TimeTextView;
 
-    String[] resources = {"标题", "身是菩提树", "心如明镜台", "时时勤拂拭", "勿使惹尘埃"};
+public class FragmentHome extends BaseFragment implements ViewSwitcher.ViewFactory, View.OnClickListener {
+
+    private TextSwitcher textSwitcher;
+    String[] resources = {"标题轮播  1", "标题轮播  2", "标题轮播  3", "标题轮播  4", "标题轮播  5"};
     private Handler mHandler = new Handler() {
 
         public void handleMessage(Message msg) {
@@ -32,20 +37,22 @@ public class FragmentRecommend extends BaseFragment implements ViewSwitcher.View
         }
     };
     int id = 0; // resources 数组的Id;
-
-    private TextSwitcher textSwitcher;
+    /**
+     * 倒计时
+     */
     private Button btn_count_down_timer;
-    private Button btn_send;
     private MyTimer myTimer;
-
-
+    private Button btn_send;
+    private MyCount mc;
+    /**
+     * 自定义倒计时view
+     */
     private TimeTextView mTimeText;
     private TimeDownView timedownview;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         View layout = inflater.inflate(R.layout.fragment_recomment, null);
         textSwitcher = (TextSwitcher) layout.findViewById(R.id.textSwitcher);
@@ -58,12 +65,12 @@ public class FragmentRecommend extends BaseFragment implements ViewSwitcher.View
 
         btn_count_down_timer = (Button) layout.findViewById(R.id.btn_count_down_timer);
         btn_count_down_timer.setOnClickListener(this);
-
         btn_send = (Button) layout.findViewById(R.id.btn_send);
         btn_send.setOnClickListener(this);
         mTimeText = (TimeTextView) layout.findViewById(R.id.temai_timeTextView);
         timedownview = (TimeDownView) layout.findViewById(R.id.timedownview);
 
+        //获取当前时间
         Calendar c = Calendar.getInstance();
         int year = c.get(Calendar.YEAR);
         int month = c.get(Calendar.MONTH);
@@ -74,16 +81,15 @@ public class FragmentRecommend extends BaseFragment implements ViewSwitcher.View
 //		int[] time = { date, hour, minute, second };
         int[] time = {0, 1, 35, 57};
 //        int[] time = { 0, 0, 0, 10};
-
         mTimeText.setTimes(time);
         if (!mTimeText.isRun()) {
             mTimeText.run();
         }
-
         timedownview.setTimes(time);
         if (!timedownview.isRun()) {
             timedownview.run();
         }
+
         return layout;
     }
 
@@ -107,8 +113,6 @@ public class FragmentRecommend extends BaseFragment implements ViewSwitcher.View
         tv.setText(resources[id]);
         return tv;
     }
-
-    private MyCount mc;
 
     @Override
     public void onClick(View v) {

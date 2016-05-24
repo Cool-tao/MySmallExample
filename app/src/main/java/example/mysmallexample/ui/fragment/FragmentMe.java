@@ -1,4 +1,4 @@
-package example.mysmallexample;
+package example.mysmallexample.ui.fragment;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -10,6 +10,10 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import example.mysmallexample.ui.adapter.MainPagerAdapter;
+import example.mysmallexample.R;
+import example.mysmallexample.customview.AutoScrollViewPager;
 
 @SuppressLint("ShowToast")
 public class FragmentMe extends BaseFragment {

@@ -1,4 +1,4 @@
-package example.mysmallexample;
+package example.mysmallexample.ui.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

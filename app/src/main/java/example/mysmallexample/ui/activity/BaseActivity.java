@@ -1,10 +1,11 @@
-package example.mysmallexample;
+package example.mysmallexample.ui.activity;
 
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -12,66 +13,23 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.TextView;
 
-public class MainActivity extends FragmentActivity {
+import example.mysmallexample.R;
+import example.mysmallexample.ui.utils.SystemBarTintManager;
 
-    private MyViewPager viewPager;
-    private MainPagerAdapter adapter;
-    private TextView[] tv_menu;
-    private BaseFragment[] fragments;
+/**
+ * Created by taoshuang on 2016/5/24.
+ */
+public class BaseActivity extends FragmentActivity {
+    public static final String TAG = "BaseActivity";
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        changeStatusBar();
-        viewPager = (MyViewPager) findViewById(R.id.main_pager);
-        adapter = new MainPagerAdapter(getSupportFragmentManager());
-        fragments = new BaseFragment[4];
-        tv_menu = new TextView[4];
-
-        tv_menu[0] = (TextView) findViewById(R.id.tv_tab_menu0);
-        tv_menu[1] = (TextView) findViewById(R.id.tv_tab_menu1);
-        tv_menu[2] = (TextView) findViewById(R.id.tv_tab_menu2);
-        tv_menu[3] = (TextView) findViewById(R.id.tv_tab_menu3);
-
-        for (int i = 0; i < tv_menu.length; i++) {
-            final int cur = i;
-            tv_menu[i].setOnClickListener(new View.OnClickListener() {
-                public void onClick(View arg0) {
-                    onClickIndex(cur);
-                }
-            });
-        }
-
-        fragments[0] = new FragmentRecommend();
-        fragments[1] = new FragmentRank();
-        fragments[2] = new FragmentClassify();
-        fragments[3] = new FragmentMe();
-        adapter.add(fragments[0]);
-        adapter.add(fragments[1]);
-        adapter.add(fragments[2]);
-        adapter.add(fragments[3]);
-        viewPager.setOffscreenPageLimit(adapter.getCount());
-        viewPager.setAdapter(adapter);
-        onClickIndex(0);
-
     }
 
-    public void onClickIndex(int index) {
-        // TODO Auto-generated method stub
-        viewPager.setCurrentItem(index, false);
-        for (int i = 0; i < tv_menu.length; i++) {
-            if (index == i) {
-                tv_menu[i].setSelected(true);
-            } else {
-                tv_menu[i].setSelected(false);
-            }
-        }
-    }
-
-    protected void changeStatusBar() {
+    public void changeStatusBar() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             setTranslucentStatus(true);
             //透明状态栏
@@ -82,11 +40,6 @@ public class MainActivity extends FragmentActivity {
 
         SystemBarTintManager tintManager = new SystemBarTintManager(this);
         tintManager.setStatusBarTintEnabled(true);
-
-//        TypedValue typedValue = new TypedValue();
-//        getTheme().resolveAttribute(R.attr.title_bar_color, typedValue, true);
-//        int color = typedValue.data;
-//        tintManager.setStatusBarTintColor(color);
         tintManager.setStatusBarTintResource(R.color.system_bar);
     }
 
@@ -116,10 +69,11 @@ public class MainActivity extends FragmentActivity {
         }
         return super.dispatchTouchEvent(ev);
     }
-    // 判定是否需要隐藏
+
+    // 判定是否需要隐藏输入法
     private boolean isHideInput(View v, MotionEvent ev) {
         if (v != null && (v instanceof EditText)) {
-            int[] l = { 0, 0 };
+            int[] l = {0, 0};
             v.getLocationInWindow(l);
             int left = l[0], top = l[1], bottom = top + v.getHeight(), right = left
                     + v.getWidth();
@@ -132,6 +86,7 @@ public class MainActivity extends FragmentActivity {
         }
         return false;
     }
+
     // 隐藏软键盘
     private void HideSoftInput(IBinder token) {
         if (token != null) {
@@ -140,4 +95,5 @@ public class MainActivity extends FragmentActivity {
                     InputMethodManager.HIDE_NOT_ALWAYS);
         }
     }
+
 }

@@ -1,4 +1,4 @@
-package example.mysmallexample;
+package example.mysmallexample.ui.utils;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;

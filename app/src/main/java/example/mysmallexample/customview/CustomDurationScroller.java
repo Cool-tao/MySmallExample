@@ -1,4 +1,4 @@
-package example.mysmallexample;
+package example.mysmallexample.customview;
 
 import android.content.Context;
 import android.view.animation.Interpolator;

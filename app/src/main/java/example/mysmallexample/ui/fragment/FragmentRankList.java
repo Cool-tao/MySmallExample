@@ -1,10 +1,12 @@
-package example.mysmallexample;
+package example.mysmallexample.ui.fragment;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import example.mysmallexample.R;
 
 @SuppressLint("ValidFragment")
 public class FragmentRankList extends BaseFragment {

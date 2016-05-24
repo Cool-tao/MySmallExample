@@ -1,4 +1,4 @@
-package example.mysmallexample;
+package example.mysmallexample.ui.fragment;
 
 import android.app.Activity;
 import android.os.Bundle;

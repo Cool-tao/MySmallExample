@@ -6,14 +6,14 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="180dp"
         android:scaleType="centerCrop"
         android:src="@drawable/bj" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="Recomment"
@@ -26,7 +26,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_marginTop="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
         android:inAnimation="@android:anim/slide_in_left"
         android:onClick="next"
         android:outAnimation="@android:anim/slide_out_right"
@@ -36,17 +37,16 @@
         android:id="@+id/btn_count_down_timer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:text="倒计时开始" />
-
 
     <Button
         android:id="@+id/btn_send"
         style="@style/txt_titleStyle1"
         android:layout_width="80dp"
         android:layout_height="32dp"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:background="@drawable/btn_enable_green"
         android:enabled="false"
@@ -55,19 +55,21 @@
         android:textColor="@color/white"
         android:textSize="12sp" />
 
-
-    <example.mysmallexample.TimeTextView
+    <example.mysmallexample.customview.TimeTextView
         android:id="@+id/temai_timeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:textColor="@android:color/black"
         android:textSize="18sp" />
 
-    <example.mysmallexample.TimeDownView
+    <example.mysmallexample.customview.TimeDownView
         android:id="@+id/timedownview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp" />
 
 </LinearLayout>
+

@@ -69,8 +69,20 @@ public class FragmentRank extends BaseFragment implements View.OnClickListener {
         Intent intent = new Intent();
         intent.setClass(getActivity(), OtherActivity.class);
         intent.putExtra("from", "Notify");
-
+//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        /**
+         * 第四个参数  flags
+         * FLAG_CANCEL_CURRENT：如果构建的PendingIntent已经存在，则取消前一个，重新构建一个。
+         * FLAG_NO_CREATE：如果前一个PendingIntent已经不存在了，将不再构建它。
+         * FLAG_ONE_SHOT：表明这里构建的PendingIntent只能使用一次。
+         * FLAG_UPDATE_CURRENT：如果构建的PendingIntent已经存在，则替换它，常用。
+         */
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 1, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+        // RingtoneManager
+        // 1.getRingtone()    //获取铃声
+        // 2.getDefaultUri()    //获取某一铃声类型的默认铃声
+        // 3.setActualDefaultRingtoneUri()  //为某一铃声类型设置默认铃声
+        // 4.getActualDefaultRingtoneUri(); //获取默认铃声
         Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
                 .setSmallIcon(R.mipmap.ic_launcher)
@@ -78,8 +90,23 @@ public class FragmentRank extends BaseFragment implements View.OnClickListener {
                 .setContentText("notifyMessage")
                 .setContentTitle("notifyTitle")
                 .setAutoCancel(true)
-                .setSound(defaultSoundUri)
-                .setContentIntent(pendingIntent);
+                .setContentIntent(pendingIntent)
+                .setSound(defaultSoundUri)//设定一个铃声，用于在通知的时候响应。传递一个Uri的参数，格式为“file:///mnt/sdcard/Xxx.mp3”。
+                //<!-- 振动器权限 -->
+                //<uses-permission android:name="android.permission.VIBRATE"/>
+                //.setVibrate(long[] pattern)//设定震动的模式，以一个long数组保存毫秒级间隔的震动。
+
+                //<!-- 闪光灯权限 -->
+                //<uses-permission android:name="android.permission.FLASHLIGHT"/>
+                //.setLights(int argb, int onMs, int offMs)//设定前置LED灯的闪烁速率，持续毫秒数，停顿毫秒数。
+
+
+                //.setDefaults(Notification.DEFAULT_ALL)
+                // DEFAULT_ALL：铃声、闪光、震动均系统默认。
+                // DEFAULT_SOUND：系统默认铃声。
+                // DEFAULT_VIBRATE：系统默认震动。
+                // DEFAULT_LIGHTS：系统默认闪光。
+                ;
 
         NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         manager.notify(1/* ID of notification */, builder.build());

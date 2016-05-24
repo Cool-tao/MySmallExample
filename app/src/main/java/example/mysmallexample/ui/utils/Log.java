@@ -3,9 +3,6 @@ package example.mysmallexample.ui.utils;
 
 import example.mysmallexample.BuildConfig;
 
-/**
- * Created by liuqing on 2015/7/29.
- */
 public class Log {
     private static final String CONNECTOR = "()->";
 

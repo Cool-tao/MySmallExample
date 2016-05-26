@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:minWidth="@dimen/gif_dialog_width"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/gif_dialog_height"
+        android:background="@color/gif_dialog_background"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/gif_title_view"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/gif_dialog_text_height"
+            android:gravity="bottom|center"
+            android:paddingBottom="@dimen/gif_dialog_title_paddingBottom"
+            android:text="@string/gif_subscription_title"
+            android:textColor="@color/white"
+            android:textSize="@dimen/zaker_medium_text_size" />
+
+        <ImageView
+            android:id="@+id/gif_subscription_view"
+            android:layout_width="@dimen/gif_dialog_gif_width"
+            android:layout_height="@dimen/gif_dialog_gif_height"
+            android:layout_gravity="center"
+            android:paddingBottom="@dimen/gif_dialog_gif_paddingBottom" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textContent_view"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/gif_dialog_text_height"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="@string/gif_subscription_content"
+        android:textSize="@dimen/zaker_small_text_size" />
+</LinearLayout>

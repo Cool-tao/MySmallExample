@@ -20,6 +20,7 @@ import java.util.TimerTask;
 import example.mysmallexample.R;
 import example.mysmallexample.customview.TimeDownView;
 import example.mysmallexample.customview.TimeTextView;
+import example.mysmallexample.ui.dialog.CustomDialogFragment;
 
 public class FragmentHome extends BaseFragment implements ViewSwitcher.ViewFactory, View.OnClickListener {
 
@@ -43,7 +44,6 @@ public class FragmentHome extends BaseFragment implements ViewSwitcher.ViewFacto
     private Button btn_count_down_timer;
     private MyTimer myTimer;
     private Button btn_send;
-    private MyCount mc;
     /**
      * 自定义倒计时view
      */
@@ -121,18 +121,14 @@ public class FragmentHome extends BaseFragment implements ViewSwitcher.ViewFacto
 
                 if (myTimer == null) {
                     // 第一参数是总的时间，第二个是间隔时间
-                    myTimer = new MyTimer(1000 * 60, 1000);
+                    myTimer = new MyTimer(1000 * 10, 1000);
                 }
-
                 myTimer.start();
                 break;
             case R.id.btn_send:
 
-                if (mc == null) {
-                    mc = new MyCount(60000, 1000); // 第一参数是总的时间，第二个是间隔时间
-                }
-                mc.start();
-
+                CustomDialogFragment fragment=new CustomDialogFragment();
+                fragment.show(getFragmentManager(), CustomDialogFragment.TAG);
                 break;
 
         }
@@ -177,34 +173,6 @@ public class FragmentHome extends BaseFragment implements ViewSwitcher.ViewFacto
             btn_count_down_timer.setEnabled(true);
             btn_count_down_timer.setText("倒计时完成");
 
-        }
-    }
-
-    /* 定义一个倒计时的内部类 */
-    private class MyCount extends CountDownTimer {
-
-        /**
-         * @param millisInFuture    表示以毫秒为单位 倒计时的总数
-         *                          <p/>
-         *                          例如 millisInFuture=1000 表示1秒
-         * @param countDownInterval 表示 间隔 多少微秒 调用一次 onTick 方法
-         *                          <p/>
-         *                          例如: countDownInterval =1000 ; 表示每1000毫秒调用一次onTick()
-         */
-        public MyCount(long millisInFuture, long countDownInterval) {
-            super(millisInFuture, countDownInterval);
-        }
-
-        @Override
-        public void onFinish() {
-            btn_send.setEnabled(true);
-            btn_send.setText("发送验证码");
-        }
-
-        @Override
-        public void onTick(long millisUntilFinished) {
-            btn_send.setEnabled(false);
-            btn_send.setText("(" + millisUntilFinished / 1000 + ")秒");
         }
     }
 

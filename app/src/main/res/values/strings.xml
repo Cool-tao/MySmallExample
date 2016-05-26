@@ -6,4 +6,7 @@
     <string name="main_menu1_text">排行</string>
     <string name="main_menu2_text">分类</string>
     <string name="main_menu3_text">我</string>
+
+    <string name="gif_subscription_content">我知道了</string>
+    <string name="gif_subscription_title">长按频道可以更改排序</string>
 </resources>

@@ -11,4 +11,6 @@
     <color name="system_bar">#00000000</color>
     <color name="green_normal">#44a5de</color>
     <color name="gray_text">#B0B0B0</color>
+
+    <color name="gif_dialog_background">#ffff4747</color>
 </resources>

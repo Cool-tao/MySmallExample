@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#bf000000"
+    android:clipChildren="false">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="18.0dip"
+        android:background="@drawable/tips_bg_frame"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:minHeight="262.0dip">
+
+        <TextView
+            android:id="@+id/fast_find_id_8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="11.0dip"
+            android:layout_marginTop="80.0dip"
+            android:text=""
+            android:textColor="#ffffffff"
+            android:textSize="13.0dip" />
+
+        <TextView
+            android:id="@+id/fast_find_id_1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20.0dip"
+            android:layout_marginRight="20.0dip"
+            android:layout_marginTop="106.0dip"
+            android:includeFontPadding="false"
+            android:maxHeight="164.0dip"
+            android:minHeight="50.0dip"
+            android:paddingRight="4.0dip"
+            android:text=""
+            android:textColor="#ff2b2b2b"
+            android:textSize="16.0dip" />
+
+        <View
+            android:id="@+id/textScroll_shadow_up"
+            android:layout_width="fill_parent"
+            android:layout_height="30.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip"
+            android:layout_marginTop="106.0dip"
+            android:background="@drawable/tips_img_shadow_up"
+            android:visibility="gone" />
+
+        <View
+            android:id="@+id/textScroll_shadow_down"
+            android:layout_width="fill_parent"
+            android:layout_height="30.0dip"
+            android:layout_alignBottom="@+id/fast_find_id_1"
+            android:layout_marginBottom="-12.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip"
+            android:background="@drawable/tips_img_shadow_down"
+            android:visibility="gone" />
+
+        <ImageView
+            android:layout_width="213.0dip"
+            android:layout_height="196.0dip"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-82.0dip"
+            android:src="@drawable/tips_img_update" />
+
+        <LinearLayout
+            android:id="@+id/update_button_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fast_find_id_1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="17.0dip"
+            android:layout_marginRight="17.0dip"
+            android:orientation="horizontal"
+            android:paddingBottom="23.0dip"
+            android:paddingTop="17.0dip"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/fast_find_id_2"
+                android:layout_width="140.0dip"
+                android:layout_height="50.0dip"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:text="稍后再说"
+                android:textColor="#fff95c06"
+                android:textSize="18.0dip" />
+
+            <TextView
+                android:id="@+id/fast_find_id_3"
+                android:layout_width="140.0dip"
+                android:layout_height="50.0dip"
+                android:layout_marginLeft="17.0dip"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:text="立即更新"
+                android:textColor="#fff95c06"
+                android:textSize="18.0dip" />
+
+            <com.hebao.app.view.CircleColorTextView
+                android:id="@+id/fast_find_id_4"
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip"
+                android:gravity="center"
+                android:text="立即更新"
+                android:textColor="@color/common_white_bg"
+                android:textSize="18.0dip"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/update_progress_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fast_find_id_1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20.0dip"
+            android:layout_marginRight="20.0dip"
+            android:layout_marginTop="10.0dip"
+            android:paddingBottom="23.0dip"
+            android:visibility="gone">
+
+            <com.hebao.app.view.CircleColorTextView
+                android:id="@+id/update_dialog_backup_click"
+                android:layout_width="80.0dip"
+                android:layout_height="25.0dip"
+                android:layout_alignBottom="@+id/just_used_to_locate_01"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="16.0dip"
+                android:gravity="center"
+                android:text="后台下载"
+                android:textColor="@color/common_white_bg"
+                android:textSize="12.0dip"
+                android:visibility="visible" />
+
+            <RelativeLayout
+                android:id="@+id/just_used_to_locate_01"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/update_dialog_backup_click">
+
+                <TextView
+                    android:id="@+id/update_dialog_old_version"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="14.0dip"
+                    android:includeFontPadding="false"
+                    android:text="2.4.0"
+                    android:textColor="#ffa5a5a5"
+                    android:textSize="12.0dip" />
+
+                <TextView
+                    android:id="@+id/update_dialog_new_version"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="14.0dip"
+                    android:includeFontPadding="false"
+                    android:text="2.5.0"
+                    android:textColor="#fff95c06"
+                    android:textSize="12.0dip" />
+
+                <ImageView
+                    android:id="@+id/update_dialog_image_arrow"
+                    android:layout_width="75.0dip"
+                    android:layout_height="6.0dip"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="2.0dip"
+                    android:layout_toLeftOf="@+id/update_dialog_new_version"
+                    android:layout_toRightOf="@+id/update_dialog_old_version"
+                    android:src="@drawable/tips_img_update_small_arrow" />
+
+                <com.hebao.app.view.CircleColorTextView
+                    android:id="@+id/update_dialog_progress"
+                    android:layout_width="fill_parent"
+                    android:layout_height="25.0dip"
+                    android:layout_below="@+id/update_dialog_new_version"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="2.0dip"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/common_white_bg"
+                    android:textSize="12.0dip"
+                    android:visibility="visible" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

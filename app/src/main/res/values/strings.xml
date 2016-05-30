@@ -7,6 +7,14 @@
     <string name="main_menu2_text">分类</string>
     <string name="main_menu3_text">我</string>
 
+
+    <string name="subscribe">订阅</string>
+    <string name="default_num">--</string>
+    <string name="following">关注</string>
+    <string name="fans">粉丝</string>
+    <string name="like">关心</string>
+
+
     <string name="gif_subscription_content">我知道了</string>
     <string name="gif_subscription_title">长按频道可以更改排序</string>
 </resources>

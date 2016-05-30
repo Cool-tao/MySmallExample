@@ -16,8 +16,8 @@ import example.mysmallexample.R;
 import example.mysmallexample.customview.AutoScrollViewPager;
 
 @SuppressLint("ShowToast")
-public class FragmentMe extends BaseFragment {
-    public FragmentMe() {
+public class FragmentDiscover extends BaseFragment {
+    public FragmentDiscover() {
     }
 
     private int linesize = 4;

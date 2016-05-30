@@ -44,4 +44,28 @@
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/white</item>
     </style>
+
+
+    <style name="profile_friend_adapter_reason">
+        <item name="android:textSize">12.0sp</item>
+        <item name="android:textColor">#ff707070</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:lineSpacingMultiplier">1.1</item>
+    </style>
+
+    <style name="profile_header_blue_text">
+        <item name="android:textSize">13.0sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/profile_header_text_blue</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="profile_header_black_text">
+        <item name="android:textSize">13.0sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/profile_header_text_black</item>
+        <item name="android:singleLine">true</item>
+    </style>
 </resources>

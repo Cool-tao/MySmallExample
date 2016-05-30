@@ -13,4 +13,7 @@
     <dimen name="gif_dialog_width">292.0dip</dimen>
 
     <dimen name="zaker_medium_text_size">16.0sp</dimen>
+
+    <dimen name="header_avatar_size">60.0dip</dimen>
+    <dimen name="author_badge_icon_gap">8.0dip</dimen>
 </resources>

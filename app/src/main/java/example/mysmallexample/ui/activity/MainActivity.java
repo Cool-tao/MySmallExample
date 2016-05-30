@@ -8,8 +8,8 @@ import example.mysmallexample.R;
 import example.mysmallexample.ui.adapter.MainPagerAdapter;
 import example.mysmallexample.ui.adapter.MyViewPager;
 import example.mysmallexample.ui.fragment.BaseFragment;
-import example.mysmallexample.ui.fragment.FragmentClassify;
-import example.mysmallexample.ui.fragment.FragmentMe;
+import example.mysmallexample.ui.fragment.FragmentAboutMe;
+import example.mysmallexample.ui.fragment.FragmentDiscover;
 import example.mysmallexample.ui.fragment.FragmentRank;
 import example.mysmallexample.ui.fragment.FragmentHome;
 
@@ -46,8 +46,8 @@ public class MainActivity extends BaseActivity {
 
         fragments[0] = new FragmentHome();
         fragments[1] = new FragmentRank();
-        fragments[2] = new FragmentClassify();
-        fragments[3] = new FragmentMe();
+        fragments[2] = new FragmentDiscover();
+        fragments[3] = new FragmentAboutMe();
         adapter.add(fragments[0]);
         adapter.add(fragments[1]);
         adapter.add(fragments[2]);

@@ -47,14 +47,14 @@
             <LinearLayout
                 android:id="@+id/name_inner_wrapper"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                >
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:id="@+id/name_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:singleLine="true"
+                    android:text="测试标题"
                     android:textColor="#fffafafa"
                     android:textSize="15.0sp"
                     android:textStyle="bold" />
@@ -65,8 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/author_badge_icon_gap"
-                android:src="@drawable/question_button_profile"
-                 />
+                android:src="@drawable/question_button_profile" />
         </LinearLayout>
 
         <TextView

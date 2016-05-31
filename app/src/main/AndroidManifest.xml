@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="example.mysmallexample">
 
-
+    <!--JPush权限设置 start-->
     <!-- Required 自定义用来收发消息的相关权限 -->
     <permission
         android:name="${applicationId}.permission.JPUSH_MESSAGE"
@@ -27,6 +27,11 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <!--Jpush权限设置 end-->
+
+    <!--网络变化权限-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+
 
     <application
         android:name=".ui.App"
@@ -43,9 +48,20 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.activity.OtherActivity" />
-        <activity android:name=".ui.activity.TestActivity" />
+        <activity android:name=".ui.activity.OpenJpushActivity" />
+
+        <!--自定义广播-->
+        <receiver android:name=".servers.CommonReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
 
 
+        <!--JPush设置 start-->
         <!-- Required SDK核心功能-->
         <activity
             android:name="cn.jpush.android.ui.PushActivity"
@@ -140,7 +156,7 @@
         <meta-data
             android:name="JPUSH_APPKEY"
             android:value="1ee317f836598c9fda903591" /> <!-- </>值来自开发者平台取得的AppKey-->
-
+        <!--JPush设置end-->
 
     </application>
 

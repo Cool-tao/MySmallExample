@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import cn.jpush.android.api.JPushInterface;
 
-public class TestActivity extends Activity {
+public class OpenJpushActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -17,4 +17,30 @@
 
     <string name="gif_subscription_content">我知道了</string>
     <string name="gif_subscription_title">长按频道可以更改排序</string>
+
+    <string name="tips">提示</string>
+    <string name="setting">设置</string>
+    <string name="sure">确定</string>
+    <string name="cancel">取消</string>
+    <string name="install">安装</string>
+    <string name="reject">狠心拒绝</string>
+    <string name="bye">土豪勿扰</string>
+    <string name="change">现在切换</string>
+    <string name="rate">去评价</string>
+    <string name="tip_offline">当前没有网络，无法浏览新闻，是否开启网络？</string>
+    <string name="tip_mobile">您已切换到移动网络, 建议切换到省流量模式(不下载图片)? </string>
+    <string name="tip_rate">感谢您的使用! 如果喜欢我们, 请给我们五星评价。</string>
+
+    <string name="install_ok">Berkin 安装成功！</string>
+
+    <string name="switch_save_flow">已切换到省流量模式</string>
+    <string name="switch_normal">已切换到高清模式</string>
+    <!--当前是WIFI网络，不消耗流量，已自动切换到Standar Mode-->
+    <string name="switch_wifi">当前是WIFI网络，不消耗流量。自动切换到高清模式 </string>
+
+    <string name="install_tips">喜欢吗？直接安装吧！ </string>
+
+    <string name="error_delete">新闻已删除</string>
+    <string name="page_save_mode">省流量模式</string>
+    <string name="page_best_mode">高清模式</string>
 </resources>

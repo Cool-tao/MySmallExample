@@ -41,7 +41,7 @@ public class FragmentDiscover extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View layout = inflater.inflate(R.layout.fragment_me, null);
+        View layout = inflater.inflate(R.layout.fragment_classify, null);
         initLayout(layout);
         return layout;
     }

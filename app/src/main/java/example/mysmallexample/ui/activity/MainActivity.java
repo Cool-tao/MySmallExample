@@ -3,7 +3,6 @@ package example.mysmallexample.ui.activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import cn.jpush.android.api.JPushInterface;
 import cn.jpush.android.api.PushBuilder;
@@ -15,6 +14,7 @@ import example.mysmallexample.ui.fragment.FragmentAboutMe;
 import example.mysmallexample.ui.fragment.FragmentDiscover;
 import example.mysmallexample.ui.fragment.FragmentHome;
 import example.mysmallexample.ui.fragment.FragmentRank;
+import example.mysmallexample.ui.utils.Log;
 import example.mysmallexample.ui.utils.SPUtil;
 
 public class MainActivity extends BaseActivity {
@@ -74,6 +74,9 @@ public class MainActivity extends BaseActivity {
         }
     }
 
+    /**
+     * 可以设置在Application中，在JPush初始化之后
+     */
     private void setStyleCustom() {
         //系统默认自定义
         //CustomPushNotificationBuilder builder = new CustomPushNotificationBuilder(MainActivity.this, R.layout.customer_notitfication_layout, R.id.icon, R.id.title, R.id.text);
@@ -86,7 +89,8 @@ public class MainActivity extends BaseActivity {
         //JPushInterface.setPushNotificationBuilder(2, builder);
         //将默认设置为此样式，发送时不需要设置TAG
         JPushInterface.setDefaultPushNotificationBuilder(builder);
-        Toast.makeText(this, "Custom Builder - 2", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Custom Builder - 2", Toast.LENGTH_SHORT).show();
+        Log.i(TAG, "Custom Builder - 2");
     }
 
 

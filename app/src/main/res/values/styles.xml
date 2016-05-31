@@ -83,10 +83,14 @@
     </style>
 
 
-    <style name="my_page_item_root" >
+    <style name="my_page_item_root" parent="onCLick">
         <item name="android:paddingLeft">20.0dip</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">50.5dip</item>
+    </style>
+
+    <style name="onCLick">
+        <item name="android:background">@drawable/click_white_gray</item>
     </style>
 
     <style name="my_page_item_tv">

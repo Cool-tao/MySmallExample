@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -11,59 +10,11 @@
         android:background="#ffffffff"
         android:orientation="vertical">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="210.0dip"
-            android:background="@drawable/wallpaper_profile">
 
-            <ImageView
-                android:id="@+id/blur_imageview"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop" />
+        <include
+            android:id="@+id/header_top"
+            layout="@layout/my_page_header" />
 
-            <View
-                android:id="@+id/my_page_shade_layer"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#4c000000" />
-
-            <LinearLayout
-                android:id="@+id/usr_info_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
-
-                <example.mysmallexample.customview.CircleImageView
-                    android:id="@+id/user_avatar_iv"
-                    android:layout_width="@dimen/my_page_max_avatar_size"
-                    android:layout_height="@dimen/my_page_max_avatar_size"
-                    android:layout_centerInParent="true"
-                    android:clickable="false"
-                    android:src="@drawable/big_defaulthead_head"
-                    app:border_color="@color/white"
-                    app:border_width="2dp"
-                    app:civ_border_overlay="true" />
-
-                <TextView
-                    android:id="@+id/user_name_tv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30.0dip"
-                    android:layout_marginRight="30.0dip"
-                    android:layout_marginTop="10.0dip"
-                    android:clickable="false"
-                    android:ellipsize="end"
-                    android:gravity="center"
-                    android:singleLine="true"
-                    android:text="立即登录"
-                    android:textColor="#ffffffff"
-                    android:textSize="16.0sp" />
-            </LinearLayout>
-
-        </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/tool_bar_layout"
@@ -74,6 +25,7 @@
 
             <LinearLayout
                 android:id="@+id/favorite_layout"
+                style="@style/onCLick"
                 android:layout_width="0.0dip"
                 android:layout_height="64.0dip"
                 android:layout_weight="1.0"
@@ -102,6 +54,7 @@
 
             <LinearLayout
                 android:id="@+id/night_mode_layout"
+                style="@style/onCLick"
                 android:layout_width="0.0dip"
                 android:layout_height="64.0dip"
                 android:layout_weight="1.0"
@@ -130,6 +83,7 @@
 
             <LinearLayout
                 android:id="@+id/settings_layout"
+                style="@style/onCLick"
                 android:layout_width="0.0dip"
                 android:layout_height="64.0dip"
                 android:layout_weight="1.0"
@@ -201,7 +155,8 @@
 
         <RelativeLayout
             android:id="@+id/my_page_pgc_layout"
-            style="@style/my_page_item_root">
+            style="@style/my_page_item_root"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/my_page_pgc_name_tv"

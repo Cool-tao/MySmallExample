@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="Me"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="40.0dip"
+        android:background="#FFFFFF" >
+
+        <TextView
+            android:id="@+id/tv_week"
+            style="@style/rank_tab_item"
+            android:text="1" />
+
+        <View
+            android:layout_width="0.1dip"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="10dip"
+            android:layout_marginTop="10dip"
+            android:background="@color/gray" />
+
+        <TextView
+            android:id="@+id/tv_month"
+            style="@style/rank_tab_item"
+            android:text="2" />
+
+        <View
+            android:layout_width="0.1dip"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="10dip"
+            android:layout_marginTop="10dip"
+            android:background="@color/gray" />
+
+        <TextView
+            android:id="@+id/tv_single"
+            style="@style/rank_tab_item"
+            android:text="3" />
+
+        <View
+            android:layout_width="0.1dip"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="10dip"
+            android:layout_marginTop="10dip"
+            android:background="@color/gray" />
+
+        <TextView
+            android:id="@+id/tv_online"
+            style="@style/rank_tab_item"
+            android:text="4" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/cursor"
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:background="@color/green_normal"
+        android:scaleType="matrix" />
+
+    <example.mysmallexample.customview.AutoScrollViewPager
+        android:id="@+id/rank_pager"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1.0"
+        android:background="#000000"
+        android:flipInterval="30"
+        android:persistentDrawingCache="animation" />
+
+</LinearLayout>

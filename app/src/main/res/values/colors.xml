@@ -7,6 +7,7 @@
     <color name="gray">#dfdfdf</color>
     <color name="white">#FFFFFF</color>
     <color name="common_white_bg">#FFFFFFFF</color>
+    <color name="common_gray_f5">#f5f5f5</color>
     <color name="bg_blue">#44a5de</color>
     <color name="note_text">#969696</color>
     <color name="system_bar">#00000000</color>

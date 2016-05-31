@@ -3,15 +3,18 @@ package example.mysmallexample.ui.activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import cn.jpush.android.api.JPushInterface;
+import cn.jpush.android.api.PushBuilder;
 import example.mysmallexample.R;
 import example.mysmallexample.ui.adapter.MainPagerAdapter;
 import example.mysmallexample.ui.adapter.MyViewPager;
 import example.mysmallexample.ui.fragment.BaseFragment;
 import example.mysmallexample.ui.fragment.FragmentAboutMe;
 import example.mysmallexample.ui.fragment.FragmentDiscover;
-import example.mysmallexample.ui.fragment.FragmentRank;
 import example.mysmallexample.ui.fragment.FragmentHome;
+import example.mysmallexample.ui.fragment.FragmentRank;
 
 public class MainActivity extends BaseActivity {
 
@@ -55,7 +58,7 @@ public class MainActivity extends BaseActivity {
         viewPager.setOffscreenPageLimit(adapter.getCount());
         viewPager.setAdapter(adapter);
         onClickIndex(0);
-
+        setStyleCustom();
     }
 
     public void onClickIndex(int index) {
@@ -68,6 +71,21 @@ public class MainActivity extends BaseActivity {
                 tv_menu[i].setSelected(false);
             }
         }
+    }
+
+    private void setStyleCustom() {
+        //系统默认自定义
+        //CustomPushNotificationBuilder builder = new CustomPushNotificationBuilder(MainActivity.this, R.layout.customer_notitfication_layout, R.id.icon, R.id.title, R.id.text);
+        //重写自定义布局
+        PushBuilder builder = new PushBuilder(MainActivity.this, R.layout.customer_notitfication_layout, R.id.icon, R.id.title, R.id.text, R.id.time);
+        //PushBuilder builder = new PushBuilder(MainActivity.this,R.layout.notification_text,R.id.icon, R.id.title, R.id.text,R.id.time);
+        builder.layoutIconDrawable = R.mipmap.ic_launcher;
+        builder.developerArg0 = "developerArg2";
+        //设置发送时TAG=2
+        //JPushInterface.setPushNotificationBuilder(2, builder);
+        //将默认设置为此样式，发送时不需要设置TAG
+        JPushInterface.setDefaultPushNotificationBuilder(builder);
+        Toast.makeText(this, "Custom Builder - 2", Toast.LENGTH_SHORT).show();
     }
 
 

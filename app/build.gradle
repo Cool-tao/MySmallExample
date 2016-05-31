@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "example.mysmallexample"
+        applicationId "com.example.mysmallexample"
         minSdkVersion 11
         targetSdkVersion 23
         versionCode 1
@@ -25,4 +25,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.3.0'
     //5.0设计兼容库
     compile 'com.android.support:design:23.3.0'
+    compile fileTree(dir: 'libs', include: '*.jar')
 }

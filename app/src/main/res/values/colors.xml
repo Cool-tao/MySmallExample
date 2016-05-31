@@ -20,4 +20,31 @@
     <color name="tertiary_text">#ff999999</color>
     <color name="grey_item">#eeeeee</color>
 
+    <color name="google_red">#d62d20</color>
+    <color name="google_green">#008744</color>
+    <color name="google_yellow">#ffa700</color>
+    <color name="google_blue">#0057e7</color>
+
+    <color name="my_page_bg_color">@color/ssxinmian4</color>
+    <color name="ssxinmian4">@color/ssxinbaise1</color>
+    <color name="ssxinbaise1">#ffffffff</color>
+    <color name="my_page_head_shader_color">@color/ssxinmian9</color>
+    <color name="ssxinmian9">@color/ssxinheise2</color>
+    <color name="ssxinheise2">#4c000000</color>
+    <color name="ssxinzi10">@color/ssxinbaise4</color>
+    <color name="ssxinbaise4">#ffffffff</color>
+    <color name="ssxinzi2">@color/ssxinheihui2</color>
+    <color name="ssxinheihui2">#ff505050</color>
+    <color name="ssxinxian1">@color/ssxinjiangexian1</color>
+    <color name="ssxinjiangexian1">#ffe8e8e8</color>
+    <color name="ssxinmian3">@color/ssxinheihui6</color>
+    <color name="ssxinheihui6">#fff4f5f6</color>
+    <color name="ssxinmian7">@color/ssxinhongse1</color>
+    <color name="ssxinhongse1">#fff85959</color>
+    <color name="ssxinzi3">@color/ssxinheihui3</color>
+    <color name="ssxinheihui3">#ff999999</color>
+
+
+
+
 </resources>

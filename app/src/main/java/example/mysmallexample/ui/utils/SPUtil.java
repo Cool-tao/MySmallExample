@@ -1,5 +1,6 @@
 package example.mysmallexample.ui.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -15,6 +16,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.animation.Animation;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -24,6 +26,7 @@ import java.util.Random;
 
 import cn.jpush.android.api.JPushInterface;
 import example.mysmallexample.BuildConfig;
+import example.mysmallexample.R;
 import example.mysmallexample.ui.App;
 
 /**
@@ -198,75 +201,18 @@ public class SPUtil {
         return null;
     }
 
-    /**
-     * 国家代码
-     */
-    public static final String COUNTRY_CODE = "country_code";
-    /**
-     * 城市
-     */
-    public static final String CITY = "city";
-    /**
-     * 街道
-     */
-    public static final String ADDRESS = "address";
-    /**
-     * 用户设备唯一标识，如00000000-54b3-e7c7-0000-000046bffd97
-     */
-    public static final String UUID = "uuid";
-    /**
-     * 语言代码，如en、zh
-     */
-    public static final String LAUGUAGE = "language";
-    /**
-     * 国家代码，如CN
-     */
-    public static final String COUNTRY = "country";
-    /**
-     * 屏幕分辨率，如720*1080
-     */
-    public static final String SCREEN_RESOLUTION = "screen_type";
-    /**
-     * 设备制造商名称，如Xiaomi
-     */
-    public static final String MANUFACTURE = "manufacture";
-    /**
-     * 设备型号，如MI 1S
-     */
-    public static final String MODEL = "model";
-    /**
-     * 系统版本号，如21（代表Android5.0）
-     */
-    public static final String OS_VERSION = "android_version";
-    /**
-     * 手机SIM卡运营商
-     */
-    public static final String SIM_OPERATOR = "operator";
-    /**
-     * 手机卡IMSI
-     */
-    public static final String IMSI = "imsi";
-    /**
-     * 手机卡IMEI
-     */
-    public static final String IMEI = "imei";
-    /**
-     * Android ID
-     */
-    public static final String ANDROID_ID = "android_id";
-    /**
-     * 本机是否安装了GooglePlay
-     */
-    public static final String HAS_GOOGLE_MARKET = "has_google_market";
-    /**
-     * 当前应用自身包名
-     */
-    public static final String PACKAGE_NAME_SELF = "packageNameSelf";
-    /**
-     * 版本号
-     */
-    public static final String VERSION_CODE = "ver_code";
 
-    private static int codeId = 0;
+    public static long beforeTime = 0;
+
+    public static void exit(Activity activity) {
+        VibUtil.Vibrate(activity, 60);
+        long currentTime = System.currentTimeMillis();
+        if (currentTime - beforeTime < 2500) {
+            activity.finish();
+        } else {
+            beforeTime = currentTime;
+            Toast.makeText(activity, "" + activity.getString(R.string.toast_press_again_to_exit), Toast.LENGTH_SHORT).show();
+        }
+    }
 }
 

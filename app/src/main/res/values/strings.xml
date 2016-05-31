@@ -43,4 +43,30 @@
     <string name="error_delete">新闻已删除</string>
     <string name="page_save_mode">省流量模式</string>
     <string name="page_best_mode">高清模式</string>
+
+    <string name="toast_press_again_to_exit">再次点击退出</string>
+
+    <string name="media_network_error">网络不太给力哦</string>
+    <string name="mine_item_activity">活 动</string>
+    <string name="mine_item_appstore">应用推荐</string>
+    <string name="mine_item_day_mode">日间</string>
+    <string name="mine_item_favorite">收藏</string>
+    <string name="mine_item_feedback">反 馈</string>
+    <string name="mine_item_forum">话题</string>
+    <string name="mine_item_friend_update">好友动态</string>
+    <string name="mine_item_game">游 戏</string>
+    <string name="mine_item_message">消息</string>
+    <string name="mine_item_night_mode">夜间</string>
+    <string name="mine_item_notification">通 知</string>
+    <string name="mine_item_offline">离 线</string>
+    <string name="mine_item_offline_cancel">取消离线</string>
+    <string name="mine_item_sell">商 城</string>
+    <string name="mine_item_sell_introduce">特卖、头彩、电影</string>
+    <string name="mine_item_settings">设置</string>
+    <string name="mine_item_tag_new">NEW</string>
+    <string name="mine_login_now">立即登录</string>
+    <string name="mine_more_login">更多登录方式</string>
+    <string name="mine_no_login_tip">登录后，将推荐给你更多感兴趣的文章</string>
+    <string name="mine_register">快速注册</string>
+    <string name="minutes_ago">%d分钟前</string>
 </resources>

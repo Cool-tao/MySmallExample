@@ -16,4 +16,9 @@
 
     <dimen name="header_avatar_size">60.0dip</dimen>
     <dimen name="author_badge_icon_gap">8.0dip</dimen>
+
+    <dimen name="my_page_item_divider_height">10.0dip</dimen>
+    <dimen name="my_page_item_height">50.5dip</dimen>
+    <dimen name="my_page_lastest_user_max_avatar_size">32.0dip</dimen>
+    <dimen name="my_page_max_avatar_size">60.0dip</dimen>
 </resources>

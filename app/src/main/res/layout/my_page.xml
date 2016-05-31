@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffffff"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="210.0dip"
+            android:background="@drawable/wallpaper_profile">
+
+            <ImageView
+                android:id="@+id/blur_imageview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop" />
+
+            <View
+                android:id="@+id/my_page_shade_layer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#4c000000" />
+
+            <LinearLayout
+                android:id="@+id/usr_info_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <example.mysmallexample.customview.CircleImageView
+                    android:id="@+id/user_avatar_iv"
+                    android:layout_width="@dimen/my_page_max_avatar_size"
+                    android:layout_height="@dimen/my_page_max_avatar_size"
+                    android:layout_centerInParent="true"
+                    android:clickable="false"
+                    android:src="@drawable/big_defaulthead_head"
+                    app:border_color="@color/white"
+                    app:border_width="2dp"
+                    app:civ_border_overlay="true" />
+
+                <TextView
+                    android:id="@+id/user_name_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30.0dip"
+                    android:layout_marginRight="30.0dip"
+                    android:layout_marginTop="10.0dip"
+                    android:clickable="false"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="立即登录"
+                    android:textColor="#ffffffff"
+                    android:textSize="16.0sp" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/tool_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="64.0dip"
+            android:background="@color/ssxinmian4"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/favorite_layout"
+                android:layout_width="0.0dip"
+                android:layout_height="64.0dip"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/favorite_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:drawablePadding="7.0dip"
+                    android:drawableTop="@drawable/my_page_favorite_selector"
+                    android:duplicateParentState="true"
+                    android:gravity="center"
+                    android:text="@string/mine_item_favorite"
+                    android:textColor="@color/ssxinzi2"
+                    android:textSize="12.0sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/vertical_divider_one"
+                android:layout_width="0.5dip"
+                android:layout_height="match_parent"
+                android:background="@color/ssxinxian1" />
+
+            <LinearLayout
+                android:id="@+id/night_mode_layout"
+                android:layout_width="0.0dip"
+                android:layout_height="64.0dip"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/night_mode_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:drawablePadding="7.0dip"
+                    android:drawableTop="@drawable/my_page_nightmode_selector"
+                    android:duplicateParentState="true"
+                    android:gravity="center"
+                    android:text="@string/mine_item_night_mode"
+                    android:textColor="@color/ssxinzi2"
+                    android:textSize="12.0sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/vertical_divider_two"
+                android:layout_width="0.5dip"
+                android:layout_height="match_parent"
+                android:background="@color/ssxinxian1" />
+
+            <LinearLayout
+                android:id="@+id/settings_layout"
+                android:layout_width="0.0dip"
+                android:layout_height="64.0dip"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/settings_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:drawablePadding="7.0dip"
+                    android:drawableTop="@drawable/my_page_settings_selector"
+                    android:duplicateParentState="true"
+                    android:gravity="center"
+                    android:text="@string/mine_item_settings"
+                    android:textColor="@color/ssxinzi2"
+                    android:textSize="12.0sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:id="@+id/horizontal_divider_one"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/my_page_item_divider_height"
+            android:background="@drawable/my_page_divider_bg" />
+
+        <RelativeLayout
+            android:id="@+id/my_friend_update_layout"
+            style="@style/my_page_item_root"
+            android:layout_width="wrap_content">
+
+            <TextView
+                android:id="@+id/friend_update_tv"
+                style="@style/my_page_item_tv"
+                android:text="@string/mine_item_friend_update" />
+
+            <ImageView
+                android:id="@+id/friend_update_right_arrow"
+                style="@style/my_page_item_right_arrow" />
+
+            <ImageView
+                android:id="@+id/friend_update_avatar"
+                android:layout_width="@dimen/my_page_lastest_user_max_avatar_size"
+                android:layout_height="@dimen/my_page_lastest_user_max_avatar_size"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12.0dip"
+                android:layout_toLeftOf="@+id/friend_update_right_arrow"
+                android:src="@drawable/big_defaulthead_head"
+                android:visibility="invisible" />
+
+            <View
+                android:id="@+id/friend_indicator_dot"
+                android:layout_width="6.0dip"
+                android:layout_height="6.0dip"
+                android:layout_alignRight="@+id/friend_update_avatar"
+                android:layout_alignTop="@+id/friend_update_avatar"
+                android:layout_marginRight="-4.0dip"
+                android:layout_marginTop="-2.0dip"
+                android:background="@drawable/main_tab_dot_bg"
+                android:visibility="invisible" />
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/horizontal_divider_two"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/my_page_item_divider_height"
+            android:background="@drawable/my_page_divider_bg" />
+
+        <RelativeLayout
+            android:id="@+id/my_page_pgc_layout"
+            style="@style/my_page_item_root">
+
+            <TextView
+                android:id="@+id/my_page_pgc_name_tv"
+                style="@style/my_page_item_tv"
+                android:text="雅雅的生活感悟" />
+
+            <ImageView
+                android:id="@+id/my_page_pgc_right_arrow"
+                style="@style/my_page_item_right_arrow" />
+
+            <View
+                android:id="@+id/my_page_pgc_divider"
+                style="@style/my_page_item_divider"
+                android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/my_page_message_layout"
+            style="@style/my_page_item_root">
+
+            <TextView
+                android:id="@+id/my_page_message_tv"
+                style="@style/my_page_item_tv"
+                android:text="@string/mine_item_notification" />
+
+            <ImageView
+                android:id="@+id/my_page_message_right_arrow"
+                style="@style/my_page_item_right_arrow" />
+
+            <View
+                android:id="@+id/my_page_message_divider"
+                style="@style/my_page_item_divider"
+                android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/my_page_offline_layout"
+            style="@style/my_page_item_root">
+
+            <TextView
+                android:id="@+id/my_page_offline_tv"
+                style="@style/my_page_item_tv"
+                android:text="@string/mine_item_offline" />
+
+            <TextView
+                android:id="@+id/my_page_offline_download_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="9.0dip"
+                android:layout_toLeftOf="@+id/my_page_offline_right_arrow"
+                android:textColor="@color/ssxinzi3"
+                android:textSize="14.0sp" />
+
+            <ImageView
+                android:id="@+id/my_page_offline_right_arrow"
+                style="@style/my_page_item_right_arrow" />
+
+            <View
+                android:id="@+id/my_page_offline_divider"
+                style="@style/my_page_item_divider"
+                android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/my_page_activity_layout"
+            style="@style/my_page_item_root">
+
+            <TextView
+                android:id="@+id/my_page_activity_tv"
+                style="@style/my_page_item_tv"
+                android:text="@string/mine_item_activity" />
+
+
+            <ImageView
+                android:id="@+id/my_page_activity_right_arrow"
+                style="@style/my_page_item_right_arrow" />
+
+            <View
+                android:id="@+id/my_page_activity_divider"
+                style="@style/my_page_item_divider"
+                android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/my_page_sell_layout"
+            style="@style/my_page_item_root">
+
+            <TextView
+                android:id="@+id/my_page_sell_tv"
+                style="@style/my_page_item_tv"
+                android:text="@string/mine_item_sell" />
+
+            <TextView
+                android:id="@+id/my_page_sell_introduce_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/my_page_sell_tv"
+                android:layout_marginLeft="10.0dip"
+                android:layout_toRightOf="@+id/my_page_sell_tv"
+                android:text="@string/mine_item_sell_introduce"
+                android:textColor="@color/ssxinzi3"
+                android:textSize="12.0sp" />
+
+            <ImageView
+                android:id="@+id/my_page_sell_right_arrow"
+                style="@style/my_page_item_right_arrow" />
+
+            <View
+                android:id="@+id/my_page_sell_divider"
+                style="@style/my_page_item_divider"
+                android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/my_page_appstore_layout"
+            style="@style/my_page_item_root"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/my_page_appstore_tv"
+                style="@style/my_page_item_tv"
+                android:text="@string/mine_item_appstore" />
+
+            <ImageView
+                android:id="@+id/my_page_appstore_right_arrow"
+                style="@style/my_page_item_right_arrow" />
+
+            <View
+                android:id="@+id/my_page_appstore_divider"
+                style="@style/my_page_item_divider"
+                android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/dynamic_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <RelativeLayout
+            android:id="@+id/my_page_feedback_layout"
+            style="@style/my_page_item_root">
+
+            <TextView
+                android:id="@+id/my_page_feedback_tv"
+                style="@style/my_page_item_tv"
+                android:text="@string/mine_item_feedback" />
+
+            <ImageView
+                android:id="@+id/my_page_feedback_right_arrow"
+                style="@style/my_page_item_right_arrow" />
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>

@@ -15,6 +15,7 @@ import example.mysmallexample.ui.fragment.FragmentAboutMe;
 import example.mysmallexample.ui.fragment.FragmentDiscover;
 import example.mysmallexample.ui.fragment.FragmentHome;
 import example.mysmallexample.ui.fragment.FragmentRank;
+import example.mysmallexample.ui.utils.SPUtil;
 
 public class MainActivity extends BaseActivity {
 
@@ -89,4 +90,9 @@ public class MainActivity extends BaseActivity {
     }
 
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        SPUtil.exit(this);
+    }
 }

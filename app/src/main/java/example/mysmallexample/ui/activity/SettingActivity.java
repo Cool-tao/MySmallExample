@@ -9,6 +9,8 @@ import android.widget.TextView;
 import cn.jpush.android.api.JPushInterface;
 import example.mysmallexample.R;
 import example.mysmallexample.customview.switchbutton.SwitchButton;
+import example.mysmallexample.ui.utils.LocationUtils;
+import example.mysmallexample.ui.utils.Log;
 
 /**
  * Created by taoshuang on 2016/6/1.
@@ -24,8 +26,13 @@ public class SettingActivity extends BaseActivity implements CompoundButton.OnCh
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        /**
+         * 定位不成功
+         */
+        LocationUtils.getLocation(getApplicationContext());
         setContentView(R.layout.activity_setting);
         initViews();
+        Log.i(TAG, "JPush is Stop=" + JPushInterface.isPushStopped(this));
 
     }
 
@@ -64,7 +71,7 @@ public class SettingActivity extends BaseActivity implements CompoundButton.OnCh
             JPushInterface.init(this);
             JPushInterface.resumePush(this);
         }
-        if (!isChecked){
+        if (!isChecked) {
             JPushInterface.stopPush(this);
         }
 //        if (isChecked) {

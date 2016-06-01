@@ -27,6 +27,12 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        /**
+         * JPush获取Android6.0权限
+         */
+        JPushInterface.requestPermission(this);
+
         setContentView(R.layout.activity_main);
         changeStatusBar();
         viewPager = (MyViewPager) findViewById(R.id.main_pager);

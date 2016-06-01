@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ssxinmian3">
+
+    <include
+        android:id="@+id/title_bar"
+        layout="@layout/title_bar" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/title_bar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8.0dip"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <View
+                        android:id="@+id/line1"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dip"
+                        android:background="@color/ssxinxian1" />
+
+                    <LinearLayout
+                        android:id="@+id/setting_list_mode"
+                        style="@style/item_setting_middle">
+
+                        <TextView
+                            android:id="@+id/list_mode_text"
+                            style="@style/setting_item_text"
+                            android:text="@string/setting_list_mode" />
+
+                        <View
+                            android:layout_width="0.0dip"
+                            android:layout_height="1.0dip"
+                            android:layout_weight="1.0" />
+
+                        <example.mysmallexample.customview.switchbutton.SwitchButton
+                            android:id="@+id/list_mode_switcher"
+                            style="@style/MaterialDesignStyle" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/refresh_button_switch"
+                        style="@style/item_setting_middle">
+
+                        <TextView
+                            android:id="@+id/refresh_button_text"
+                            style="@style/setting_item_text"
+                            android:text="@string/setting_refresh_button_show" />
+
+                        <View
+                            android:layout_width="0.0dip"
+                            android:layout_height="1.0dip"
+                            android:layout_weight="1.0" />
+
+                        <example.mysmallexample.customview.switchbutton.SwitchButton
+                            android:id="@+id/refresh_button_switcher"
+                            style="@style/MaterialDesignStyle" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/night_mode"
+                        style="@style/item_setting_middle"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/night_mode_text"
+                            style="@style/setting_item_text"
+                            android:text="@string/setting_night_mode" />
+
+                        <View
+                            android:layout_width="0.0dip"
+                            android:layout_height="1.0dip"
+                            android:layout_weight="1.0" />
+
+                        <example.mysmallexample.customview.switchbutton.SwitchButton
+                            android:id="@+id/night_mode_switcher"
+                            style="@style/MaterialDesignStyle" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/setting_font_size"
+                        style="@style/item_setting_middle">
+
+                        <TextView
+                            android:id="@+id/font_size_text"
+                            style="@style/setting_item_text"
+                            android:text="@string/setting_font_size" />
+
+                        <View
+                            android:layout_width="0.0dip"
+                            android:layout_height="1.0dip"
+                            android:layout_weight="1.0" />
+
+                        <TextView
+                            android:id="@+id/font_size"
+                            style="@style/setting_alt_text" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/setting_refresh_list"
+                        style="@style/item_setting_middle"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/refresh_list_text"
+                            style="@style/setting_item_text"
+                            android:text="@string/setting_refresh_list" />
+
+                        <View
+                            android:layout_width="0.0dip"
+                            android:layout_height="1.0dip"
+                            android:layout_weight="1.0" />
+
+                        <TextView
+                            android:id="@+id/refresh_list_mode"
+                            style="@style/setting_alt_text" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/setting_list_comment"
+                        style="@style/item_setting_bottom">
+
+                        <TextView
+                            android:id="@+id/list_comment_text"
+                            style="@style/setting_item_text"
+                            android:text="@string/setting_list_comment" />
+
+                        <View
+                            android:layout_width="0.0dip"
+                            android:layout_height="1.0dip"
+                            android:layout_weight="1.0" />
+
+                        <TextView
+                            android:id="@+id/list_comment_mode"
+                            style="@style/setting_alt_text" />
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/line_bottom1"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dip"
+                        android:background="@color/ssxinxian1" />
+
+                    <View
+                        android:id="@+id/line2"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dip"
+                        android:layout_marginTop="15.0dip"
+                        android:background="@color/ssxinxian1" />
+
+                    <LinearLayout
+                        android:id="@+id/setting_load_image"
+                        style="@style/item_setting_middle">
+
+                        <TextView
+                            android:id="@+id/load_image_text"
+                            style="@style/setting_item_text"
+                            android:text="@string/setting_load_image" />
+
+                        <View
+                            android:layout_width="0.0dip"
+                            android:layout_height="1.0dip"
+                            android:layout_weight="1.0" />
+
+                        <TextView
+                            android:id="@+id/load_image_mode"
+                            style="@style/setting_alt_text" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/clear"
+                        style="@style/item_setting_bottom">
+
+                        <TextView
+                            android:id="@+id/clear_text"
+                            style="@style/setting_item_text"
+                            android:text="@string/setting_clear" />
+
+                        <View
+                            android:layout_width="0.0dip"
+                            android:layout_height="1.0dip"
+                            android:layout_weight="1.0" />
+
+                        <TextView
+                            android:id="@+id/cache_size"
+                            style="@style/setting_alt_text"
+                            android:singleLine="true" />
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/line_bottom2"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dip"
+                        android:background="@color/ssxinxian1" />
+
+                    <View
+                        android:id="@+id/line3"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dip"
+                        android:layout_marginTop="15.0dip"
+                        android:background="@color/ssxinxian1" />
+
+                    <LinearLayout
+                        android:id="@+id/notify"
+                        style="@style/item_setting_middle">
+
+                        <TextView
+                            android:id="@+id/notify_text"
+                            style="@style/setting_item_text"
+                            android:text="@string/setting_notify" />
+
+                        <View
+                            android:layout_width="0.0dip"
+                            android:layout_height="1.0dip"
+                            android:layout_weight="1.0" />
+
+                        <example.mysmallexample.customview.switchbutton.SwitchButton
+                            android:id="@+id/notify_switcher"
+                            style="@style/MaterialDesignStyle" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/interactive"
+                        style="@style/item_setting_middle">
+
+                        <TextView
+                            android:id="@+id/interactive_text"
+                            style="@style/setting_item_text"
+                            android:text="@string/setting_interactive" />
+
+                        <View
+                            android:layout_width="0.0dip"
+                            android:layout_height="1.0dip"
+                            android:layout_weight="1.0" />
+
+                        <example.mysmallexample.customview.switchbutton.SwitchButton
+                            android:id="@+id/interactive_switcher"
+                            style="@style/MaterialDesignStyle"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/use_info_structure"
+                        style="@style/item_setting_middle"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/use_info_structure_text"
+                            style="@style/setting_item_text"
+                            android:text="@string/setting_use_info_structure" />
+
+                        <View
+                            android:layout_width="0.0dip"
+                            android:layout_height="1.0dip"
+                            android:layout_weight="1.0" />
+
+                        <example.mysmallexample.customview.switchbutton.SwitchButton
+                            android:id="@+id/use_info_structure_switcher"
+                            style="@style/MaterialDesignStyle"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/use_ugc_style"
+                        style="@style/item_setting_middle"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/use_ugc_style_text"
+                            style="@style/setting_item_text"
+                            android:text="@string/setting_use_ugc_style" />
+
+                        <View
+                            android:layout_width="0.0dip"
+                            android:layout_height="1.0dip"
+                            android:layout_weight="1.0" />
+
+                        <example.mysmallexample.customview.switchbutton.SwitchButton
+                            android:id="@+id/use_ugc_switcher"
+                            style="@style/MaterialDesignStyle" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/permanent_notify"
+                        style="@style/item_setting_middle">
+
+                        <TextView
+                            android:id="@+id/permanent_notify_text"
+                            style="@style/setting_item_text"
+                            android:text="@string/setting_permanent_notify" />
+
+                        <View
+                            android:layout_width="0.0dip"
+                            android:layout_height="1.0dip"
+                            android:layout_weight="1.0" />
+
+                        <example.mysmallexample.customview.switchbutton.SwitchButton
+                            android:id="@+id/permanent_notify_switcher"
+                            style="@style/MaterialDesignStyle"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/share_when_favor"
+                        style="@style/item_setting_middle">
+
+                        <TextView
+                            android:id="@+id/share_when_favor_text"
+                            style="@style/setting_item_text"
+                            android:text="@string/setting_share_when_favor" />
+
+                        <View
+                            android:layout_width="0.0dip"
+                            android:layout_height="1.0dip"
+                            android:layout_weight="1.0" />
+
+                        <example.mysmallexample.customview.switchbutton.SwitchButton
+                            android:id="@+id/share_when_favor_switcher"
+                            style="@style/MaterialDesignStyle" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/setting_video_auto_play_mode"
+                        style="@style/item_setting_middle">
+
+                        <TextView
+                            android:id="@+id/video_auto_play_mode_text"
+                            style="@style/setting_item_text"
+                            android:text="@string/setting_video_auto_play_mode" />
+
+                        <View
+                            android:layout_width="0.0dip"
+                            android:layout_height="1.0dip"
+                            android:layout_weight="1.0" />
+
+                        <TextView
+                            android:id="@+id/video_auto_play_mode"
+                            style="@style/setting_alt_text" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/mini_video"
+                        style="@style/item_setting_bottom">
+
+                        <TextView
+                            android:id="@+id/mini_video_text"
+                            style="@style/setting_item_text"
+                            android:text="@string/setting_mini_video" />
+
+                        <View
+                            android:layout_width="0.0dip"
+                            android:layout_height="1.0dip"
+                            android:layout_weight="1.0" />
+
+                        <example.mysmallexample.customview.switchbutton.SwitchButton
+                            android:id="@+id/mini_video_switcher"
+                            style="@style/MaterialDesignStyle" />
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/line_bottom3"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dip"
+                        android:background="@color/ssxinxian1" />
+
+                    <View
+                        android:id="@+id/line4"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dip"
+                        android:layout_marginTop="15.0dip"
+                        android:background="@color/ssxinxian1" />
+
+                    <LinearLayout
+                        android:id="@+id/update"
+                        style="@style/item_setting_middle">
+
+                        <TextView
+                            android:id="@+id/update_text"
+                            style="@style/setting_item_text"
+                            android:text="@string/setting_update" />
+
+                        <ImageView
+                            android:id="@+id/version_new"
+                            style="@style/setting_hint_new"
+                            android:visibility="gone" />
+
+                        <View
+                            android:layout_width="0.0dip"
+                            android:layout_height="1.0dip"
+                            android:layout_weight="1.0" />
+
+                        <TextView
+                            android:id="@+id/current_version"
+                            style="@style/setting_alt_text" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/recommendation"
+                        style="@style/item_setting_middle"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/recommendation_text"
+                            style="@style/setting_item_text"
+                            android:text="@string/setting_recommend" />
+
+                        <View
+                            android:layout_width="0.0dip"
+                            android:layout_height="1.0dip"
+                            android:layout_weight="1.0" />
+
+                        <ImageView
+                            android:id="@+id/recommendation_arrow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginRight="12.0dip"
+                            android:src="@drawable/arrow_right_setup" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/splash_ad"
+                        style="@style/item_setting_middle">
+
+                        <TextView
+                            android:id="@+id/splash_ad_text"
+                            style="@style/setting_item_text"
+                            android:text="@string/setting_splash_ad" />
+
+                        <View
+                            android:layout_width="0.0dip"
+                            android:layout_height="1.0dip"
+                            android:layout_weight="1.0" />
+
+                        <ImageView
+                            android:id="@+id/splash_ad_arrow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginRight="12.0dip"
+                            android:src="@drawable/arrow_right_setup" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/switch_domain"
+                        style="@style/item_setting_middle"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/switch_domain_text"
+                            style="@style/setting_item_text"
+                            android:text="@string/setting_switch_domain" />
+
+                        <View
+                            android:layout_width="0.0dip"
+                            android:layout_height="1.0dip"
+                            android:layout_weight="1.0" />
+
+                        <example.mysmallexample.customview.switchbutton.SwitchButton
+                            android:id="@+id/switch_domain_switcher"
+                            style="@style/MaterialDesignStyle"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/use_help"
+                        style="@style/item_setting_bottom">
+
+                        <TextView
+                            android:id="@+id/use_help_text"
+                            style="@style/setting_item_text"
+                            android:text="@string/setting_use_help" />
+
+                        <View
+                            android:layout_width="0.0dip"
+                            android:layout_height="1.0dip"
+                            android:layout_weight="1.0" />
+
+                        <ImageView
+                            android:id="@+id/use_help_arrow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginRight="12.0dip"
+                            android:src="@drawable/arrow_right_setup" />
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/line_bottom4"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dip"
+                        android:background="@color/ssxinxian1" />
+
+                    <LinearLayout
+                        android:id="@+id/event_host"
+                        style="@style/setting_item_head"
+                        android:layout_height="50.0dip"
+                        android:layout_marginTop="15.0dip"
+                        android:background="@color/ssxinmian4"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/host_label"
+                            style="@style/setting_item_text"
+                            android:text="@string/setting_event_host" />
+
+                        <EditText
+                            android:id="@+id/host_input"
+                            android:layout_width="0.0dip"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.0"
+                            android:background="@null"
+                            android:dropDownSelector="@color/transparent"
+                            android:gravity="center|left"
+                            android:hint="@string/event_host_hint"
+                            android:imeOptions="actionDone"
+                            android:inputType="text"
+                            android:maxLength="50"
+                            android:singleLine="true"
+                            android:textColor="@color/search_text"
+                            android:textColorHint="@color/search_text_hint"
+                            android:textSize="14.0sp" />
+
+                        <TextView
+                            android:id="@+id/host_ok"
+                            style="@style/common_button"
+                            android:layout_marginRight="10.0dip"
+                            android:background="@drawable/btn_action"
+                            android:minHeight="15.0dip"
+                            android:minWidth="25.0dip"
+                            android:text="@string/ok" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/monitor_layout"
+                        style="@style/item_setting_middle"
+                        android:visibility="gone">
+
+                        <TextView
+                            style="@style/setting_item_text"
+                            android:text="性能监视器" />
+
+                        <View
+                            android:layout_width="0.0dip"
+                            android:layout_height="1.0dip"
+                            android:layout_weight="1.0" />
+
+                        <example.mysmallexample.customview.switchbutton.SwitchButton
+                            android:id="@+id/monitor_switcher"
+                            style="@style/MaterialDesignStyle"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/concern_topic_layout"
+                        style="@style/item_setting_middle"
+                        android:visibility="gone">
+
+                        <TextView
+                            style="@style/setting_item_text"
+                            android:text="使用关心架构" />
+
+                        <View
+                            android:layout_width="0.0dip"
+                            android:layout_height="1.0dip"
+                            android:layout_weight="1.0" />
+
+                        <example.mysmallexample.customview.switchbutton.SwitchButton
+                            android:id="@+id/concern_topic_switcher"
+                            style="@style/MaterialDesignStyle"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/test_environment_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+
+                        <LinearLayout style="@style/item_setting_middle">
+
+                            <TextView
+                                style="@style/setting_item_text"
+                                android:text="使用测试环境" />
+
+                            <View
+                                android:layout_width="0.0dip"
+                                android:layout_height="1.0dip"
+                                android:layout_weight="1.0" />
+
+                            <example.mysmallexample.customview.switchbutton.SwitchButton
+                                android:id="@+id/test_environment_switcher"
+                                style="@style/MaterialDesignStyle"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/test_user_info_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/item_setting_middle"
+                            android:gravity="center_vertical"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15.0dip"
+                                android:layout_marginRight="10.0dip"
+                                android:gravity="center_vertical"
+                                android:text="用户名： "
+                                android:textColor="@color/ssxinzi1"
+                                android:textSize="16.0sp" />
+
+                            <EditText
+                                android:id="@+id/test_user_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.0"
+                                android:background="@null"
+                                android:gravity="center|left"
+                                android:hint="your name"
+                                android:imeOptions="actionDone"
+                                android:inputType="text"
+                                android:minWidth="40.0dip"
+                                android:singleLine="true"
+                                android:textColor="@color/ssxinzi1"
+                                android:textColorHint="#80222222"
+                                android:textSize="16.0sp" />
+
+                            <TextView
+                                android:id="@+id/test_username_ok"
+                                style="@style/common_button"
+                                android:layout_marginLeft="5.0dip"
+                                android:layout_marginRight="10.0dip"
+                                android:background="@drawable/btn_action"
+                                android:minHeight="15.0dip"
+                                android:minWidth="25.0dip"
+                                android:text="@string/ok" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/user_agreement_link"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20.0dip"
+                    android:text="@string/user_agreement"
+                    android:textColor="@color/link_protocol_text"
+                    android:textSize="12.0sp" />
+
+                <TextView
+                    android:id="@+id/copyright"
+                    style="@style/setting_copyright"
+                    android:layout_marginTop="30.0dip"
+                    android:padding="10.0dip"
+                    android:textColor="@color/ssxinzi3"
+                    android:textSize="12.0sp" />
+
+                <TextView
+                    android:id="@+id/release_info"
+                    style="@style/setting_release_info" />
+            </LinearLayout>
+        </ScrollView>
+</RelativeLayout>

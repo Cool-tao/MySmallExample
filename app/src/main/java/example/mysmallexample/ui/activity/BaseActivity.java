@@ -38,12 +38,14 @@ public class BaseActivity extends FragmentActivity {
     public static final String TAG = "BaseActivity";
     protected boolean isResume = false;
     protected FragmentManager fm;
+    protected SPUtil spu;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         fm = getSupportFragmentManager();
         EventBus.getDefault().register(this);
+        spu = SPUtil.getInstance();
     }
 
     @Override
@@ -149,7 +151,6 @@ public class BaseActivity extends FragmentActivity {
         }
 
     }
-
 
 
     public void changeStatusBar() {

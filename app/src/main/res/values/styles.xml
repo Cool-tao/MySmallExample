@@ -124,4 +124,162 @@
         <item name="android:layout_centerVertical">true</item>
     </style>
 
+    <style name="title_bar_style">
+        <item name="android:background">@drawable/bg_titlebar</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/title_bar_height</item>
+    </style>
+
+    <style name="back_view">
+        <item name="android:background">@drawable/transparent</item>
+        <item name="android:paddingLeft">10.0dip</item>
+        <item name="android:paddingRight">0.0dip</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">0.0dip</item>
+        <item name="android:layout_marginRight">0.0dip</item>
+        <item name="android:minHeight">44.0dip</item>
+        <item name="android:text">" "</item>
+        <item name="android:drawableLeft">@drawable/btn_back</item>
+        <item name="android:drawablePadding">0.0dip</item>
+    </style>
+
+    <style name="title_text_style">
+        <item name="android:textSize">17.0sp</item>
+        <item name="android:textColor">#ff222222</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">2.0dip</item>
+    </style>
+
+    <style name="title_bar_button" parent="@style/common_button">
+        <item name="android:textSize">17.0sp</item>
+        <item name="android:textColor">@color/btn_common_text</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@null</item>
+        <item name="android:paddingLeft">15.0dip</item>
+        <item name="android:paddingRight">15.0dip</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="common_button" parent="@style/text_on_button">
+        <item name="android:background">@drawable/btn_common</item>
+        <item name="android:paddingLeft">6.0dip</item>
+        <item name="android:paddingRight">6.0dip</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minWidth">50.0dip</item>
+        <item name="android:minHeight">30.0dip</item>
+    </style>
+
+    <style name="text_on_button">
+        <item name="android:textSize">15.0sp</item>
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:shadowRadius">0.0</item>
+    </style>
+
+    <style name="detail_more_title_view">
+        <item name="android:background">@drawable/transparent</item>
+        <item name="android:paddingLeft">5.0dip</item>
+        <item name="android:paddingRight">15.0dip</item>
+        <item name="android:layout_marginLeft">0.0dip</item>
+        <item name="android:minHeight">@dimen/title_bar_height</item>
+        <item name="android:text"></item>
+        <item name="android:drawableRight">@drawable/btn_more_title_detail</item>
+        <item name="android:drawablePadding">0.0dip</item>
+    </style>
+
+    <style name="item_setting_middle" parent="@style/item_setting">
+        <item name="android:background">@drawable/item_setting_middle</item>
+    </style>
+
+    <style name="item_setting">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">50.0dip</item>
+    </style>
+
+    <style name="setting_item_text">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textColor">#ff222222</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">15.0dip</item>
+        <item name="android:layout_marginRight">10.0dip</item>
+    </style>
+
+    <style name="setting_alt_text">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">@color/ssxinzi3</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">5.0dip</item>
+        <item name="android:layout_marginRight">15.0dip</item>
+        <item name="android:layout_weight">0.0</item>
+    </style>
+
+    <style name="item_setting_bottom" parent="@style/item_setting">
+        <item name="android:background">@drawable/item_setting_bottom</item>
+    </style>
+
+    <style name="setting_hint_new">
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">5.0dip</item>
+        <item name="android:src">@drawable/icon_new</item>
+        <item name="android:layout_weight">0.0</item>
+    </style>
+
+    <style name="setting_item_head">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">@drawable/bg_row_head</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">42.0dip</item>
+    </style>
+
+    <style name="setting_release_info">
+        <item name="android:textSize">12.0sp</item>
+        <item name="android:textColor">@color/setting_copyright</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">6.0dip</item>
+        <item name="android:layout_marginBottom">8.0dip</item>
+    </style>
+
+    <style name="setting_copyright">
+        <item name="android:textSize">13.0sp</item>
+        <item name="android:textColor">@color/setting_copyright</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">10.0dip</item>
+        <item name="android:text">@string/app_copyright</item>
+    </style>
+
+    <style name="SwitchButtonStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:layout_marginRight">15.0dip</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+
+    <style name="MaterialDesignStyle" parent="SwitchButtonStyle">
+        <item name="animationVelocity">0</item>
+        <item name="insetBottom">0dp</item>
+        <!--设置上下背景-->
+        <item name="insetTop">0dp</item>
+        <item name="insetLeft">10dp</item>
+        <item name="insetRight">10dp</item>
+        <item name="measureFactor">1.8</item>
+        <item name="offDrawable">@drawable/md_back_off</item>
+        <item name="onDrawable">@drawable/md_back_on</item>
+        <item name="thumbDrawable">@drawable/md_thumb</item>
+        <item name="thumb_margin">-6dp</item>
+    </style>
 </resources>

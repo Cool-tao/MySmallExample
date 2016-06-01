@@ -14,15 +14,12 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.view.animation.Animation;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Random;
 
 import cn.jpush.android.api.JPushInterface;
 import example.mysmallexample.BuildConfig;
@@ -35,11 +32,12 @@ import example.mysmallexample.ui.App;
  */
 public class SPUtil {
 
-    public static Random random = new Random(System.currentTimeMillis());
-    public static LinearLayout.LayoutParams NORMAL;
-    public static LinearLayout.LayoutParams LARGE;
-    public static Animation imageAnimation;
     private static SPUtil mSPutil;
+    private ACache msp;
+
+    private SPUtil() {
+        msp = ACache.get(App.getInstance().getApplicationContext(), "ch");
+    }
 
     public static synchronized SPUtil getInstance() {
         if (mSPutil == null) {
@@ -213,6 +211,16 @@ public class SPUtil {
             beforeTime = currentTime;
             Toast.makeText(activity, "" + activity.getString(R.string.toast_press_again_to_exit), Toast.LENGTH_SHORT).show();
         }
+    }
+
+
+    public boolean getOffTuiSong() {
+        boolean start = msp.getAsBoolean("off_ts", true);
+        return start;
+    }
+
+    public void setOffTuiSong(boolean flag) {
+        msp.put("off_ts", flag);
     }
 }
 

@@ -11,9 +11,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import example.mysmallexample.ui.adapter.MainPagerAdapter;
 import example.mysmallexample.R;
-import example.mysmallexample.customview.AutoScrollViewPager;
+import example.mysmallexample.ui.adapter.MainPagerAdapter;
 
 @SuppressLint("ShowToast")
 public class FragmentDiscover extends BaseFragment {
@@ -22,7 +21,11 @@ public class FragmentDiscover extends BaseFragment {
 
     private int linesize = 4;
     private BaseFragment[] fragments;
-    private AutoScrollViewPager viewPager;
+    /**
+     * 自动滑动ViewPager
+     */
+//    private AutoScrollViewPager viewPager;
+    private ViewPager viewPager;
     private MainPagerAdapter adapter;
     /**
      * ViewPager的当前选中页
@@ -48,7 +51,7 @@ public class FragmentDiscover extends BaseFragment {
 
     private void initLayout(View layout) {
         // TODO Auto-generated method stub
-        viewPager = (AutoScrollViewPager) layout.findViewById(R.id.rank_pager);
+        viewPager = (ViewPager) layout.findViewById(R.id.rank_pager);
         adapter = new MainPagerAdapter(getActivity()
                 .getSupportFragmentManager());
         fragments = new BaseFragment[4];
@@ -65,7 +68,7 @@ public class FragmentDiscover extends BaseFragment {
         viewPager.setCurrentItem(currentIndex);
         viewPager.addOnPageChangeListener(new MyOnPageChangeListener());
         viewPager.setOffscreenPageLimit(adapter.getCount());
-        viewPager.startAutoScroll();
+//        viewPager.startAutoScroll();
         initTabLineWidth();
         InitTextView(layout);
         viewPager.setCurrentItem(0);

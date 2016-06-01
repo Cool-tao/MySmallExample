@@ -32,7 +32,8 @@
     <!--网络变化权限-->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
 
-    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:name=".ui.App"
         android:allowBackup="true"
@@ -49,6 +50,7 @@
         </activity>
         <activity android:name=".ui.activity.OtherActivity" />
         <activity android:name=".ui.activity.OpenJpushActivity" />
+        <activity android:name=".ui.activity.SettingActivity" />
 
         <!--自定义广播-->
         <receiver android:name=".servers.CommonReceiver">

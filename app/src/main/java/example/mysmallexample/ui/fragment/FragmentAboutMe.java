@@ -1,6 +1,7 @@
 package example.mysmallexample.ui.fragment;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import example.mysmallexample.R;
+import example.mysmallexample.ui.activity.SettingActivity;
 
 public class FragmentAboutMe extends BaseFragment implements View.OnClickListener {
 
@@ -48,6 +50,9 @@ public class FragmentAboutMe extends BaseFragment implements View.OnClickListene
                 break;
             case R.id.settings_layout:
                 Toast.makeText(activity, "设置", Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent();
+                intent.setClass(activity, SettingActivity.class);
+                startActivity(intent);
                 break;
             case R.id.my_page_feedback_layout:
                 Toast.makeText(activity, "反馈", Toast.LENGTH_SHORT).show();

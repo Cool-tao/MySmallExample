@@ -44,6 +44,33 @@
     <color name="ssxinhongse1">#fff85959</color>
     <color name="ssxinzi3">@color/ssxinheihui3</color>
     <color name="ssxinheihui3">#ff999999</color>
+    <color name="ssxinxian7">@color/ssxinjiangexian2</color>
+    <color name="ssxinjiangexian2">#ffd8d8d8</color>
+    <color name="bg_row_border">#ffcacaca</color>
+    <color name="bg_row_normal">#fffafafa</color>
+    <color name="bg_row_normal_center">@color/bg_row_normal</color>
+    <color name="bg_row_normal_center_night">@color/bg_row_normal_night</color>
+    <color name="bg_row_normal_end">@color/bg_row_normal</color>
+    <color name="bg_row_normal_end_night">@color/bg_row_normal_night</color>
+    <color name="bg_row_normal_night">#ff1f2023</color>
+    <color name="bg_row_normal_start">@color/bg_row_normal</color>
+    <color name="bg_row_normal_start_night">@color/bg_row_normal_night</color>
+    <color name="bg_row_pressed_center">#ffcccccc</color>
+    <color name="bg_row_pressed_center_night">#ff1a1b1d</color>
+    <color name="bg_row_pressed_end">#ffcccccc</color>
+    <color name="bg_row_pressed_end_night">#ff1a1b1d</color>
+    <color name="bg_row_pressed_start">#ffcccccc</color>
+    <color name="bg_row_pressed_start_night">#ff1a1b1d</color>
+    <color name="setting_copyright">#ff999999</color>
+    <color name="login_accent_color_pressed">#ffd43d3d</color>
+    <color name="login_accent_color">#fffe3232</color>
+    <color name="ssxinzi1">@color/ssxinheihui1</color>
+    <color name="ssxinheihui1">#ff222222</color>
+    <color name="transparent">#00000000</color>
+    <string name="event_host_hint">127.0.0.1:10304</string>
+    <color name="search_text">@color/ssxinzi1</color>
+    <color name="search_text_hint">@color/ssxinzi3</color>
+
 
 
 

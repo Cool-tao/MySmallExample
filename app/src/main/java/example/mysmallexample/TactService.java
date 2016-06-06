@@ -7,8 +7,6 @@ import android.text.format.Formatter;
 
 import java.util.List;
 
-import _plugin_utils.Util_Log;
-
 /**
  * Created by zhengnan on 2016/5/12.
  * 应用相关：如判断应用是否在运行
@@ -32,7 +30,7 @@ public class TactService extends AndroidTestCase {
             List<ActivityManager.RunningTaskInfo> list = am.getRunningTasks(5);
             return list.get(0).topActivity.getPackageName();
         } catch (Exception e) {
-            if (Util_Log.logShow)
+            if (BuildConfig.DEBUG)
                 e.printStackTrace();
             return "";
         }
@@ -55,7 +53,7 @@ public class TactService extends AndroidTestCase {
                 }
             }
         } catch (Exception e) {
-            if (Util_Log.logShow)
+            if (BuildConfig.DEBUG)
                 e.printStackTrace();
             return false;
         }
@@ -84,7 +82,7 @@ public class TactService extends AndroidTestCase {
             List<ActivityManager.RunningTaskInfo> list = am.getRunningTasks(5);
             return list.get(0).topActivity.getClassName().toString();
         } catch (Exception e) {
-            if (Util_Log.logShow)
+            if (BuildConfig.DEBUG)
                 e.printStackTrace();
             return "";
         }

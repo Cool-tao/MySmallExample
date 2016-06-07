@@ -12,7 +12,7 @@ import example.mysmallexample.ui.adapter.MyViewPager;
 import example.mysmallexample.ui.fragment.BaseFragment;
 import example.mysmallexample.ui.fragment.FragmentAboutMe;
 import example.mysmallexample.ui.fragment.FragmentDiscover;
-import example.mysmallexample.ui.fragment.FragmentHome;
+import example.mysmallexample.ui.fragment.FragmentHome1;
 import example.mysmallexample.ui.fragment.FragmentRank;
 import example.mysmallexample.ui.utils.Log;
 import example.mysmallexample.ui.utils.SPUtil;
@@ -57,7 +57,7 @@ public class MainActivity extends BaseActivity {
             });
         }
 
-        fragments[0] = new FragmentHome();
+        fragments[0] = new FragmentHome1();
         fragments[1] = new FragmentRank();
         fragments[2] = new FragmentDiscover();
         fragments[3] = new FragmentAboutMe();

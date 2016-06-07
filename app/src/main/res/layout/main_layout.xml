@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffffff"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/main_title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffcc3131"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/title_bar"
+            style="@style/main_title_bar_style">
+
+            <ImageView
+                android:id="@+id/btn_category"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:background="@drawable/btn_common"
+                android:padding="0.0dip"
+                android:src="@drawable/btn_category"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/top_left_count"
+                style="@style/top_update_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="-17.0dip"
+                android:layout_marginTop="5.0dip"
+                android:background="@drawable/badge_titlebar"
+                android:visibility="invisible" />
+
+
+            <ImageView
+                android:id="@+id/top_more"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="13.0dip"
+                android:gravity="center"
+                android:scaleType="centerInside"
+                android:src="@drawable/dynamic_titlebar_btn" />
+
+            <RelativeLayout
+                android:id="@+id/title_click_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_centerInParent="true"
+                android:paddingLeft="13.0dip">
+
+                <FrameLayout
+                    android:id="@+id/title_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true">
+
+                    <TextView
+                        android:id="@+id/title_recent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="MySmallEcample"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/title"
+                        style="@style/title_text_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:paddingBottom="1.5dip"
+                        android:paddingLeft="6.0dip"
+                        android:paddingRight="6.0dip" />
+                </FrameLayout>
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</LinearLayout>

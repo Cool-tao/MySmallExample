@@ -19,9 +19,6 @@ import example.mysmallexample.ui.utils.SPUtil;
 
 public class MainActivity extends BaseActivity {
 
-    /**
-     * 测试能不能提交
-     */
     private MyViewPager viewPager;
     private MainPagerAdapter adapter;
     private TextView[] tv_menu;

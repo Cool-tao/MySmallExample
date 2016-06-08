@@ -300,5 +300,11 @@
     </style>
 
     <style name="loadingProgressBar" parent="android:Widget.Holo.ProgressBar.Large" />
-
+<style name="title_right_button">
+<item name="android:paddingLeft">8dp</item>
+<item name="android:paddingRight">8dp</item>
+<item name="android:clickable">true</item>
+<item name="android:scaleType">fitCenter</item>
+<item name="android:background">@drawable/back_button_default_style</item>
+</style>
 </resources>

@@ -13,6 +13,7 @@ import example.mysmallexample.R;
 import example.mysmallexample.ui.activity.DevicesInfoActivity;
 import example.mysmallexample.ui.activity.SettingActivity;
 import example.mysmallexample.ui.activity.SpecialEfficacyActivity;
+import example.mysmallexample.ui.activity.TestActivity;
 
 public class FragmentAboutMe extends BaseFragment implements View.OnClickListener {
 
@@ -22,6 +23,7 @@ public class FragmentAboutMe extends BaseFragment implements View.OnClickListene
     private View my_page_feedback_layout;
     private View my_page_special_efficacy_layout;
     private View my_page_activity_layout;
+    private View my_friend_update_layout;
 
     @Override
     public void onAttach(Activity activity) {
@@ -48,6 +50,8 @@ public class FragmentAboutMe extends BaseFragment implements View.OnClickListene
         my_page_special_efficacy_layout.setOnClickListener(this);
         my_page_activity_layout = layout.findViewById(R.id.my_page_activity_layout);
         my_page_activity_layout.setOnClickListener(this);
+        my_friend_update_layout = layout.findViewById(R.id.my_friend_update_layout);
+        my_friend_update_layout.setOnClickListener(this);
     }
 
     @Override
@@ -75,6 +79,11 @@ public class FragmentAboutMe extends BaseFragment implements View.OnClickListene
             case R.id.my_page_activity_layout:
                 Toast.makeText(activity, "活 动", Toast.LENGTH_SHORT).show();
                 intent.setClass(activity, DevicesInfoActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.my_friend_update_layout:
+                Toast.makeText(activity, "好 友 动 态", Toast.LENGTH_SHORT).show();
+                intent.setClass(activity, TestActivity.class);
                 startActivity(intent);
                 break;
         }

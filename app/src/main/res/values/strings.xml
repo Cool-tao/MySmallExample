@@ -103,7 +103,7 @@
     <string name="app_copyright">© 头条网 toutiao.com</string>
     <string name="user_agreement">今日头条用户协议</string>
     <string name="ok">确定</string>
-
+    <string name="event_host_hint">127.0.0.1:10304</string>
 
 
 </resources>

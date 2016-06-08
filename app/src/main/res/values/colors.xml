@@ -67,11 +67,11 @@
     <color name="ssxinzi1">@color/ssxinheihui1</color>
     <color name="ssxinheihui1">#ff222222</color>
     <color name="transparent">#00000000</color>
-    <string name="event_host_hint">127.0.0.1:10304</string>
+
     <color name="search_text">@color/ssxinzi1</color>
     <color name="search_text_hint">@color/ssxinzi3</color>
 
-
+    <color name="backColor">#2000</color>
 
 
 

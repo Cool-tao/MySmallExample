@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import example.mysmallexample.R;
+import example.mysmallexample.ui.activity.DevicesInfoActivity;
 import example.mysmallexample.ui.activity.SettingActivity;
 import example.mysmallexample.ui.activity.SpecialEfficacyActivity;
 
@@ -20,6 +21,7 @@ public class FragmentAboutMe extends BaseFragment implements View.OnClickListene
     private LinearLayout settings_layout;
     private View my_page_feedback_layout;
     private View my_page_special_efficacy_layout;
+    private View my_page_activity_layout;
 
     @Override
     public void onAttach(Activity activity) {
@@ -44,6 +46,8 @@ public class FragmentAboutMe extends BaseFragment implements View.OnClickListene
         my_page_feedback_layout.setOnClickListener(this);
         my_page_special_efficacy_layout = layout.findViewById(R.id.my_page_special_efficacy_layout);
         my_page_special_efficacy_layout.setOnClickListener(this);
+        my_page_activity_layout = layout.findViewById(R.id.my_page_activity_layout);
+        my_page_activity_layout.setOnClickListener(this);
     }
 
     @Override
@@ -65,7 +69,12 @@ public class FragmentAboutMe extends BaseFragment implements View.OnClickListene
                 break;
             case R.id.my_page_special_efficacy_layout:
                 Toast.makeText(activity, "特 效", Toast.LENGTH_SHORT).show();
-                intent.setClass(activity,SpecialEfficacyActivity.class);
+                intent.setClass(activity, SpecialEfficacyActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.my_page_activity_layout:
+                Toast.makeText(activity, "活 动", Toast.LENGTH_SHORT).show();
+                intent.setClass(activity, DevicesInfoActivity.class);
                 startActivity(intent);
                 break;
         }

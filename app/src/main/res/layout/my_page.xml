@@ -270,7 +270,34 @@
                 style="@style/my_page_item_divider"
                 android:layout_alignParentBottom="true" />
         </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/my_page_special_efficacy_layout"
+            style="@style/my_page_item_root">
 
+            <TextView
+                android:id="@+id/my_page_special_efficacy_tv"
+                style="@style/my_page_item_tv"
+                android:text="@string/mine_item_special_efficacy" />
+
+            <TextView
+                android:id="@+id/my_page_special_efficacy_download_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="9.0dip"
+                android:layout_toLeftOf="@+id/my_page_special_efficacy_right_arrow"
+                android:textColor="@color/ssxinzi3"
+                android:textSize="14.0sp" />
+
+            <ImageView
+                android:id="@+id/my_page_special_efficacy_right_arrow"
+                style="@style/my_page_item_right_arrow" />
+
+            <View
+                android:id="@+id/my_page_special_efficacy_divider"
+                style="@style/my_page_item_divider"
+                android:layout_alignParentBottom="true" />
+        </RelativeLayout>
         <RelativeLayout
             android:id="@+id/my_page_appstore_layout"
             style="@style/my_page_item_root"
@@ -310,5 +337,7 @@
                 android:id="@+id/my_page_feedback_right_arrow"
                 style="@style/my_page_item_right_arrow" />
         </RelativeLayout>
+
+
     </LinearLayout>
 </ScrollView>

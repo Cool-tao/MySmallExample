@@ -1,7 +1,10 @@
 package example.mysmallexample.ui.activity;
 
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.telephony.TelephonyManager;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.TextView;
@@ -33,6 +36,9 @@ public class SettingActivity extends BaseActivity implements CompoundButton.OnCh
         setContentView(R.layout.activity_setting);
         initViews();
         Log.i(TAG, "JPush is Stop=" + JPushInterface.isPushStopped(this));
+
+        Log.i(TAG, "getMacAddress()=" + getMacAddress() + "\ngetMobileIMEI()=" + getMobileIMEI());
+
 
     }
 
@@ -88,5 +94,29 @@ public class SettingActivity extends BaseActivity implements CompoundButton.OnCh
                 finish();
                 break;
         }
+    }
+
+    /**
+     * 获取Mac地址
+     *
+     * @return
+     */
+    public String getMacAddress() {
+        WifiManager wifiManager = (WifiManager) getSystemService(this.WIFI_SERVICE);
+        WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+        String address = wifiInfo.getMacAddress();
+        return address;
+    }
+
+    /**
+     * 获取IMEI号
+     *
+     * @return
+     */
+    public String getMobileIMEI() {
+        TelephonyManager telephonyManager = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
+        String imei = telephonyManager.getDeviceId();
+        return imei;
+
     }
 }

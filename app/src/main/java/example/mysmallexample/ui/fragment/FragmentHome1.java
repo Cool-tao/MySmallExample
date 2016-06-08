@@ -25,6 +25,7 @@ public class FragmentHome1 extends BaseFragment implements View.OnClickListener 
     private RecyclerView.LayoutManager layoutManager;
     private MyRecyclerViewAdapter myRecyclerViewAdapter;
     private List<String> data;
+    private MyRecyclerViewAdapter.CallBack callBack;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,7 +49,29 @@ public class FragmentHome1 extends BaseFragment implements View.OnClickListener 
         mRecyclerView.setAdapter(myRecyclerViewAdapter);
 
         myRecyclerViewAdapter.appendData(data);
+        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
 
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                myRecyclerViewAdapter.isShowLoading = true;
+            }
+        });
+
+        callBack = new MyRecyclerViewAdapter.CallBack() {
+            @Override
+            public void loadMore() {
+//                initData();
+                Log.i("FragmentHome1", "loadMore");
+//                myRecyclerViewAdapter.isShowLoading = false;
+//                myRecyclerViewAdapter.appendData(data);
+            }
+        };
+        myRecyclerViewAdapter.callBack = callBack;
         return layout;
     }
 
@@ -59,17 +82,13 @@ public class FragmentHome1 extends BaseFragment implements View.OnClickListener 
 
     private void initData() {
         for (int i = 0; i < 15; i++) {
-            data.add("测试数据：" + i);
+            data.add("测试数据：" + (i + 1));
         }
     }
 
     @Override
     public void onClick(View v) {
-        if (v.getTag() != null && v.getTag() instanceof MyRecyclerViewAdapter.TextViewHolder) {
-            MyRecyclerViewAdapter.TextViewHolder viewHolder = (MyRecyclerViewAdapter.TextViewHolder) v.getTag();
-            Log.e("位置：", "count=" + viewHolder.pos);
-            Toast.makeText(activity, "信息：" + viewHolder.textView, Toast.LENGTH_SHORT).show();
-        }
-
+        String str = (String) v.getTag();
+        Toast.makeText(activity, "显示：" + str, Toast.LENGTH_SHORT).show();
     }
 }

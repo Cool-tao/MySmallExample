@@ -298,4 +298,7 @@
         <item name="android:minWidth">15.0dip</item>
         <item name="android:minHeight">15.0dip</item>
     </style>
+
+    <style name="loadingProgressBar" parent="android:Widget.Holo.ProgressBar.Large" />
+
 </resources>

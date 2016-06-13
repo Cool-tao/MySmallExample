@@ -1,10 +1,14 @@
+//声明Android程序
 apply plugin: 'com.android.application'
 
 android {
+    //编译版本
     compileSdkVersion 23
+    //build tools版本
     buildToolsVersion "23.0.2"
 
     defaultConfig {
+        //应用包名
         applicationId "com.example.mysmallexample"
         minSdkVersion 11
         targetSdkVersion 23
@@ -25,6 +29,10 @@ android {
         }
     }
 }
+//gradle lint:gradle中有lint任务，可以直接执行lint静态代码检查，但是前提是你的build.gradle设置了lintOptions选项:
+//lintOptions {
+//    abortOnError false
+//}
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])

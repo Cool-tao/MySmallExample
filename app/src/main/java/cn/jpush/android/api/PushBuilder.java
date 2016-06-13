@@ -7,11 +7,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import example.mysmallexample.R;
+
 /**
  * 自定义JPush
- * 重写CustomPushNotificationBuilder
- *
- *
+ * 重写Builder，包名与api中CustomPushNotificationBuilder一致，继承BasicPushNotificationBuilder
+ * 类似CustomPushNotificationBuilder
  */
 public class PushBuilder extends BasicPushNotificationBuilder {
 
@@ -39,7 +39,7 @@ public class PushBuilder extends BasicPushNotificationBuilder {
         this.layoutIconId = var3;
         this.layoutTitleId = var4;
         this.layoutContentId = var5;
-        this.layoutTime=layoutTime;
+        this.layoutTime = layoutTime;
     }
 
     @Override
@@ -53,7 +53,7 @@ public class PushBuilder extends BasicPushNotificationBuilder {
         String date = sDateFormat.format(curDate);
 //        CalendarUtil.friendlyTime1(date,);
         var2.setTextViewText(this.layoutContentId, s);
-        var2.setTextViewText(R.id.time, ""+date);
+        var2.setTextViewText(R.id.time, "" + date);
 //        var2.setTextViewText(this.layoutTime, s);
         return var2;
     }

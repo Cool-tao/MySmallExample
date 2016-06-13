@@ -1,7 +1,13 @@
 package example.mysmallexample.ui.activity;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
 import android.view.View;
+import android.widget.RemoteViews;
 import android.widget.TextView;
 
 import cn.jpush.android.api.JPushInterface;
@@ -99,6 +105,33 @@ public class MainActivity extends BaseActivity {
         Log.i(TAG, "Custom Builder - 2");
     }
 
+    /**
+     * 自定义通知栏
+     */
+
+    private void localNotify() {
+        RemoteViews contentViews = new RemoteViews(getPackageName(), R.layout.notification_text);
+        //通过控件的Id设置属性
+        //contentViews.setImageViewResource(R.id.imageNo, R.drawable.btm1);
+        contentViews.setTextViewText(R.id.title, "自定义通知标题");
+        contentViews.setTextViewText(R.id.text, "自定义通知内容自定义通知内容自定义通知内容自定义通知内容自定义通知内容自定义通知内容自定义通知内容自定义通知内容自定义通知内容自定义通知内容自定义通知内容自定义通知内容");
+        contentViews.setTextViewText(R.id.time, "" + System.currentTimeMillis());
+        Intent intent = new Intent(MainActivity.this, MainActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(MainActivity.this, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+        //点击跳转广播
+        //PendingIntent pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
+                MainActivity.this).setSmallIcon(R.mipmap.ic_launcher)
+                .setContentTitle("My notification")
+                .setTicker("new message");
+        mBuilder.setAutoCancel(true);
+        mBuilder.setContentIntent(pendingIntent);
+        mBuilder.setContent(contentViews);
+        mBuilder.setAutoCancel(true);
+        NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotificationManager.notify(10, mBuilder.build());
+    }
 
     @Override
     public void onBackPressed() {

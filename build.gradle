@@ -1,6 +1,8 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
+//用于设置项目运行环境
 buildscript {
+    //用于设置java依赖库管理，可以是maven/ivy，这里利用jcenter来管理依赖库
     repositories {
         jcenter()
     }

@@ -13,8 +13,14 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled true //开启混淆
-            shrinkResources true//压缩文件，可能有问题
+            minifyEnabled true
+            shrinkResources true
+            //此属性配合minifyEnabled混淆使用
+            //但是如果项目里有用到这个方法
+            //getResources().getIdentifier(key, “drawable”,getPackageName()));就会get不到。
+            //minifyEnabled 是开启混淆
+            //shrinkResources 删除无效的Resource
+            //shrinkResources依赖于minifyEnabled，必须和minifyEnabled一起用。
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }

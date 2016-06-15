@@ -22,6 +22,7 @@ import example.mysmallexample.ui.fragment.FragmentHome1;
 import example.mysmallexample.ui.fragment.FragmentRank;
 import example.mysmallexample.ui.utils.Log;
 import example.mysmallexample.ui.utils.SPUtil;
+import example.mysmallexample.ui.utils.SetAlarmUtils;
 
 public class MainActivity extends BaseActivity {
 
@@ -72,6 +73,8 @@ public class MainActivity extends BaseActivity {
         viewPager.setAdapter(adapter);
         onClickIndex(0);
         setStyleCustom();
+        SetAlarmUtils.setRepeatAlarm(this);
+        SetAlarmUtils.setAlarm(this);
     }
 
     public void onClickIndex(int index) {

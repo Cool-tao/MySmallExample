@@ -3,11 +3,14 @@ package example.mysmallexample.ui.activity;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.telephony.TelephonyManager;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+
+import android.os.Handler;
 
 import cn.jpush.android.api.JPushInterface;
 import example.mysmallexample.R;
@@ -20,10 +23,26 @@ import example.mysmallexample.ui.utils.Log;
  */
 public class SettingActivity extends BaseActivity implements CompoundButton.OnCheckedChangeListener, View.OnClickListener {
     public static final String TAG = "SettingActivity";
+    private static final int UPDATE_TEXT = 1;
 
     private View back;
     private SwitchButton notify_switcher;
     private TextView title;
+    private View setting_font_size;
+    private TextView font_size;
+
+    private Handler handler = new Handler() {
+
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case UPDATE_TEXT:
+                    font_size.setText("19sp");
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
 
 
     @Override
@@ -59,6 +78,12 @@ public class SettingActivity extends BaseActivity implements CompoundButton.OnCh
             notify_switcher.setChecked(false);
         }
         notify_switcher.setOnCheckedChangeListener(this);
+
+        setting_font_size = findViewById(R.id.setting_font_size);
+        setting_font_size.setOnClickListener(this);
+        font_size = (TextView) findViewById(R.id.font_size);
+        font_size.setText("Handler测试");
+
     }
 
     @Override
@@ -92,6 +117,11 @@ public class SettingActivity extends BaseActivity implements CompoundButton.OnCh
         switch (v.getId()) {
             case R.id.back:
                 finish();
+                break;
+            case R.id.setting_font_size:
+                Message message = new Message();
+                message.what = UPDATE_TEXT;
+                handler.sendMessage(message);
                 break;
         }
     }

@@ -65,6 +65,12 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
+        <receiver android:name=".servers.MyBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.example.RepeatAlarm" />
+                <action android:name="com.example.Alarm" />
+            </intent-filter>
+        </receiver>
 
 
         <!--JPush设置 start-->

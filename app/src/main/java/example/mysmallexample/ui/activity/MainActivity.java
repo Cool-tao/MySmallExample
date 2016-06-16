@@ -13,6 +13,8 @@ import android.widget.TextView;
 import cn.jpush.android.api.JPushInterface;
 import cn.jpush.android.api.PushBuilder;
 import example.mysmallexample.R;
+import example.mysmallexample.ui.EnumDemo;
+import example.mysmallexample.ui.EnumTypeDemo;
 import example.mysmallexample.ui.adapter.MainPagerAdapter;
 import example.mysmallexample.ui.adapter.MyViewPager;
 import example.mysmallexample.ui.fragment.BaseFragment;
@@ -73,8 +75,23 @@ public class MainActivity extends BaseActivity {
         viewPager.setAdapter(adapter);
         onClickIndex(0);
         setStyleCustom();
+        //闹钟设置
         SetAlarmUtils.setRepeatAlarm(this);
         SetAlarmUtils.setAlarm(this);
+
+        //EnumDemo测试
+        Log.i(TAG, "EnumDemo :" + EnumDemo.Enum_One.options
+                + "\t" + EnumDemo.Enum_Second.options
+                + "\t" + EnumDemo.Enum_Third.options
+                + "\t" + EnumDemo.Enum_Fourth.options
+                + "\t" + EnumDemo.Enum_Fifth.options
+                + "\t" + EnumDemo.Defult.options);
+
+        for (EnumTypeDemo enumTypeDemo : EnumTypeDemo.values()) {
+            Log.e(TAG, "enumTypeDemo name:" + enumTypeDemo.name()
+                    + "\tenumTypeDemo vlaus:" + enumTypeDemo.getType());
+        }
+
     }
 
     public void onClickIndex(int index) {

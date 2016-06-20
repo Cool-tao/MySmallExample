@@ -1,0 +1,11 @@
+﻿#签名文件路径
+storeFile=/configs/mysmall.keystore
+
+#签名文件密码
+storePassword=mysmall
+
+#签名文件别名
+keyAlisa=mysmall
+
+#签名文件别名密码
+keyPassword=mysmall

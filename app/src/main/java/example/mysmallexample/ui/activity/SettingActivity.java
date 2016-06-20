@@ -3,6 +3,7 @@ package example.mysmallexample.ui.activity;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.telephony.TelephonyManager;
@@ -10,13 +11,14 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
-import android.os.Handler;
+import java.util.Properties;
 
 import cn.jpush.android.api.JPushInterface;
 import example.mysmallexample.R;
 import example.mysmallexample.customview.switchbutton.SwitchButton;
 import example.mysmallexample.ui.utils.LocationUtils;
 import example.mysmallexample.ui.utils.Log;
+import example.mysmallexample.ui.utils.PropertiesUtils;
 
 /**
  * Created by taoshuang on 2016/6/1.
@@ -57,8 +59,14 @@ public class SettingActivity extends BaseActivity implements CompoundButton.OnCh
         Log.i(TAG, "JPush is Stop=" + JPushInterface.isPushStopped(this));
 
         Log.i(TAG, "getMacAddress()=" + getMacAddress() + "\ngetMobileIMEI()=" + getMobileIMEI());
+        Properties prop = new Properties();
+        prop.put("prop1", "1");
+        prop.put("prop2", "2");
+        prop.put("prop3", "3");
+        PropertiesUtils.saveConfig(this, "/sdcard/config.txt", prop);
 
-
+//        prop = PropertiesUtils.loadConfig(this, "/sdcard/config.dat");
+//        String prop1 = prop.getProperty("prop1");
     }
 
     /**

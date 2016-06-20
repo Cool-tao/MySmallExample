@@ -1,0 +1,13 @@
+apply plugin: 'java'
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    //解决中文乱码问题
+    //新版gradle
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+    }
+    //旧版gradle
+    //tasks.withType(Compile) {options.encoding = "UTF-8"}
+}

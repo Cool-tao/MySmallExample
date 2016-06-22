@@ -1,4 +1,4 @@
-package com.example;
+package com.example.first;
 
 public class MyClass {
 

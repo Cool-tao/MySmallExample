@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--From android 4.1 / 4.2, the following Roboto font families are available: -->
+    <!--android:fontFamily="sans-serif" // roboto regular -->
+    <!--android:fontFamily="sans-serif-light" // roboto light -->
+    <!--android:fontFamily="sans-serif-condensed" // roboto condensed -->
+    <!--android:fontFamily="sans-serif-thin" // roboto thin (android 4.2)-->
     <style name="RobotoTextViewStyle" parent="android:Widget.TextView">
         <item name="android:fontFamily">sans-serif</item>
     </style>

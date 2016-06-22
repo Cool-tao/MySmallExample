@@ -60,13 +60,14 @@ public class SettingActivity extends BaseActivity implements CompoundButton.OnCh
 
         Log.i(TAG, "getMacAddress()=" + getMacAddress() + "\ngetMobileIMEI()=" + getMobileIMEI());
         Properties prop = new Properties();
-        prop.put("prop1", "1");
-        prop.put("prop2", "2");
-        prop.put("prop3", "3");
+        prop.put("prop1", "prop1");
+        prop.put("prop2", "prop2");
+        prop.put("prop3", "prop3");
         PropertiesUtils.saveConfig(this, "/sdcard/config.txt", prop);
 
-//        prop = PropertiesUtils.loadConfig(this, "/sdcard/config.dat");
-//        String prop1 = prop.getProperty("prop1");
+        prop = PropertiesUtils.loadConfig(this, "/sdcard/config.txt");
+        String prop1 = prop.getProperty("prop1");
+        Log.i(TAG, "prop1:" + prop1);
     }
 
     /**

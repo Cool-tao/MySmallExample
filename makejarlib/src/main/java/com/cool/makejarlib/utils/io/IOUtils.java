@@ -1,5 +1,7 @@
 package com.cool.makejarlib.utils.io;
 
+import android.content.Context;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
@@ -10,8 +12,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-
-import android.content.Context;
 
 /**
  * IO流 工具类<br>

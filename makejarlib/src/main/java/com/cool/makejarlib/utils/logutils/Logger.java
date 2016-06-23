@@ -43,7 +43,7 @@ public final class Logger implements Printer {
 	 * @param args
 	 */
 	private void logString(LogType type, StackTraceElement element, String msg,
-			Object... args) {
+						   Object... args) {
 		if (!LogUtils.configAllowLog) {
 			return;
 		}
@@ -81,7 +81,7 @@ public final class Logger implements Printer {
 	 * @param object
 	 */
 	private void logObject(LogType type, StackTraceElement element,
-			Object object) {
+						   Object object) {
 		if (object != null) {
 			final String simpleName = object.getClass().getSimpleName();
 			if (object instanceof Throwable) {

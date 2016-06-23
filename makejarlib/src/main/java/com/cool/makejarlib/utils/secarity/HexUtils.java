@@ -1,5 +1,8 @@
 package com.cool.makejarlib.utils.secarity;
 
+import android.annotation.TargetApi;
+import android.os.Build;
+
 import java.nio.charset.Charset;
 
 /**
@@ -80,6 +83,8 @@ public class HexUtils {
         this(Charset.forName(charsetName));
     }
 
+    //Android Api需大于等于9
+    @TargetApi(Build.VERSION_CODES.GINGERBREAD)
     public byte[] decode(byte[] array) {
         return decodeHex(new String(array, getCharset()).toCharArray());
     }

@@ -6,11 +6,8 @@ import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.graphics.drawable.Drawable;
 
-import com.cool.makejarlib.utils.string.StringUtils;
-
 import java.io.IOException;
 import java.io.InputStream;
-
 
 
 /**
@@ -296,7 +293,7 @@ public class ResouceUtil {
             e.printStackTrace();
         }
 
-        if (StringUtils.isEmpty(msg)) {
+        if (msg == null || msg == "") {
             return "";
         }
 

@@ -10,7 +10,6 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 
-
 public class DateUtils {
 
     private final static long minute = 60 * 1000;// 1分钟

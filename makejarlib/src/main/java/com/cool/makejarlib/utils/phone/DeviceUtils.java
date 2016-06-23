@@ -18,7 +18,6 @@ import java.util.Enumeration;
 import java.util.Locale;
 
 
-
 /**
  * 获取手机信息工具类<br>
  * 需要"android.permission.READ_PHONE_STATE"权限

@@ -19,6 +19,11 @@ public class PropertiesDemo {
         prop = loadConfig("C:/Users/taoshuang/Desktop/prop.txt");
         String prop1 = prop.getProperty("Prop1");
         System.out.println("Prop1=" + prop1);
+        SecondClass secondClass = new SecondClass();
+        secondClass.setName("Name");
+
+        String name = secondClass.getName();
+        System.out.println("Name:"+name);
     }
 
     public static Properties loadConfig(String file) {

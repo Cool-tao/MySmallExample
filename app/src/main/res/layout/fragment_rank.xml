@@ -10,40 +10,60 @@
         android:layout_height="150dp"
         android:background="@color/colorPrimary"></View>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="Rank"
-        android:textSize="20sp" />
-
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="获取语言、国家"
-        android:textSize="20sp" />
-
-    <EditText
-        android:id="@+id/edit"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:hint="测试点击屏幕外输入法消失" />
+        android:layout_height="match_parent"
+        android:background="@color/ssxinmian3"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/test_is_task_root_tv"
-        style="@style/txt_titleStyle1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/btn_enable_green"
-        android:padding="5dp"
-        android:text="测试isTaskRoot" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Rank"
+            android:textSize="20sp" />
 
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="获取语言、国家"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:hint="测试点击屏幕外输入法消失" />
+
+        <TextView
+            android:id="@+id/test_is_task_root_tv"
+            style="@style/txt_titleStyle1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/btn_enable_green"
+            android:padding="5dp"
+            android:text="测试isTaskRoot" />
+
+
+        <TextView
+            android:id="@+id/test_jar_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/click_white_gray"
+            android:padding="15dp"
+            android:text="Jar测试"
+            android:textColor="@color/ssxinzi2"
+            android:textSize="16sp" />
+
+    </LinearLayout>
 </LinearLayout>

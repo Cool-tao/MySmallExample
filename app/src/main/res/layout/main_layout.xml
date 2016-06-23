@@ -9,7 +9,7 @@
         android:id="@+id/main_title_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ffcc3131"
+        android:background="#D43D3D"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -46,7 +46,7 @@
                 android:layout_marginRight="13.0dip"
                 android:gravity="center"
                 android:scaleType="centerInside"
-                android:src="@drawable/dynamic_titlebar_btn" />
+                android:src="@drawable/white_search_titlebar_selector" />
 
             <RelativeLayout
                 android:id="@+id/title_click_layout"
@@ -68,7 +68,7 @@
                         android:layout_gravity="center"
                         android:text="MySmallEcample"
                         android:textColor="@color/white"
-                        android:textSize="18sp"
+                        android:textSize="17sp"
                         android:textStyle="bold" />
 
                     <TextView

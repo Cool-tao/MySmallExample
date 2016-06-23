@@ -16,6 +16,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cool.makejarlib.utils.string.DateUtils;
+
 import java.util.Locale;
 
 import example.mysmallexample.R;
@@ -28,6 +30,7 @@ public class FragmentRank extends BaseFragment implements View.OnClickListener {
     private View top_layout;
     private TextView text;
     private View test_is_task_root_tv;
+    private TextView test_jar_tv;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,6 +43,8 @@ public class FragmentRank extends BaseFragment implements View.OnClickListener {
         text.setOnClickListener(this);
         test_is_task_root_tv = layout.findViewById(R.id.test_is_task_root_tv);
         test_is_task_root_tv.setOnClickListener(this);
+        test_jar_tv = (TextView) layout.findViewById(R.id.test_jar_tv);
+        test_jar_tv.setOnClickListener(this);
 
         return layout;
     }
@@ -61,6 +66,10 @@ public class FragmentRank extends BaseFragment implements View.OnClickListener {
             startActivity(intent);
 
             setNotify(getActivity());
+        }
+        if (v.getId() == R.id.test_jar_tv) {
+            long currentTime = DateUtils.getCurrentTime();
+            test_jar_tv.setText("currentTime" + currentTime);
         }
     }
 

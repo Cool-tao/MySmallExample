@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/main_tabmenu_recommend_hl" android:state_pressed="true"/>
-    <item android:drawable="@drawable/main_tabmenu_recommend_hl" android:state_focused="true"/>
-    <item android:drawable="@drawable/main_tabmenu_recommend_hl" android:state_selected="true"/>
-    <item android:drawable="@drawable/main_tabmenu_recommend_nor"/>
+    <item android:drawable="@drawable/chats_green" android:state_pressed="true"/>
+    <item android:drawable="@drawable/chats_green" android:state_focused="true"/>
+    <item android:drawable="@drawable/chats_green" android:state_selected="true"/>
+    <item android:drawable="@drawable/chats"/>
 </selector>

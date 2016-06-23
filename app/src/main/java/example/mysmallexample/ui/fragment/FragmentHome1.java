@@ -81,7 +81,7 @@ public class FragmentHome1 extends BaseFragment implements View.OnClickListener 
     }
 
     private void initData() {
-        for (int i = 0; i < 15; i++) {
+        for (int i = 0; i < 25; i++) {
             data.add("测试数据：" + (i + 1));
         }
     }

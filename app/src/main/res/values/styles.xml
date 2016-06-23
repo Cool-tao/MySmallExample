@@ -26,7 +26,7 @@
         <item name="android:layout_weight">1</item>
         <item name="android:textSize">@dimen/textSize5</item>
         <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/main_menu_text</item>
+        <item name="android:textColor">@color/main_menu_icon_text</item>
         <item name="android:background">@null</item>
     </style>
 

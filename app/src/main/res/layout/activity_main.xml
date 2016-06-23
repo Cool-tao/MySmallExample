@@ -21,25 +21,25 @@
             android:id="@+id/tv_tab_menu0"
             style="@style/main_tab_item2"
             android:drawablePadding="0dp"
-            android:drawableTop="@drawable/tabmenu_recommend"
+            android:drawableTop="@drawable/icon_home"
             android:text="@string/main_menu0_text" />
 
         <TextView
             android:id="@+id/tv_tab_menu1"
             style="@style/main_tab_item2"
-            android:drawableTop="@drawable/tabmenu_rank"
+            android:drawableTop="@drawable/icon_meassage"
             android:text="@string/main_menu1_text" />
 
         <TextView
             android:id="@+id/tv_tab_menu2"
             style="@style/main_tab_item2"
-            android:drawableTop="@drawable/tabmenu_classify"
+            android:drawableTop="@drawable/icon_square"
             android:text="@string/main_menu2_text" />
 
         <TextView
             android:id="@+id/tv_tab_menu3"
             style="@style/main_tab_item2"
-            android:drawableTop="@drawable/tabmenu_my"
+            android:drawableTop="@drawable/icon_selfinfo"
             android:gravity="center"
             android:text="@string/main_menu3_text" />
     </LinearLayout>

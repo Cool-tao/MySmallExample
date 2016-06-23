@@ -21,7 +21,7 @@
     <dimen name="my_page_item_height">50.5dip</dimen>
     <dimen name="my_page_lastest_user_max_avatar_size">32.0dip</dimen>
     <dimen name="my_page_max_avatar_size">60.0dip</dimen>
-    <dimen name="title_bar_height">44.0dip</dimen>
+    <dimen name="title_bar_height">48.0dip</dimen>
 
     <dimen name="bg_row_border_width">0.5dip</dimen>
     <dimen name="bg_row_padding_bottom">1.0dip</dimen>

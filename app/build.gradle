@@ -24,6 +24,7 @@ android {
         versionName "1.0"
     }
 
+    //gradle lint:gradle中有lint任务，可以直接执行lint静态代码检查，但是前提是你的build.gradle设置了lintOptions选项:
     lintOptions {
         //checkReleaseBuilds就是在打包Release版本的时候进行检测，
         // 这里就直接关掉了，也可以打开，这样报错还会显示出来。
@@ -46,14 +47,15 @@ android {
     buildTypes {
 
         debug {
+            signingConfig signingConfigs.myConfig
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
 
         release {
             signingConfig signingConfigs.myConfig
-            minifyEnabled false
-            shrinkResources false
+            minifyEnabled true
+            shrinkResources true
             //此属性配合minifyEnabled混淆使用
             //但是如果项目里有用到这个方法
             //getResources().getIdentifier(key, “drawable”,getPackageName()));就会get不到。
@@ -64,10 +66,7 @@ android {
         }
     }
 }
-//gradle lint:gradle中有lint任务，可以直接执行lint静态代码检查，但是前提是你的build.gradle设置了lintOptions选项:
-//lintOptions {
-//    abortOnError false
-//}
+
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])

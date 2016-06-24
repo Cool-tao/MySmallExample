@@ -103,7 +103,7 @@ public class MainActivity extends BaseActivity {
         Properties prop = loadConfig("D:/workspace/MySmallExample/app/configs/signature.txt");
         String storeFile = prop.getProperty("storeFile");
         String storePassword = prop.getProperty("storePassword");
-        String keyAlias = prop.getProperty("keyAlias");
+        String keyAlias = prop.getProperty("keyAlisa");
         String keyPassword = prop.getProperty("keyPassword");
         Log.i(TAG, "storeFile:" + storeFile + "storePassword:" + storePassword + "keyAlias:" + keyAlias + "keyPassword:" + keyPassword);
 

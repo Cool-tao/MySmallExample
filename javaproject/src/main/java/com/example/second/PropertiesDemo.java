@@ -14,9 +14,9 @@ public class PropertiesDemo {
         Properties prop = new Properties();
         prop.put("Prop1", "Prop1");
         prop.put("Prop2", "Prop2");
-        saveConfig("C:/Users/taoshuang/Desktop/prop.txt", prop);
+        saveConfig("D:/prop.txt", prop);
         System.out.println("OK");
-        prop = loadConfig("C:/Users/taoshuang/Desktop/prop.txt");
+        prop = loadConfig("D:/prop.txt");
         String prop1 = prop.getProperty("Prop1");
         System.out.println("Prop1=" + prop1);
         SecondClass secondClass = new SecondClass();

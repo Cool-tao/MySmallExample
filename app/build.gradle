@@ -24,13 +24,21 @@ android {
         versionName "1.0"
     }
 
+    lintOptions {
+        //checkReleaseBuilds就是在打包Release版本的时候进行检测，
+        // 这里就直接关掉了，也可以打开，这样报错还会显示出来。
+        // 关键的就是abortOnError一定要设为false，这样即使有报错也不会停止打包了。
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
     signingConfigs {
         myConfig {
             Properties properties = readPropertyFile("/configs/signature.txt")
 //            Properties properties = readPropertyFile("C:/Users/taoshuang/Desktop/sign.txt")
             storeFile file(properties.getProperty("storeFile"))
             storePassword properties.getProperty("storePassword")
-            keyAlias properties.getProperty("keyAlias")
+            keyAlias properties.getProperty("keyAlisa")
             keyPassword properties.getProperty("keyPassword")
         }
     }

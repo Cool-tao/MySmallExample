@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.RemoteViews;
 import android.widget.TextView;
 
+import java.io.FileInputStream;
+import java.util.Properties;
+
 import cn.jpush.android.api.JPushInterface;
 import cn.jpush.android.api.PushBuilder;
 import example.mysmallexample.R;
@@ -92,6 +95,30 @@ public class MainActivity extends BaseActivity {
                     + "\tenumTypeDemo vlaus:" + enumTypeDemo.getType());
         }
 
+//        storeFile file(properties.getProperty("storeFile"))
+//        storePassword properties.getProperty("storePassword")
+//        keyAlias properties.getProperty("keyAlias")
+//        keyPassword properties.getProperty("keyPassword")
+
+        Properties prop = loadConfig("D:/workspace/MySmallExample/app/configs/signature.txt");
+        String storeFile = prop.getProperty("storeFile");
+        String storePassword = prop.getProperty("storePassword");
+        String keyAlias = prop.getProperty("keyAlias");
+        String keyPassword = prop.getProperty("keyPassword");
+        Log.i(TAG, "storeFile:" + storeFile + "storePassword:" + storePassword + "keyAlias:" + keyAlias + "keyPassword:" + keyPassword);
+
+
+    }
+
+    public static Properties loadConfig(String file) {
+        Properties properties = new Properties();
+        try {
+            FileInputStream s = new FileInputStream(file);
+            properties.load(s);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return properties;
     }
 
     public void onClickIndex(int index) {

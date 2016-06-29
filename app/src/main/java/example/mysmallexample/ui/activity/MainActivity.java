@@ -25,11 +25,12 @@ import example.mysmallexample.ui.fragment.FragmentAboutMe;
 import example.mysmallexample.ui.fragment.FragmentDiscover;
 import example.mysmallexample.ui.fragment.FragmentHome1;
 import example.mysmallexample.ui.fragment.FragmentRank;
+import example.mysmallexample.ui.listener.TestListener;
 import example.mysmallexample.ui.utils.Log;
 import example.mysmallexample.ui.utils.SPUtil;
 import example.mysmallexample.ui.utils.SetAlarmUtils;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements TestListener {
 
     private MyViewPager viewPager;
     private MainPagerAdapter adapter;
@@ -183,5 +184,10 @@ public class MainActivity extends BaseActivity {
     @Override
     public void onBackPressed() {
         SPUtil.exit(this);
+    }
+
+    @Override
+    public void onTestListener(String message) {
+        Log.e("MainActivity", "接口回调练习：" + message);
     }
 }

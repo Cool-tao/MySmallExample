@@ -16,6 +16,7 @@ import java.util.Properties;
 import cn.jpush.android.api.JPushInterface;
 import example.mysmallexample.R;
 import example.mysmallexample.customview.switchbutton.SwitchButton;
+import example.mysmallexample.ui.listener.TestListener;
 import example.mysmallexample.ui.utils.LocationUtils;
 import example.mysmallexample.ui.utils.Log;
 import example.mysmallexample.ui.utils.PropertiesUtils;
@@ -32,6 +33,11 @@ public class SettingActivity extends BaseActivity implements CompoundButton.OnCh
     private TextView title;
     private View setting_font_size;
     private TextView font_size;
+    private TestListener testListener;
+
+    private void setMyOnClick(TestListener testListener) {
+        this.testListener = testListener;
+    }
 
     private Handler handler = new Handler() {
 
@@ -68,6 +74,8 @@ public class SettingActivity extends BaseActivity implements CompoundButton.OnCh
         prop = PropertiesUtils.loadConfig(this, "/sdcard/config.txt");
         String prop1 = prop.getProperty("prop1");
         Log.i(TAG, "prop1:" + prop1);
+//        testListener.onTestListener("123213");
+
     }
 
     /**
@@ -126,6 +134,7 @@ public class SettingActivity extends BaseActivity implements CompoundButton.OnCh
         switch (v.getId()) {
             case R.id.back:
                 finish();
+                testListener.onTestListener("数据");
                 break;
             case R.id.setting_font_size:
                 Message message = new Message();

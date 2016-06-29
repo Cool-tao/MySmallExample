@@ -19,6 +19,10 @@ public class MyClass {
 
         System.out.println("The Second Java Demo:写两个Demo直接新建Edit...新建一个。");
 
+
+        String str = "aaaBBBccc";
+        System.out.println("大小写转换：" + str.toLowerCase() + "\t" + str.toUpperCase());
+
         System.out.println("-------END--------");
 
     }

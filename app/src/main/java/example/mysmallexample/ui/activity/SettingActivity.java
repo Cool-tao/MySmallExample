@@ -133,8 +133,8 @@ public class SettingActivity extends BaseActivity implements CompoundButton.OnCh
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.back:
-                finish();
                 testListener.onTestListener("数据");
+                finish();
                 break;
             case R.id.setting_font_size:
                 Message message = new Message();

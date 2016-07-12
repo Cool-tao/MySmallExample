@@ -1,41 +1,16 @@
 package example.mysmallexample;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.zip.ZipFile;
-
-import org.apache.http.Header;
 
 import android.annotation.SuppressLint;
-import android.app.AlarmManager;
-import android.app.Dialog;
 import android.content.Context;
-import android.content.ContextWrapper;
-import android.content.pm.ApplicationInfo;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
-import android.os.Environment;
 import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 
-import com.flongjce.util.SerializeUtil;
 import com.taobao.android.dexposed.DexposedBridge;
 import com.taobao.android.dexposed.XC_MethodHook;
-import com.taobao.android.dexposed.XposedHelpers;
 
 public class HookManager {
 
@@ -47,6 +22,7 @@ public class HookManager {
 
 	private static String targetPkgName;
 
+	@SuppressWarnings("unused")
 	private static boolean isLDevice() {
 		return android.os.Build.VERSION.SDK_INT >= 20;
 	}
@@ -74,19 +50,16 @@ public class HookManager {
 		}
 	}
 
-	
-
 	@SuppressLint("NewApi")
 	public static boolean hookAssest(Context context) throws IOException {
 		// hookAllMethod(AssetManager.class);
-		DexposedBridge.findAndHookMethod(Throwable.class, "getStackTrace", x2);
+		// DexposedBridge.findAndHookMethod(Throwable.class, "getStackTrace",
+		// x2);
 		// hookAllMethod(ZipFile.class);
 		// hookAllMethod(ZipInputStream.class);
 		// hookAllMethod(ZipOutputStream.class);
 
 		// hookAllMethod(ContextWrapper.class);
-
-		
 
 		// applicationInfo.sourceDir = srcDir;
 		// new File(context.getFilesDir(),
@@ -105,13 +78,12 @@ public class HookManager {
 							new Exception().printStackTrace();
 
 							if (param.args[0].equals(targetPkgName)) {
-								ApplicationInfo applicationInfo = new ApplicationInfo(
-										app);
-								applicationInfo.sourceDir = srcDir;
-								Log.e(TAG, "getApplicationInfo:"
-										+ applicationInfo.sourceDir);
-
-								param.setResult(applicationInfo);
+								// ApplicationInfo applicationInfo = new
+								// ApplicationInfo(app);
+								// applicationInfo.sourceDir = srcDir;
+								// Log.e(TAG, "getApplicationInfo:"+
+								// applicationInfo.sourceDir);
+								// param.setResult(applicationInfo);
 							}
 
 						}
@@ -176,13 +148,17 @@ public class HookManager {
 	// }
 	// }
 
-
-
-	private static void hookAllMethod(final Class class1) {
+	@SuppressWarnings("rawtypes")
+	public static void hookAllMethod(final Class class1) {
 		Method[] methods = class1.getDeclaredMethods();
+
+		// Main shared = new Main(tid);
 		for (Method method : methods) {
 			try {
-				Log.e(TAG, class1.getName() + "." + method.getName());
+				Log.i(TAG,
+						"message hook 0:" + class1.getName() + "."
+								+ method.getName() + ",  ThreadID="
+								+ Thread.currentThread().getId());
 
 				final Object[] objects = new Object[method.getParameterTypes().length + 1];
 
@@ -196,34 +172,78 @@ public class HookManager {
 							throws Throwable {
 						super.beforeHookedMethod(param);
 						// new Exception().printStackTrace(System.err);
-						Log.e(TAG, TAG + ":" + class1.getName() + "."
-								+ param.method.getName());
+						Log.e(TAG, "message hook  1:" + class1.getName() + "."
+								+ param.method.getName() + ",  ThreadID="
+								+ Thread.currentThread().getId());
+
+						Log.e(TAG, "message hook  1111:" + ",  ThreadID="
+								+ Thread.currentThread().getId());
 
 						for (Object object : objects) {
 							if (object instanceof Class) {
-								Log.e(TAG, TAG + ":" + "param:"
-										+ ((Class) object).getName());
+								Log.i(TAG, "message hook 2=" + class1.getName()
+										+ "." + param.method.getName() + " , "
+										+ "param:" + ((Class) object).getName()
+										+ ",    ThreadID="
+										+ Thread.currentThread().getId());
+								Log.i(TAG,
+										"message hook  3 ="
+												+ class1.getName()
+												+ "."
+												+ param.method.getName()
+												+ " , "
+												+ "param object="
+												+ object.toString()
+												+ ",  ThreadID="
+												+ Thread.currentThread()
+														.getId());
 							}
 						}
 
 						Log.e(TAG,
-								"beforeHookedMethod:" + param.method.getName());
+								"message hook 4:" + "beforeHookedMethod:"
+										+ class1.getName() + "."
+										+ param.method.getName()
+										+ ",    ThreadID="
+										+ Thread.currentThread().getId());
+
+						// if (param.args.length > 1) {
+						// Log.e(TAG, "message hook 4444:"
+						// + "beforeHookedMethod:" + "param.args[0]="
+						// + param.args[0] + ",param.args[1]="
+						// + param.args[1]);
+						// }
+
 						for (Object object : param.args) {
 							if (object instanceof byte[]) {
-								Log.e(TAG, "param.args" + ":"
-										+ new String((byte[]) object));
+								Log.e(TAG, "message hook 5:  " + "param.args"
+										+ ":" + class1.getName() + "."
+										+ param.method.getName() + ","
+										+ new String((byte[]) object)
+										+ ",  ThreadID="
+										+ Thread.currentThread().getId());
 							} else {
-								Log.e(TAG, "param.args" + ":" + object);
+								Log.e(TAG,
+										"message hook 6 :"
+												+ "param.args"
+												+ ":"
+												+ class1.getName()
+												+ "."
+												+ param.method.getName()
+												+ ","
+												+ object.toString()
+												+ ", hashCode="
+												+ param.method.getName()
+														.hashCode()
+												+ ",  ThreadID="
+												+ Thread.currentThread()
+														.getId());
 							}
 						}
 
-						// Object iC = XposedHelpers.getObjectField(
-						// param.thisObject, "iC");
-						//
-
-						//
-						// Log.e(TAG, "iC" + ":" + iC);
-						
+						RuntimeException re = new RuntimeException();
+						re.fillInStackTrace();
+						Log.e("info", "message info", re);
 
 					}
 
@@ -231,22 +251,26 @@ public class HookManager {
 					protected void afterHookedMethod(MethodHookParam param)
 							throws Throwable {
 						super.afterHookedMethod(param);
+						Log.e(TAG, "message hook 7777:" + ",  ThreadID="
+								+ Thread.currentThread().getId());
 						Log.e(TAG,
 								"afterHookedMethod:" + param.method.getName());
 
 						if (param.getResult() instanceof byte[]) {
 							String s = new String((byte[]) param.getResult());
 
-							Log.e(TAG, "param.getResult()" + ":" + s);
-							
+							Log.e(TAG, "param.getResult()  77" + ":" + s
+									+ ",  ThreadID="
+									+ Thread.currentThread().getId());
 
 						} else {
 							Log.e(TAG,
-									"param.getResult()" + ":"
-											+ param.getResult());
+									"param.getResult()   88" + ":"
+											+ param.getResult()
+											+ ",  ThreadID="
+											+ Thread.currentThread().getId());
 						}
 
-						
 					}
 
 				};
@@ -257,7 +281,4 @@ public class HookManager {
 			}
 		}
 	}
-
-	
-
 }

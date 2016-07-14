@@ -22,6 +22,7 @@ import java.util.Locale;
 
 import example.mysmallexample.R;
 import example.mysmallexample.ui.activity.OtherActivity;
+import example.mysmallexample.ui.utils.GetUri;
 
 @SuppressLint("ValidFragment")
 public class FragmentRank extends BaseFragment implements View.OnClickListener {
@@ -31,6 +32,7 @@ public class FragmentRank extends BaseFragment implements View.OnClickListener {
     private TextView text;
     private View test_is_task_root_tv;
     private TextView test_jar_tv;
+    private TextView test_get_market;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,6 +47,8 @@ public class FragmentRank extends BaseFragment implements View.OnClickListener {
         test_is_task_root_tv.setOnClickListener(this);
         test_jar_tv = (TextView) layout.findViewById(R.id.test_jar_tv);
         test_jar_tv.setOnClickListener(this);
+        test_get_market = (TextView) layout.findViewById(R.id.test_get_market);
+        test_get_market.setOnClickListener(this);
 
         return layout;
     }
@@ -70,6 +74,15 @@ public class FragmentRank extends BaseFragment implements View.OnClickListener {
         if (v.getId() == R.id.test_jar_tv) {
             long currentTime = DateUtils.getCurrentTime();
             test_jar_tv.setText("currentTime" + currentTime);
+        }
+        if (v.getId() == R.id.test_get_market) {
+            GetUri gu = new GetUri();
+            Intent i = gu.getIntent(getActivity());
+            boolean b = gu.judge(getActivity(), i);
+            if(b==false)
+            {
+                startActivity(i);
+            }
         }
     }
 

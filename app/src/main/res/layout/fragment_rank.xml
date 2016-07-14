@@ -61,7 +61,7 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/click_white_gray"
             android:padding="15dp"
-            android:text="Jar测试"
+            android:text="Jar测试与Xml解析"
             android:textColor="@color/ssxinzi2"
             android:textSize="16sp" />
 

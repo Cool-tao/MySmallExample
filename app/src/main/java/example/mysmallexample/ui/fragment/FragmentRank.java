@@ -5,6 +5,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.XmlResourceParser;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -18,11 +19,15 @@ import android.widget.Toast;
 
 import com.cool.makejarlib.utils.string.DateUtils;
 
+import java.util.List;
 import java.util.Locale;
 
 import example.mysmallexample.R;
+import example.mysmallexample.model.ClassItem;
 import example.mysmallexample.ui.activity.OtherActivity;
 import example.mysmallexample.ui.utils.GetUri;
+import example.mysmallexample.ui.utils.Log;
+import example.mysmallexample.ui.utils.XmlParsePerson;
 
 @SuppressLint("ValidFragment")
 public class FragmentRank extends BaseFragment implements View.OnClickListener {
@@ -33,6 +38,8 @@ public class FragmentRank extends BaseFragment implements View.OnClickListener {
     private View test_is_task_root_tv;
     private TextView test_jar_tv;
     private TextView test_get_market;
+    private XmlParsePerson mPullPersonPaseService;
+    private XmlResourceParser xmlParser;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,6 +56,11 @@ public class FragmentRank extends BaseFragment implements View.OnClickListener {
         test_jar_tv.setOnClickListener(this);
         test_get_market = (TextView) layout.findViewById(R.id.test_get_market);
         test_get_market.setOnClickListener(this);
+
+
+        mPullPersonPaseService = new XmlParsePerson();
+        // 获取本地xml
+        xmlParser = this.getResources().getXml(R.xml.person);
 
         return layout;
     }
@@ -74,6 +86,23 @@ public class FragmentRank extends BaseFragment implements View.OnClickListener {
         if (v.getId() == R.id.test_jar_tv) {
             long currentTime = DateUtils.getCurrentTime();
             test_jar_tv.setText("currentTime" + currentTime);
+            try {
+                List<ClassItem> persons = mPullPersonPaseService
+                        .getPersons(xmlParser);
+
+                for (ClassItem person : persons) {
+                    ClassItem item = new ClassItem(person.getClassId(),
+                            person.getClassName(), person.getPartId(),
+                            person.getPartName(), person.getClassIcon());
+                    Log.i("FragmentRank","ClassItem:"+item.toString());
+
+                }
+
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
         }
         if (v.getId() == R.id.test_get_market) {
             GetUri gu = new GetUri();

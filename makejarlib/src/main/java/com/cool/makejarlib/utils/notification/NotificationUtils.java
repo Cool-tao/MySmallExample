@@ -7,6 +7,10 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
+import android.widget.RemoteViews;
+
+import com.cool.makejarlib.R;
 
 public class NotificationUtils {
 
@@ -48,6 +52,34 @@ public class NotificationUtils {
                 .getSystemService(Context.NOTIFICATION_SERVICE);
 
         mNotificationManager.notify(requestCode, mNotification);
+    }
+
+    /**
+     * 自定义通知栏
+     */
+
+    private void CustomNotify(Context context, int layoutId, String title, String content, Class compassClass, int iconId) {
+        RemoteViews contentViews = new RemoteViews(context.getPackageName(), layoutId);
+        //通过控件的Id设置属性
+        //contentViews.setImageViewResource(R.id.imageNo, R.drawable.btm1);
+        contentViews.setTextViewText(R.id.title, title);
+        contentViews.setTextViewText(R.id.text, content);
+        contentViews.setTextViewText(R.id.time, "" + System.currentTimeMillis());
+        Intent intent = new Intent(context, compassClass);
+        int requestCode = (int) System.currentTimeMillis();
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, requestCode, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+        //点击跳转广播
+        //PendingIntent pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
+                context).setSmallIcon(iconId)
+                .setContentTitle(title)
+                .setTicker(content);
+        mBuilder.setContentIntent(pendingIntent);
+        mBuilder.setContent(contentViews);
+        mBuilder.setAutoCancel(true);
+        NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotificationManager.notify(requestCode, mBuilder.build());
     }
 
     /**

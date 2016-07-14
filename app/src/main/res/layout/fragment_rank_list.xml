@@ -14,4 +14,11 @@
         android:text="MeList"
         android:textSize="20sp" />
 
+    <ImageView
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/dialog_loading" />
+
 </LinearLayout>

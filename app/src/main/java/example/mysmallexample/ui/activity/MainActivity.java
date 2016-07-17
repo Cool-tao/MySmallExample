@@ -23,7 +23,7 @@ import example.mysmallexample.ui.adapter.MainPagerAdapter;
 import example.mysmallexample.ui.adapter.MyViewPager;
 import example.mysmallexample.ui.fragment.BaseFragment;
 import example.mysmallexample.ui.fragment.FragmentAboutMe;
-import example.mysmallexample.ui.fragment.FragmentDiscover;
+import example.mysmallexample.ui.fragment.FragmentFind;
 import example.mysmallexample.ui.fragment.FragmentHome1;
 import example.mysmallexample.ui.fragment.FragmentRank;
 import example.mysmallexample.ui.listener.TestListener;
@@ -70,7 +70,8 @@ public class MainActivity extends BaseActivity implements TestListener {
 
         fragments[0] = new FragmentHome1();
         fragments[1] = new FragmentRank();
-        fragments[2] = new FragmentDiscover();
+//        fragments[2] = new FragmentDiscover();
+        fragments[2] = new FragmentFind();
         fragments[3] = new FragmentAboutMe();
         adapter.add(fragments[0]);
         adapter.add(fragments[1]);

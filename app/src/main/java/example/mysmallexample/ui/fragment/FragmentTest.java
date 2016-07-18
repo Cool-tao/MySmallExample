@@ -21,6 +21,7 @@ import example.mysmallexample.R;
 import example.mysmallexample.customview.TimeDownView;
 import example.mysmallexample.customview.TimeTextView;
 import example.mysmallexample.ui.dialog.CustomDialogFragment;
+import example.mysmallexample.ui.utils.Log;
 
 public class FragmentTest extends BaseFragment implements ViewSwitcher.ViewFactory, View.OnClickListener {
 
@@ -49,6 +50,7 @@ public class FragmentTest extends BaseFragment implements ViewSwitcher.ViewFacto
      */
     private TimeTextView mTimeText;
     private TimeDownView timedownview;
+    private String argsId;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -93,6 +95,18 @@ public class FragmentTest extends BaseFragment implements ViewSwitcher.ViewFacto
         return layout;
     }
 
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        Bundle args = getArguments();
+        if (null == args) {
+            return;
+        }
+        argsId = args.getString("id");
+        Log.i("FragmentTest", "argsId" + argsId);
+    }
+
+
     private int next() {
 
         int flag = id + 1;
@@ -127,7 +141,7 @@ public class FragmentTest extends BaseFragment implements ViewSwitcher.ViewFacto
                 break;
             case R.id.btn_send:
 
-                CustomDialogFragment fragment=new CustomDialogFragment();
+                CustomDialogFragment fragment = new CustomDialogFragment();
                 fragment.show(getFragmentManager(), CustomDialogFragment.TAG);
                 break;
 

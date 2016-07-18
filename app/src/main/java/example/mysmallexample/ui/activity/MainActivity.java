@@ -23,12 +23,11 @@ import example.mysmallexample.ui.adapter.MyViewPager;
 import example.mysmallexample.ui.fragment.BaseFragment;
 import example.mysmallexample.ui.fragment.FragmentAboutMe;
 import example.mysmallexample.ui.fragment.FragmentFind;
-import example.mysmallexample.ui.fragment.FragmentHome1;
+import example.mysmallexample.ui.fragment.FragmentHome;
 import example.mysmallexample.ui.fragment.FragmentRank;
 import example.mysmallexample.ui.listener.TestListener;
 import example.mysmallexample.ui.utils.Log;
 import example.mysmallexample.ui.utils.SPUtil;
-import example.mysmallexample.ui.utils.SetAlarmUtils;
 
 public class MainActivity extends BaseActivity implements TestListener {
 
@@ -67,7 +66,7 @@ public class MainActivity extends BaseActivity implements TestListener {
             });
         }
 
-        fragments[0] = new FragmentHome1();
+        fragments[0] = new FragmentHome();
         fragments[1] = new FragmentRank();
 //        fragments[2] = new FragmentDiscover();
         fragments[2] = new FragmentFind();
@@ -81,8 +80,8 @@ public class MainActivity extends BaseActivity implements TestListener {
         onClickIndex(0);
         setStyleCustom();
         //闹钟设置
-        SetAlarmUtils.setRepeatAlarm(this);
-        SetAlarmUtils.setAlarm(this);
+//        SetAlarmUtils.setRepeatAlarm(this);
+//        SetAlarmUtils.setAlarm(this);CommonReceiver
 
         //EnumDemo测试
         Log.i(TAG, "EnumDemo :" + EnumDemo.Enum_One.options
@@ -96,11 +95,6 @@ public class MainActivity extends BaseActivity implements TestListener {
             Log.e(TAG, "enumTypeDemo name:" + enumTypeDemo.name()
                     + "\tenumTypeDemo vlaus:" + enumTypeDemo.getType());
         }
-
-//        storeFile file(properties.getProperty("storeFile"))
-//        storePassword properties.getProperty("storePassword")
-//        keyAlias properties.getProperty("keyAlias")
-//        keyPassword properties.getProperty("keyPassword")
 
         Properties prop = loadConfig("D:/workspace/MySmallExample/app/configs/signature.txt");
         String storeFile = prop.getProperty("storeFile");

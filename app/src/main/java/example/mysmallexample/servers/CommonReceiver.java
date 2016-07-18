@@ -13,6 +13,7 @@ import example.mysmallexample.ui.utils.Log;
 import example.mysmallexample.ui.utils.SPUtil;
 
 /**
+ * 检查网络连接状态信息广播
  * Created by taoshuang on 2016/5/31.
  */
 public class CommonReceiver extends BroadcastReceiver {
@@ -21,8 +22,8 @@ public class CommonReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
-        String action=intent.getAction();
-        switch (action){
+        String action = intent.getAction();
+        switch (action) {
             case ConnectivityManager.CONNECTIVITY_ACTION:
                 checkNetwork(context);
                 break;

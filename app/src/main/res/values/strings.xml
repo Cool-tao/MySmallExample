@@ -106,4 +106,13 @@
     <string name="event_host_hint">127.0.0.1:10304</string>
 
 
+    <string name="musicCacheCeilTitle">自定义缓存</string>
+    <string name="musicCacheCeil">设置音乐缓存上限</string>
+    <string name="clearCacheTitle">清除缓存</string>
+    <string name="clearMusicCache">清除音乐缓存</string>
+    <string name="clearMusicCachePrompt">超过上限部分自动清除</string>
+    <string name="clearImageAndLrcCache">清除图片与歌词缓存</string>
+    <string name="other">其他</string>
+    <string name="autoClearCachePrompt">退出应用后，自动清除所有缓存</string>
+    <string name="autoClearCache">自动清除缓存</string>
 </resources>

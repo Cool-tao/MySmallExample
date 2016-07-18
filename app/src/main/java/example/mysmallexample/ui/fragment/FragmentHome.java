@@ -1,179 +1,94 @@
 package example.mysmallexample.ui.fragment;
 
+import android.os.Build;
 import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.os.Handler;
-import android.os.Message;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.TextSwitcher;
-import android.widget.TextView;
-import android.widget.ViewSwitcher;
+import android.widget.Toast;
 
-import java.util.Calendar;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.ArrayList;
+import java.util.List;
 
 import example.mysmallexample.R;
-import example.mysmallexample.customview.TimeDownView;
-import example.mysmallexample.customview.TimeTextView;
-import example.mysmallexample.ui.dialog.CustomDialogFragment;
+import example.mysmallexample.ui.App;
+import example.mysmallexample.ui.adapter.MyRecyclerViewAdapter;
+import example.mysmallexample.ui.utils.Log;
 
-public class FragmentHome extends BaseFragment implements ViewSwitcher.ViewFactory, View.OnClickListener {
+public class FragmentHome extends BaseFragment implements View.OnClickListener {
 
-    private TextSwitcher textSwitcher;
-    String[] resources = {"标题轮播  1", "标题轮播  2", "标题轮播  3", "标题轮播  4", "标题轮播  5"};
-    private Handler mHandler = new Handler() {
 
-        public void handleMessage(Message msg) {
-            switch (msg.what) {
-                case 1:
-                    id = next(); // 更新Id值
-                    updateText(); // 更新TextSwitcherd显示内容;
-                    break;
-            }
-        }
-    };
-    int id = 0; // resources 数组的Id;
-    /**
-     * 倒计时
-     */
-    private Button btn_count_down_timer;
-    private MyTimer myTimer;
-    private Button btn_send;
-    /**
-     * 自定义倒计时view
-     */
-    private TimeTextView mTimeText;
-    private TimeDownView timedownview;
+    private View main_title_layout;
+    private RecyclerView mRecyclerView;
+    private RecyclerView.LayoutManager layoutManager;
+    private MyRecyclerViewAdapter myRecyclerViewAdapter;
+    private List<String> data;
+    private MyRecyclerViewAdapter.CallBack callBack;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        View layout = inflater.inflate(R.layout.fragment_recomment, null);
-        textSwitcher = (TextSwitcher) layout.findViewById(R.id.textSwitcher);
-        textSwitcher.setFactory(this);
-        textSwitcher.setInAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.notice_scroll_top_to_down_current_text));
-        textSwitcher.setOutAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.notice_scroll_top_to_down_next_text));
-        Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new MyTask(), 1, 3000);// 每3秒更新
-
-
-        btn_count_down_timer = (Button) layout.findViewById(R.id.btn_count_down_timer);
-        btn_count_down_timer.setOnClickListener(this);
-        btn_send = (Button) layout.findViewById(R.id.btn_send);
-        btn_send.setOnClickListener(this);
-        mTimeText = (TimeTextView) layout.findViewById(R.id.temai_timeTextView);
-        timedownview = (TimeDownView) layout.findViewById(R.id.timedownview);
-
-        //获取当前时间
-        Calendar c = Calendar.getInstance();
-        int year = c.get(Calendar.YEAR);
-        int month = c.get(Calendar.MONTH);
-        int date = c.get(Calendar.DATE);
-        int hour = c.get(Calendar.HOUR_OF_DAY);
-        int minute = c.get(Calendar.MINUTE);
-        int second = c.get(Calendar.SECOND);
-//		int[] time = { date, hour, minute, second };
-        int[] time = {0, 1, 35, 57};
-//        int[] time = { 0, 0, 0, 10};
-        mTimeText.setTimes(time);
-        if (!mTimeText.isRun()) {
-            mTimeText.run();
+        View layout = inflater.inflate(R.layout.main_layout, null);
+        initViews(layout);
+        data = new ArrayList<>();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            main_title_layout.setPadding(0, App.px_20dp, 0, 0);
         }
-        timedownview.setTimes(time);
-        if (!timedownview.isRun()) {
-            timedownview.run();
+        initData();
+        if (data == null || data.size() == 0) {
+            Log.i("FragmentHome1", "data=null");
+        } else {
+            Log.i("FragmentHome1", "data.size()=" + data.size());
         }
+        layoutManager = new LinearLayoutManager(activity);
+        mRecyclerView.setLayoutManager(layoutManager);
+        myRecyclerViewAdapter = new MyRecyclerViewAdapter(activity, this);
+        mRecyclerView.setAdapter(myRecyclerViewAdapter);
 
+        myRecyclerViewAdapter.appendData(data);
+        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                myRecyclerViewAdapter.isShowLoading = true;
+            }
+        });
+
+        callBack = new MyRecyclerViewAdapter.CallBack() {
+            @Override
+            public void loadMore() {
+//                initData();
+                Log.i("FragmentHome1", "loadMore");
+//                myRecyclerViewAdapter.isShowLoading = false;
+//                myRecyclerViewAdapter.appendData(data);
+            }
+        };
+        myRecyclerViewAdapter.callBack = callBack;
         return layout;
     }
 
-    private int next() {
+    private void initViews(View layout) {
+        main_title_layout = layout.findViewById(R.id.main_title_layout);
+        mRecyclerView = (RecyclerView) layout.findViewById(R.id.recyclerview);
+    }
 
-        int flag = id + 1;
-        if (flag > resources.length - 1) {
-            flag = flag - resources.length;
+    private void initData() {
+        for (int i = 0; i < 25; i++) {
+            data.add("测试数据：" + (i + 1));
         }
-        return flag;
-    }
-
-    private void updateText() {
-        textSwitcher.setText(resources[id]);
-    }
-
-    @Override
-    public View makeView() {
-        // TODO Auto-generated method stub
-        TextView tv = new TextView(getActivity());
-        tv.setText(resources[id]);
-        return tv;
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_count_down_timer:
-
-                if (myTimer == null) {
-                    // 第一参数是总的时间，第二个是间隔时间
-                    myTimer = new MyTimer(1000 * 10, 1000);
-                }
-                myTimer.start();
-                break;
-            case R.id.btn_send:
-
-                CustomDialogFragment fragment=new CustomDialogFragment();
-                fragment.show(getFragmentManager(), CustomDialogFragment.TAG);
-                break;
-
-        }
+        String str = (String) v.getTag();
+        Toast.makeText(activity, "显示：" + str, Toast.LENGTH_SHORT).show();
     }
-
-    private class MyTask extends TimerTask {
-        @Override
-        public void run() {
-            Message message = new Message();
-            message.what = 1;
-            mHandler.sendMessage(message);
-
-        }
-    }
-
-    private class MyTimer extends CountDownTimer {
-
-        /**
-         * @param millisInFuture    The number of millis in the future from the call
-         *                          to {@link #start()} until the countdown is done and {@link #onFinish()}
-         *                          is called.
-         * @param countDownInterval The interval along the way to receive
-         *                          {@link #onTick(long)} callbacks.
-         */
-        public MyTimer(long millisInFuture, long countDownInterval) {
-            super(millisInFuture, countDownInterval);
-        }
-
-        //执行倒计时操作
-        @Override
-        public void onTick(long millisUntilFinished) {
-            btn_count_down_timer.setEnabled(false);
-//            btn_count_down_timer.setText("" + millisUntilFinished / (1000 * 60) + "分钟" + millisUntilFinished / 1000 + "秒");
-            btn_count_down_timer.setText("" + millisUntilFinished / 1000 + "秒");
-
-        }
-
-        //倒计时执行完成
-        @Override
-        public void onFinish() {
-
-            btn_count_down_timer.setEnabled(true);
-            btn_count_down_timer.setText("倒计时完成");
-
-        }
-    }
-
 }

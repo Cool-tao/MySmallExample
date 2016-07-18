@@ -21,8 +21,8 @@ public class FragmentFind extends BaseFragment implements View.OnClickListener {
     private List<Fragment> mTabContents = new ArrayList<Fragment>();
     private FragmentPagerAdapter mAdapter;
     private ViewPager mViewPager;
-    //    private List<String> mDatas = Arrays.asList("短信1", "短信2", "短信3", "短信4",
-//            "短信5", "短信6", "短信7", "短信8", "短信9");
+    //private List<String> mDatas = Arrays.asList("短信1", "短信2", "短信3", "短信4",
+    //"短信5", "短信6", "短信7", "短信8", "短信9");
     private List<String> mDatas = Arrays.asList("首页", "排行", "推荐", "发现");
 
     private ViewPagerIndicator mIndicator;

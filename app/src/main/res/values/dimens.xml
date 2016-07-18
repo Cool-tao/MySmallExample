@@ -29,7 +29,7 @@
     <dimen name="bg_row_padding_right">1.0dip</dimen>
     <dimen name="bg_row_padding_top">1.0dip</dimen>
 
-
-
+    <dimen name="padding10Dp">10.0dip</dimen>
+    <dimen name="listLinePaddingLeft">10.0dip</dimen>
 
 </resources>

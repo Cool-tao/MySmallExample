@@ -40,8 +40,8 @@ public class DevicesInfoActivity extends BaseActivity implements View.OnClickLis
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
 //            title_bar.setPadding(0, App.px_20dp, 0, 0);
 //        }
-        init();
 //        changeStatusBar();
+        init();
     }
 
     private void copy() {

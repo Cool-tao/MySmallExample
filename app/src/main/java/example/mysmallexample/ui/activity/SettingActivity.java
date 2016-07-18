@@ -124,11 +124,6 @@ public class SettingActivity extends BaseActivity implements CompoundButton.OnCh
         if (!isChecked) {
             JPushInterface.stopPush(this);
         }
-//        if (isChecked) {
-//            JPushInterface.resumePush(this);
-//        } else {
-//            JPushInterface.stopPush(this);
-//        }
     }
 
     @Override

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/preferenceScrollView"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fadingEdgeLength="0.0dip"
+    android:background="#F2F4F5"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/categoryTitleTv"
+            android:text="@string/musicCacheCeilTitle" />
+
+        <LinearLayout
+            android:id="@+id/cacheUpperLimitChange"
+            style="@style/settingContainer_nobg">
+
+            <TextView
+                style="@style/settingContentTv"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:text="@string/musicCacheCeil" />
+
+            <TextView
+                android:id="@+id/cacheCeilNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="@dimen/padding10Dp"
+                android:textColor="#ff999999"
+                android:textSize="12.0sp" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/categoryTitleTv"
+            android:layout_marginTop="@dimen/padding10Dp"
+            android:text="@string/clearCacheTitle" />
+
+        <RelativeLayout
+            android:id="@+id/clearMusicCache"
+            style="@style/settingContainer">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/clearMusicCacheTxt"
+                    style="@style/settingContentTv"
+                    android:text="@string/clearMusicCache" />
+
+                <TextView
+                    android:id="@+id/clearMusicCachePrompt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/listLinePaddingLeft"
+                    android:text="@string/clearMusicCachePrompt"
+                    android:textColor="#ff999999"
+                    android:textSize="10.0sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/musicCacheNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:paddingRight="@dimen/padding10Dp"
+                android:textColor="#ff999999"
+                android:textSize="12.0sp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/clearImageAndLrcCache"
+            style="@style/settingContainer_nobg">
+
+            <TextView
+                style="@style/settingContentTv"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:text="@string/clearImageAndLrcCache" />
+
+            <TextView
+                android:id="@+id/imageAndLrcCacheNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="@dimen/padding10Dp"
+                android:textColor="#ff999999"
+                android:textSize="12.0sp" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/categoryTitleTv"
+            android:layout_marginTop="@dimen/padding10Dp"
+            android:text="@string/other" />
+
+        <RelativeLayout
+            android:id="@+id/autoClearCache"
+            style="@style/settingContainer_nobg">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/autoClearCacheTxt"
+                    style="@style/settingContentTv"
+                    android:text="@string/autoClearCache" />
+
+                <TextView
+                    android:id="@+id/TextView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/listLinePaddingLeft"
+                    android:text="@string/autoClearCachePrompt"
+                    android:textColor="#ff999999"
+                    android:textSize="10.0sp" />
+            </LinearLayout>
+            <example.mysmallexample.customview.switchbutton.SwitchButton
+                android:id="@+id/autoClearCacheCB"
+                style="@style/settingCheckbox" />
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>

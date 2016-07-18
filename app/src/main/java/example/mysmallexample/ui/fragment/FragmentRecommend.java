@@ -17,7 +17,7 @@ import example.mysmallexample.ui.App;
 import example.mysmallexample.ui.adapter.MyRecyclerViewAdapter;
 import example.mysmallexample.ui.utils.Log;
 
-public class FragmentHome1 extends BaseFragment implements View.OnClickListener {
+public class FragmentRecommend extends BaseFragment implements View.OnClickListener {
 
 
     private View main_title_layout;

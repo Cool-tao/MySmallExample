@@ -24,6 +24,9 @@ import example.mysmallexample.R;
  */
 public class DevicesInfoActivity extends BaseActivity implements View.OnClickListener {
 
+    private View title_bar;
+    private TextView back;
+    private TextView title;
     Button copy;
     String deviceInfo;
     TextView info;
@@ -32,8 +35,13 @@ public class DevicesInfoActivity extends BaseActivity implements View.OnClickLis
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_info);
+        setContentView(R.layout.activity_devices_info);
+//        title_bar=findViewById(R.id.title_bar);
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//            title_bar.setPadding(0, App.px_20dp, 0, 0);
+//        }
         init();
+//        changeStatusBar();
     }
 
     private void copy() {
@@ -48,12 +56,16 @@ public class DevicesInfoActivity extends BaseActivity implements View.OnClickLis
     }
 
     private void init() {
-        this.info = ((TextView) findViewById(R.id.info));
-        this.copy = ((Button) findViewById(R.id.copy));
-        this.share = ((Button) findViewById(R.id.share));
-        this.copy.setOnClickListener(this);
-        this.share.setOnClickListener(this);
-        this.deviceInfo = getDeviceInfo();
+        title = (TextView) findViewById(R.id.title);
+        title.setText("DevicesInfoActivity");
+        back = (TextView) findViewById(R.id.back);
+        back.setOnClickListener(this);
+        info = ((TextView) findViewById(R.id.info));
+        copy = ((Button) findViewById(R.id.copy));
+        share = ((Button) findViewById(R.id.share));
+        copy.setOnClickListener(this);
+        share.setOnClickListener(this);
+        deviceInfo = getDeviceInfo();
         if (TextUtils.isEmpty(this.deviceInfo)) {
             this.deviceInfo = "Ops! \r\n Please contact me! ";
         }
@@ -102,6 +114,9 @@ public class DevicesInfoActivity extends BaseActivity implements View.OnClickLis
             case R.id.share:
                 share();
                 break;
+            case R.id.back:
+                finish();
+                return;
         }
     }
 

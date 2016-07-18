@@ -68,9 +68,6 @@ public class FragmentAboutMe extends BaseFragment implements View.OnClickListene
                 intent.setClass(activity, SettingActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.my_page_feedback_layout:
-                Toast.makeText(activity, "反 馈", Toast.LENGTH_SHORT).show();
-                break;
             case R.id.my_page_special_efficacy_layout:
                 Toast.makeText(activity, "特 效", Toast.LENGTH_SHORT).show();
                 intent.setClass(activity, SpecialEfficacyActivity.class);
@@ -85,6 +82,9 @@ public class FragmentAboutMe extends BaseFragment implements View.OnClickListene
                 Toast.makeText(activity, "好 友 动 态", Toast.LENGTH_SHORT).show();
                 intent.setClass(activity, TestActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.my_page_feedback_layout:
+                Toast.makeText(activity, "反 馈", Toast.LENGTH_SHORT).show();
                 break;
         }
 

@@ -15,7 +15,7 @@ import cn.jpush.android.api.JPushInterface;
 import example.mysmallexample.ui.activity.OpenJpushActivity;
 
 /**
- * 自定义接收器
+ * JPush自定义接收器
  * 
  * 如果不定义这个 Receiver，则：
  * 1) 默认用户会打开主界面

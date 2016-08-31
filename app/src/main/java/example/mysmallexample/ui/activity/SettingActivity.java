@@ -1,11 +1,13 @@
 package example.mysmallexample.ui.activity;
 
+import android.content.DialogInterface;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.telephony.TelephonyManager;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -135,6 +137,18 @@ public class SettingActivity extends BaseActivity implements CompoundButton.OnCh
                 Message message = new Message();
                 message.what = UPDATE_TEXT;
                 handler.sendMessage(message);
+
+                new AlertDialog.Builder(this)
+                        .setTitle("字体大小")
+                        .setIcon(R.drawable.ic_dialog_info2)
+                        .setSingleChoiceItems(new String[] { "小号", "中号","大号" }, 0,
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog,
+                                                        int which) {
+                                        dialog.dismiss();
+                                    }
+                                }).setNegativeButton("取消", null).show();
+
                 break;
         }
     }

@@ -18,6 +18,7 @@ import cn.jpush.android.api.PushBuilder;
 import example.mysmallexample.R;
 import example.mysmallexample.ui.EnumDemo;
 import example.mysmallexample.ui.EnumTypeDemo;
+import example.mysmallexample.ui.LoadJosnTask;
 import example.mysmallexample.ui.adapter.MainPagerAdapter;
 import example.mysmallexample.ui.adapter.MyViewPager;
 import example.mysmallexample.ui.fragment.BaseFragment;
@@ -104,6 +105,7 @@ public class MainActivity extends BaseActivity implements TestListener {
         Log.i(TAG, "storeFile:" + storeFile + "storePassword:" + storePassword + "keyAlias:" + keyAlias + "keyPassword:" + keyPassword);
 
 
+        new LoadJosnTask(this).execute("LoadJsonTask");
     }
 
     public static Properties loadConfig(String file) {

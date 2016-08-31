@@ -56,6 +56,7 @@
         <activity android:name=".ui.activity.SpecialEfficacyActivity" />
         <activity android:name=".ui.activity.DevicesInfoActivity" />
         <activity android:name=".ui.activity.TestActivity" />
+        <activity android:name=".ui.activity.DraftTestActivity"/>
 
         <!--自定义广播-->
         <receiver android:name=".servers.CommonReceiver">

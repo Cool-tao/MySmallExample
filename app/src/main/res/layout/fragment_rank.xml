@@ -106,6 +106,18 @@
                 android:textColor="@color/ssxinzi2"
                 android:textSize="16sp" />
 
+            <TextView
+                android:id="@+id/test_listview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/click_white_gray"
+                android:padding="15dp"
+                android:text="ListView"
+                android:textColor="@color/ssxinzi2"
+                android:textSize="16sp" />
+
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

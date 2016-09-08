@@ -73,6 +73,7 @@
 
     <color name="backColor">#2000</color>
 
-
+    <drawable name="file_list_item_press">#ff5b544d</drawable>
+    <drawable name="file_list_item_normal">#ff787470</drawable>
 
 </resources>

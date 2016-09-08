@@ -25,6 +25,7 @@ import java.util.Locale;
 import example.mysmallexample.R;
 import example.mysmallexample.model.ClassItem;
 import example.mysmallexample.ui.activity.DraftTestActivity;
+import example.mysmallexample.ui.activity.ListViewItemActivity;
 import example.mysmallexample.ui.activity.MyToastActivity;
 import example.mysmallexample.ui.activity.OtherActivity;
 import example.mysmallexample.ui.utils.GetUri;
@@ -44,6 +45,7 @@ public class FragmentRank extends BaseFragment implements View.OnClickListener {
     private XmlResourceParser xmlParser;
     private View test_draft;
     private View test_taost;
+    private View test_listview;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -64,6 +66,8 @@ public class FragmentRank extends BaseFragment implements View.OnClickListener {
         test_draft.setOnClickListener(this);
         test_taost = layout.findViewById(R.id.test_taost);
         test_taost.setOnClickListener(this);
+        test_listview = layout.findViewById(R.id.test_listview);
+        test_listview.setOnClickListener(this);
 
         mPullPersonPaseService = new XmlParsePerson();
         // 获取本地xml
@@ -125,6 +129,10 @@ public class FragmentRank extends BaseFragment implements View.OnClickListener {
         }
         if (v.getId() == R.id.test_taost) {
             Intent intent = new Intent(getContext(), MyToastActivity.class);
+            startActivity(intent);
+        }
+        if (v.getId() == R.id.test_listview) {
+            Intent intent = new Intent(getContext(), ListViewItemActivity.class);
             startActivity(intent);
         }
     }

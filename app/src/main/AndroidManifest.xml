@@ -58,6 +58,7 @@
         <activity android:name=".ui.activity.TestActivity" />
         <activity android:name=".ui.activity.DraftTestActivity"/>
         <activity android:name=".ui.activity.MyToastActivity"/>
+        <activity android:name=".ui.activity.ListViewItemActivity"/>
 
         <!--自定义广播-->
         <receiver android:name=".servers.CommonReceiver">

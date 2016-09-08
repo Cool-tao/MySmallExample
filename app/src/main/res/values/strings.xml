@@ -115,4 +115,13 @@
     <string name="other">其他</string>
     <string name="autoClearCachePrompt">退出应用后，自动清除所有缓存</string>
     <string name="autoClearCache">自动清除缓存</string>
+
+
+    <string name="toast_btn_1">默认的Toast显示</string>
+    <string name="toast_btn_2">自定义位置的Toast显示</string>
+    <string name="toast_btn_3">带图片的Toast显示</string>
+    <string name="toast_btn_4">完全自定义的Toast显示</string>
+    <string name="toast_btn_5">长时间的Toast显示</string>
+    <string name="toast_text_1">自定义Toast</string>
+    <string name="toast_text_2">这是自定义Toast,左边的是一幅很美的图片.</string>
 </resources>

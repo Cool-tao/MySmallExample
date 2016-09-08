@@ -24,6 +24,8 @@ import java.util.Locale;
 
 import example.mysmallexample.R;
 import example.mysmallexample.model.ClassItem;
+import example.mysmallexample.ui.activity.DraftTestActivity;
+import example.mysmallexample.ui.activity.MyToastActivity;
 import example.mysmallexample.ui.activity.OtherActivity;
 import example.mysmallexample.ui.utils.GetUri;
 import example.mysmallexample.ui.utils.Log;
@@ -40,6 +42,8 @@ public class FragmentRank extends BaseFragment implements View.OnClickListener {
     private TextView test_get_market;
     private XmlParsePerson mPullPersonPaseService;
     private XmlResourceParser xmlParser;
+    private View test_draft;
+    private View test_taost;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -56,7 +60,10 @@ public class FragmentRank extends BaseFragment implements View.OnClickListener {
         test_jar_tv.setOnClickListener(this);
         test_get_market = (TextView) layout.findViewById(R.id.test_get_market);
         test_get_market.setOnClickListener(this);
-
+        test_draft = layout.findViewById(R.id.test_draft);
+        test_draft.setOnClickListener(this);
+        test_taost = layout.findViewById(R.id.test_taost);
+        test_taost.setOnClickListener(this);
 
         mPullPersonPaseService = new XmlParsePerson();
         // 获取本地xml
@@ -94,7 +101,7 @@ public class FragmentRank extends BaseFragment implements View.OnClickListener {
                     ClassItem item = new ClassItem(person.getClassId(),
                             person.getClassName(), person.getPartId(),
                             person.getPartName(), person.getClassIcon());
-                    Log.i("FragmentRank","ClassItem:"+item.toString());
+                    Log.i("FragmentRank", "ClassItem:" + item.toString());
 
                 }
 
@@ -108,10 +115,17 @@ public class FragmentRank extends BaseFragment implements View.OnClickListener {
             GetUri gu = new GetUri();
             Intent i = gu.getIntent(getActivity());
             boolean b = gu.judge(getActivity(), i);
-            if(b==false)
-            {
+            if (b == false) {
                 startActivity(i);
             }
+        }
+        if (v.getId() == R.id.test_draft) {
+            Intent intent = new Intent(getContext(), DraftTestActivity.class);
+            startActivity(intent);
+        }
+        if (v.getId() == R.id.test_taost) {
+            Intent intent = new Intent(getContext(), MyToastActivity.class);
+            startActivity(intent);
         }
     }
 

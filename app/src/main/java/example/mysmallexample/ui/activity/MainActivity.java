@@ -4,6 +4,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.RemoteViews;
 import android.widget.TextView;
 
 import java.io.FileInputStream;
+import java.lang.reflect.Field;
 import java.util.Properties;
 
 import cn.jpush.android.api.JPushInterface;
@@ -24,8 +26,8 @@ import example.mysmallexample.ui.adapter.MyViewPager;
 import example.mysmallexample.ui.fragment.BaseFragment;
 import example.mysmallexample.ui.fragment.FragmentAboutMe;
 import example.mysmallexample.ui.fragment.FragmentFind;
-import example.mysmallexample.ui.fragment.FragmentRecommend;
 import example.mysmallexample.ui.fragment.FragmentRank;
+import example.mysmallexample.ui.fragment.FragmentRecommend;
 import example.mysmallexample.ui.listener.TestListener;
 import example.mysmallexample.ui.utils.Log;
 import example.mysmallexample.ui.utils.SPUtil;
@@ -106,6 +108,59 @@ public class MainActivity extends BaseActivity implements TestListener {
 
 
         new LoadJosnTask(this).execute("LoadJsonTask");
+
+
+        boolean isTrue = false;
+        String str = isTrue ? "1" : "2";
+
+        int top = getSysBarHeight();
+        Rect frame = new Rect();
+        getWindow().getDecorView().getWindowVisibleDisplayFrame(frame);
+        int statusBarHeight = frame.top;
+        Log.i("MainActivity", "statusBarHeight  1=" + statusBarHeight + ":" + top);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Rect frame = new Rect();
+        getWindow().getDecorView().getWindowVisibleDisplayFrame(frame);
+        int statusBarHeight = frame.top;
+        Log.i("MainActivity", "statusBarHeight  2=" + statusBarHeight);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Rect frame = new Rect();
+        getWindow().getDecorView().getWindowVisibleDisplayFrame(frame);
+        int statusBarHeight = frame.top;
+        Log.i("MainActivity", "statusBarHeight  2=" + statusBarHeight);
+    }
+
+    /**
+     * 状态栏高度
+     *
+     * @return
+     */
+    public int getSysBarHeight() {
+        Class<?> c = null;
+        Object obj = null;
+        Field field = null;
+        int x = 0;
+        int sbar = 0;
+        try {
+            c = Class.forName("com.android.internal.R$dimen");
+            obj = c.newInstance();
+            field = c.getField("status_bar_height");
+            x = Integer.parseInt(field.get(obj).toString());
+            sbar = getResources().getDimensionPixelSize(x);
+        } catch (Exception e1) {
+            Log.e("Jingle.du", "get status bar height fail");
+            e1.printStackTrace();
+        }
+        return sbar;
     }
 
     public static Properties loadConfig(String file) {

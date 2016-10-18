@@ -66,6 +66,26 @@ public class FragmentAboutMe extends BaseFragment implements View.OnClickListene
     }
 
     private void getAssetsImage() {
+
+        try {
+
+            AssetManager assetManager = getContext().getAssets();
+            InputStream is = assetManager.open("sample.txt");
+            int size = is.available();
+            Log.i("FragmentAboutMe", "LogUtils FragmentAboutMe：size=" + size);
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+
+            // Convert the buffer into a string.
+            String text = new String(buffer, "UTF-8");
+            Log.i("FragmentAboutMe", "LogUtils FragmentAboutMe：" + text);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
         //测试一:获取asset下图片资源
         try {
             AssetManager assetManager = getContext().getAssets();

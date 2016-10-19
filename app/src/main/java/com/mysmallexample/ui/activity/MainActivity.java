@@ -1,35 +1,40 @@
 package com.mysmallexample.ui.activity;
 
+import android.app.AlertDialog;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.RemoteViews;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.mysmallexample.ui.EnumDemo;
-import com.mysmallexample.ui.EnumTypeDemo;
-import com.mysmallexample.ui.LoadJosnTask;
-import com.mysmallexample.ui.adapter.MainPagerAdapter;
-import com.mysmallexample.ui.fragment.BaseFragment;
-import com.mysmallexample.ui.fragment.FragmentAboutMe;
-import com.mysmallexample.ui.fragment.FragmentFind;
-import com.mysmallexample.ui.listener.TestListener;
-import com.mysmallexample.ui.utils.Log;
 
 import java.io.FileInputStream;
+import java.lang.reflect.Field;
 import java.util.Properties;
 
 import cn.jpush.android.api.JPushInterface;
 import cn.jpush.android.api.PushBuilder;
 import example.mysmallexample.R;
-
+import com.mysmallexample.ui.EnumDemo;
+import com.mysmallexample.ui.EnumTypeDemo;
+import com.mysmallexample.ui.LoadJosnTask;
+import com.mysmallexample.ui.adapter.MainPagerAdapter;
 import com.mysmallexample.ui.adapter.MyViewPager;
-import com.mysmallexample.ui.fragment.FragmentRecommend;
+import com.mysmallexample.ui.fragment.BaseFragment;
+import com.mysmallexample.ui.fragment.FragmentAboutMe;
+import com.mysmallexample.ui.fragment.FragmentFind;
 import com.mysmallexample.ui.fragment.FragmentRank;
+import com.mysmallexample.ui.fragment.FragmentRecommend;
+import com.mysmallexample.ui.listener.TestListener;
+import com.mysmallexample.ui.utils.Log;
 import com.mysmallexample.ui.utils.SPUtil;
 
 public class MainActivity extends BaseActivity implements TestListener {
@@ -38,11 +43,12 @@ public class MainActivity extends BaseActivity implements TestListener {
     private MainPagerAdapter adapter;
     private TextView[] tv_menu;
     private BaseFragment[] fragments;
+    public static final int FLAG_HOMEKEY_DISPATCHED = 0x80000000; //屏蔽Home键，需要自己定义标志
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        this.getWindow().setFlags(FLAG_HOMEKEY_DISPATCHED, FLAG_HOMEKEY_DISPATCHED);//屏蔽Home键，关键代码
         /**
          * JPush获取Android6.0权限
          */
@@ -108,6 +114,105 @@ public class MainActivity extends BaseActivity implements TestListener {
 
 
         new LoadJosnTask(this).execute("LoadJsonTask");
+
+
+        boolean isTrue = false;
+        String str = isTrue ? "1" : "2";
+
+        int top = getSysBarHeight();
+        Rect frame = new Rect();
+        getWindow().getDecorView().getWindowVisibleDisplayFrame(frame);
+        int statusBarHeight = frame.top;
+        Log.i("MainActivity", "statusBarHeight  1=" + statusBarHeight + ":" + top);
+
+    }
+
+
+    protected void dialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setMessage("确定要退出吗?");
+        builder.setTitle("提示");
+        builder.setPositiveButton("确认",
+                new android.content.DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        MainActivity.this.finish();
+                    }
+                });
+        builder.setNegativeButton("取消",
+                new android.content.DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        builder.create().show();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        if (keyCode == KeyEvent.KEYCODE_BACK) { //监控/拦截/屏蔽返回键
+////            dialog();
+//            return true;
+//        } else
+        if (keyCode == KeyEvent.KEYCODE_MENU) {
+            Toast.makeText(MainActivity.this, "Menu", Toast.LENGTH_SHORT).show();
+            return false;
+        } else if (keyCode == KeyEvent.KEYCODE_HOME) {
+            //由于Home键为系统键，此处不能捕获，需要重写onAttachedToWindow()
+            Toast.makeText(MainActivity.this, "Home", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+
+//    // 拦截/屏蔽系统Home键
+//    public void onAttachedToWindow() {
+//        this.getWindow().setType(WindowManager.LayoutParams.TYPE_KEYGUARD);
+//        super.onAttachedToWindow();
+//    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Rect frame = new Rect();
+        getWindow().getDecorView().getWindowVisibleDisplayFrame(frame);
+        int statusBarHeight = frame.top;
+        Log.i("MainActivity", "statusBarHeight  2=" + statusBarHeight);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Rect frame = new Rect();
+        getWindow().getDecorView().getWindowVisibleDisplayFrame(frame);
+        int statusBarHeight = frame.top;
+        Log.i("MainActivity", "statusBarHeight  2=" + statusBarHeight);
+    }
+
+    /**
+     * 状态栏高度
+     *
+     * @return
+     */
+    public int getSysBarHeight() {
+        Class<?> c = null;
+        Object obj = null;
+        Field field = null;
+        int x = 0;
+        int sbar = 0;
+        try {
+            c = Class.forName("com.android.internal.R$dimen");
+            obj = c.newInstance();
+            field = c.getField("status_bar_height");
+            x = Integer.parseInt(field.get(obj).toString());
+            sbar = getResources().getDimensionPixelSize(x);
+        } catch (Exception e1) {
+            Log.e("Jingle.du", "get status bar height fail");
+            e1.printStackTrace();
+        }
+        return sbar;
     }
 
     public static Properties loadConfig(String file) {

@@ -11,8 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.mysmallexample.ui.adapter.PackageAdapter;
-import com.mysmallexample.ui.utils.Log;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import example.mysmallexample.R;
@@ -25,7 +25,7 @@ public class FragmentPackageTypeFirst extends BaseFragment {
 
     private RecyclerView recyclerView;
     private PackageAdapter adapter;
-    private List<String> list;
+    private List list;
 
     @Nullable
     @Override
@@ -35,13 +35,13 @@ public class FragmentPackageTypeFirst extends BaseFragment {
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(manager);
+        list=new ArrayList<>();
         PackageManager pm = getContext().getPackageManager();
         List<PackageInfo> packageInfos = pm.getInstalledPackages(PackageManager.GET_UNINSTALLED_PACKAGES);
         for (int i = 0; i < packageInfos.size(); i++) {
             PackageInfo packageInfo = packageInfos.get(i);
             String packageName = packageInfo.packageName;
-            Log.i("FragmentPackageTypeFirst", "LogUtils FragmentPackageTypeFirst：" + packageName);
-//            list.add(packageName);
+            list.add(packageName);
         }
         adapter = new PackageAdapter(getContext(), list);
         recyclerView.setAdapter(adapter);

@@ -35,9 +35,9 @@ public class PackageAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        list.get(position);
+        Object o = list.get(position);
         MyViewHolder myViewHolder = (MyViewHolder) holder;
-
+        myViewHolder.textView.setText(o.toString());
     }
 
     @Override

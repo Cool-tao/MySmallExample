@@ -270,6 +270,7 @@
                 style="@style/my_page_item_divider"
                 android:layout_alignParentBottom="true" />
         </RelativeLayout>
+
         <RelativeLayout
             android:id="@+id/my_page_special_efficacy_layout"
             style="@style/my_page_item_root">
@@ -298,10 +299,10 @@
                 style="@style/my_page_item_divider"
                 android:layout_alignParentBottom="true" />
         </RelativeLayout>
+
         <RelativeLayout
-            android:id="@+id/my_page_appstore_layout"
-            style="@style/my_page_item_root"
-            >
+            android:id="@+id/my_page_app_layout"
+            style="@style/my_page_item_root">
 
             <TextView
                 android:id="@+id/my_page_app_tv"

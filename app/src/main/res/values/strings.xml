@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">小Demo</string>
+    <string name="app_name">Demo</string>
 
     <!-- main menu -->
     <string name="main_menu0_text">首页</string>

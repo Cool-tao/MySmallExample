@@ -33,7 +33,7 @@ public class FragmentAboutMe extends BaseFragment implements View.OnClickListene
     private View my_page_special_efficacy_layout;
     private View my_page_activity_layout;
     private View my_friend_update_layout;
-    private View my_page_app_tv;
+    private View my_page_app_layout;
 
     private ImageView imageView;
 
@@ -66,8 +66,8 @@ public class FragmentAboutMe extends BaseFragment implements View.OnClickListene
         my_friend_update_layout = layout.findViewById(R.id.my_friend_update_layout);
         my_friend_update_layout.setOnClickListener(this);
         imageView = (ImageView) layout.findViewById(R.id.user_avatar_iv);
-        my_page_app_tv = layout.findViewById(R.id.my_page_app_tv);
-        my_page_app_tv.setOnClickListener(this);
+        my_page_app_layout = layout.findViewById(R.id.my_page_app_layout);
+        my_page_app_layout.setOnClickListener(this);
     }
 
     private void getAssetsImage() {
@@ -179,7 +179,7 @@ public class FragmentAboutMe extends BaseFragment implements View.OnClickListene
             case R.id.my_page_feedback_layout:
                 Toast.makeText(activity, "反 馈", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.my_page_app_tv:
+            case R.id.my_page_app_layout:
                 intent.setClass(activity, PackageActivity.class);
                 startActivity(intent);
                 Toast.makeText(activity, "应 用", Toast.LENGTH_SHORT).show();

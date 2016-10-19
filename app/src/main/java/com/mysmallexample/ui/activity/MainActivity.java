@@ -13,7 +13,6 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.RemoteViews;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.mysmallexample.ui.EnumDemo;
 import com.mysmallexample.ui.EnumTypeDemo;
@@ -26,6 +25,7 @@ import com.mysmallexample.ui.fragment.FragmentFind;
 import com.mysmallexample.ui.fragment.FragmentRank;
 import com.mysmallexample.ui.fragment.FragmentRecommend;
 import com.mysmallexample.ui.listener.TestListener;
+import com.mysmallexample.ui.utils.DeviceUtil;
 import com.mysmallexample.ui.utils.Log;
 import com.mysmallexample.ui.utils.SPUtil;
 
@@ -43,12 +43,12 @@ public class MainActivity extends BaseActivity implements TestListener {
     private MainPagerAdapter adapter;
     private TextView[] tv_menu;
     private BaseFragment[] fragments;
-    public static final int FLAG_HOMEKEY_DISPATCHED = 0x80000000; //屏蔽Home键，需要自己定义标志
+//    public static final int FLAG_HOMEKEY_DISPATCHED = 0x80000000; //屏蔽Home键，需要自己定义标志
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.getWindow().setFlags(FLAG_HOMEKEY_DISPATCHED, FLAG_HOMEKEY_DISPATCHED);//屏蔽Home键，关键代码
+//        this.getWindow().setFlags(FLAG_HOMEKEY_DISPATCHED, FLAG_HOMEKEY_DISPATCHED);//屏蔽Home键，关键代码
         /**
          * JPush获取Android6.0权限
          */
@@ -125,6 +125,18 @@ public class MainActivity extends BaseActivity implements TestListener {
         int statusBarHeight = frame.top;
         Log.i("MainActivity", "statusBarHeight  1=" + statusBarHeight + ":" + top);
 
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(5 * 10 * 1000);
+                    Log.i("MainActivity", "LogUtils MainActivity：" + DeviceUtil.isApplicationBroughtToBackground(MainActivity.this));
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+
     }
 
 
@@ -154,14 +166,14 @@ public class MainActivity extends BaseActivity implements TestListener {
 ////            dialog();
 //            return true;
 //        } else
-        if (keyCode == KeyEvent.KEYCODE_MENU) {
-            Toast.makeText(MainActivity.this, "Menu", Toast.LENGTH_SHORT).show();
-            return false;
-        } else if (keyCode == KeyEvent.KEYCODE_HOME) {
-            //由于Home键为系统键，此处不能捕获，需要重写onAttachedToWindow()
-            Toast.makeText(MainActivity.this, "Home", Toast.LENGTH_SHORT).show();
-            return false;
-        }
+//        if (keyCode == KeyEvent.KEYCODE_MENU) {
+//            Toast.makeText(MainActivity.this, "Menu", Toast.LENGTH_SHORT).show();
+//            return false;
+//        } else if (keyCode == KeyEvent.KEYCODE_HOME) {
+//            //由于Home键为系统键，此处不能捕获，需要重写onAttachedToWindow()
+//            Toast.makeText(MainActivity.this, "Home", Toast.LENGTH_SHORT).show();
+//            return false;
+//        }
         return super.onKeyDown(keyCode, event);
     }
 

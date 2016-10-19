@@ -19,6 +19,14 @@ public class Const {
     public static boolean loadImage = true;
     public static long mode = 100L;
 
+    public static void toggleMode() {
+        if (isSaveMode()) {
+            setBestMode();
+        } else {
+            setSaveMode();
+        }
+    }
+
     public static boolean isSaveMode() {
         if (mode > 10) {
             mode = SPUtil.getGlobal(PAGE_MODE, BEST_MODE);

@@ -12,7 +12,12 @@ import android.telephony.TelephonyManager;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.mysmallexample.customview.switchbutton.SwitchButton;
+import com.mysmallexample.ui.listener.TestListener;
+import com.mysmallexample.ui.utils.Const;
+import com.mysmallexample.ui.utils.LocationUtils;
 import com.mysmallexample.ui.utils.Log;
 import com.mysmallexample.ui.utils.PropertiesUtils;
 
@@ -20,9 +25,6 @@ import java.util.Properties;
 
 import cn.jpush.android.api.JPushInterface;
 import example.mysmallexample.R;
-import com.mysmallexample.customview.switchbutton.SwitchButton;
-import com.mysmallexample.ui.listener.TestListener;
-import com.mysmallexample.ui.utils.LocationUtils;
 
 /**
  * Created by taoshuang on 2016/6/1.
@@ -37,6 +39,7 @@ public class SettingActivity extends BaseActivity implements CompoundButton.OnCh
     private View setting_font_size;
     private TextView font_size;
     private TestListener testListener;
+    private SwitchButton net_switcher;
 
     private void setMyOnClick(TestListener testListener) {
         this.testListener = testListener;
@@ -104,6 +107,11 @@ public class SettingActivity extends BaseActivity implements CompoundButton.OnCh
         font_size = (TextView) findViewById(R.id.font_size);
         font_size.setText("Handler测试");
 
+        net_switcher= (SwitchButton) findViewById(R.id.net_switcher);
+net_switcher.setOnCheckedChangeListener(this);
+
+
+
     }
 
     @Override
@@ -112,9 +120,26 @@ public class SettingActivity extends BaseActivity implements CompoundButton.OnCh
             case R.id.notify_switcher:
                 pushSwitch(isChecked);
                 break;
+            case R.id.net_switcher:
+                //TODO 省流量模式
+                Const.toggleMode();
+                checkMode();
+                if (Const.isSaveMode()) {
+                    Toast.makeText(this,""+R.string.switch_normal,Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this,""+R.string.switch_save_flow,Toast.LENGTH_SHORT).show();
+                }
+                break;
         }
     }
 
+    private void checkMode() {
+        if (Const.isSaveMode()) {
+            Toast.makeText(this,""+R.string.page_best_mode,Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this,""+R.string.page_save_mode,Toast.LENGTH_SHORT).show();
+        }
+    }
     private void pushSwitch(boolean isChecked) {
 //		保存推送开关状态
         spu.setOffTuiSong(isChecked);

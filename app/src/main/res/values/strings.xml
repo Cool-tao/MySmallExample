@@ -41,8 +41,8 @@
     <string name="install_tips">喜欢吗？直接安装吧！ </string>
 
     <string name="error_delete">新闻已删除</string>
-    <string name="page_save_mode">省流量模式</string>
-    <string name="page_best_mode">高清模式</string>
+    <string name="page_save_mode">转至省流量模式</string>
+    <string name="page_best_mode">转高清模式</string>
 
     <string name="toast_press_again_to_exit">再次点击退出</string>
 

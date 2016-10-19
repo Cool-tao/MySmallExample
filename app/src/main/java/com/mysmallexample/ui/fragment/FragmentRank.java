@@ -7,6 +7,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.XmlResourceParser;
 import android.media.RingtoneManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
@@ -19,17 +21,21 @@ import android.widget.Toast;
 
 import com.cool.makejarlib.utils.string.DateUtils;
 import com.mysmallexample.model.ClassItem;
+import com.mysmallexample.model.NetworkEvent;
 import com.mysmallexample.ui.activity.DraftTestActivity;
 import com.mysmallexample.ui.activity.ListViewItemActivity;
 import com.mysmallexample.ui.activity.MyToastActivity;
 import com.mysmallexample.ui.activity.OtherActivity;
+import com.mysmallexample.ui.utils.Const;
 import com.mysmallexample.ui.utils.GetUri;
 import com.mysmallexample.ui.utils.Log;
+import com.mysmallexample.ui.utils.SPUtil;
 import com.mysmallexample.ui.utils.XmlParsePerson;
 
 import java.util.List;
 import java.util.Locale;
 
+import de.greenrobot.event.EventBus;
 import example.mysmallexample.R;
 
 @SuppressLint("ValidFragment")
@@ -46,10 +52,22 @@ public class FragmentRank extends BaseFragment implements View.OnClickListener {
     private View test_draft;
     private View test_taost;
     private View test_listview;
+    private TextView test_net;
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        if (isVisible != isVisibleToUser) {
+            if (isVisibleToUser) {
+                checkMode();
+            }
+        }
+        super.setUserVisibleHint(isVisibleToUser);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        EventBus.getDefault().register(this);
         View layout = inflater.inflate(R.layout.fragment_rank, null);
         editText = (EditText) layout.findViewById(R.id.edit);
         top_layout = layout.findViewById(R.id.top_layout);
@@ -68,11 +86,12 @@ public class FragmentRank extends BaseFragment implements View.OnClickListener {
         test_taost.setOnClickListener(this);
         test_listview = layout.findViewById(R.id.test_listview);
         test_listview.setOnClickListener(this);
-
+        test_net = (TextView) layout.findViewById(R.id.test_net);
+        test_net.setOnClickListener(this);
         mPullPersonPaseService = new XmlParsePerson();
         // 获取本地xml
         xmlParser = this.getResources().getXml(R.xml.person);
-
+        checkMode();
         return layout;
     }
 
@@ -134,6 +153,41 @@ public class FragmentRank extends BaseFragment implements View.OnClickListener {
         if (v.getId() == R.id.test_listview) {
             Intent intent = new Intent(getContext(), ListViewItemActivity.class);
             startActivity(intent);
+        }
+        if (v.getId() == R.id.test_net) {
+            Const.toggleMode();
+            checkMode();
+            if (Const.isSaveMode()) {
+                Toast.makeText(getContext(), "" + getString(R.string.switch_normal), Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getContext(), "" + getString(R.string.switch_save_flow), Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    private void checkMode() {
+        if (Const.isSaveMode()) {
+            test_net.setText(R.string.page_best_mode);
+            Toast.makeText(getContext(), "" + getString(R.string.page_best_mode), Toast.LENGTH_SHORT).show();
+        } else {
+            test_net.setText(R.string.page_save_mode);
+            Toast.makeText(getContext(), "" + getString(R.string.page_save_mode), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
+
+    public void onEventMainThread(NetworkEvent event) {
+        if (isAdded()) {
+            NetworkInfo networkInfo = SPUtil.getNetworkInfo(getActivity());
+            if (networkInfo != null && networkInfo.getType() == ConnectivityManager.TYPE_WIFI) {
+                Const.setBestMode();
+                checkMode();
+            }
         }
     }
 

@@ -181,6 +181,25 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/net"
+                        style="@style/item_setting_middle">
+
+                        <TextView
+                            android:id="@+id/net_text"
+                            style="@style/setting_item_text"
+                            android:text="@string/setting_notify" />
+
+                        <View
+                            android:layout_width="0.0dip"
+                            android:layout_height="1.0dip"
+                            android:layout_weight="1.0" />
+
+                        <com.mysmallexample.customview.switchbutton.SwitchButton
+                            android:id="@+id/net_switcher"
+                            style="@style/MaterialDesignStyle" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:id="@+id/clear"
                         style="@style/item_setting_bottom">
 

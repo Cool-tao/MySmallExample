@@ -40,12 +40,12 @@ public class FragmentPackage extends BaseFragment {
         viewPager.setAdapter(adapter);
         viewPager.setCurrentItem(crrentIndex);
         viewPager.addOnPageChangeListener(new MyOnPageChangeListener());
+        //预加载数
         viewPager.setOffscreenPageLimit(adapter.getCount());
+        viewPager.setCurrentItem(0);
         for (int i = 0; i < tv_menu.length; i++) {
             tv_menu[i].setOnClickListener(new MyOnClickListener(i));
         }
-
-
         return view;
     }
 

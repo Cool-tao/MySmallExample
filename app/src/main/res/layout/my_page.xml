@@ -301,10 +301,10 @@
         <RelativeLayout
             android:id="@+id/my_page_appstore_layout"
             style="@style/my_page_item_root"
-            android:visibility="gone">
+            >
 
             <TextView
-                android:id="@+id/my_page_appstore_tv"
+                android:id="@+id/my_page_app_tv"
                 style="@style/my_page_item_tv"
                 android:text="@string/mine_item_appstore" />
 

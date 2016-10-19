@@ -14,16 +14,16 @@ public class PackageActivity extends BaseActivity {
     public static final String TAG = "PackageActivity";
 
     private FragmentPackage fragmentPackage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_package);
-        fragmentPackage=new FragmentPackage();
+        fragmentPackage = new FragmentPackage();
 
-        FragmentTransaction transaction=fm.beginTransaction();
-        transaction.replace(R.id.root_layout,fragmentPackage);
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.replace(R.id.root_layout, fragmentPackage);
         transaction.commit();
-
 
 
     }

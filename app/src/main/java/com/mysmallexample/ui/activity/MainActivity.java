@@ -15,14 +15,6 @@ import android.widget.RemoteViews;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
-import java.io.FileInputStream;
-import java.lang.reflect.Field;
-import java.util.Properties;
-
-import cn.jpush.android.api.JPushInterface;
-import cn.jpush.android.api.PushBuilder;
-import example.mysmallexample.R;
 import com.mysmallexample.ui.EnumDemo;
 import com.mysmallexample.ui.EnumTypeDemo;
 import com.mysmallexample.ui.LoadJosnTask;
@@ -36,6 +28,14 @@ import com.mysmallexample.ui.fragment.FragmentRecommend;
 import com.mysmallexample.ui.listener.TestListener;
 import com.mysmallexample.ui.utils.Log;
 import com.mysmallexample.ui.utils.SPUtil;
+
+import java.io.FileInputStream;
+import java.lang.reflect.Field;
+import java.util.Properties;
+
+import cn.jpush.android.api.JPushInterface;
+import cn.jpush.android.api.PushBuilder;
+import example.mysmallexample.R;
 
 public class MainActivity extends BaseActivity implements TestListener {
 

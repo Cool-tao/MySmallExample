@@ -126,7 +126,7 @@
                     android:textColor="#ff999999"
                     android:textSize="10.0sp" />
             </LinearLayout>
-            <example.mysmallexample.customview.switchbutton.SwitchButton
+            <com.mysmallexample.customview.switchbutton.SwitchButton
                 android:id="@+id/autoClearCacheCB"
                 style="@style/settingCheckbox" />
         </RelativeLayout>

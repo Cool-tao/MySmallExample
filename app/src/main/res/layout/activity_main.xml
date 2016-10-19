@@ -44,7 +44,7 @@
             android:text="@string/main_menu3_text" />
     </LinearLayout>
 
-    <example.mysmallexample.ui.adapter.MyViewPager
+    <com.mysmallexample.ui.adapter.MyViewPager
         android:id="@+id/main_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

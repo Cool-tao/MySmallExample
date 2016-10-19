@@ -5,7 +5,7 @@
     android:background="#D43D3D"
     android:orientation="vertical">
 
-    <example.mysmallexample.customview.ViewPagerIndicator
+    <com.mysmallexample.customview.ViewPagerIndicator
         android:id="@+id/id_indicator"
         android:layout_width="match_parent"
         android:layout_height="45dp"
@@ -76,7 +76,7 @@
             android:text="推荐7"
             android:textColor="#CCFFFFFF"
             android:textSize="16sp" />
-    </example.mysmallexample.customview.ViewPagerIndicator>
+    </com.mysmallexample.customview.ViewPagerIndicator>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/id_vp"

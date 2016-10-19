@@ -46,7 +46,7 @@
                             android:layout_height="1.0dip"
                             android:layout_weight="1.0" />
 
-                        <example.mysmallexample.customview.switchbutton.SwitchButton
+                        <com.mysmallexample.customview.switchbutton.SwitchButton
                             android:id="@+id/list_mode_switcher"
                             style="@style/MaterialDesignStyle" />
                     </LinearLayout>
@@ -65,7 +65,7 @@
                             android:layout_height="1.0dip"
                             android:layout_weight="1.0" />
 
-                        <example.mysmallexample.customview.switchbutton.SwitchButton
+                        <com.mysmallexample.customview.switchbutton.SwitchButton
                             android:id="@+id/refresh_button_switcher"
                             style="@style/MaterialDesignStyle" />
                     </LinearLayout>
@@ -85,7 +85,7 @@
                             android:layout_height="1.0dip"
                             android:layout_weight="1.0" />
 
-                        <example.mysmallexample.customview.switchbutton.SwitchButton
+                        <com.mysmallexample.customview.switchbutton.SwitchButton
                             android:id="@+id/night_mode_switcher"
                             style="@style/MaterialDesignStyle" />
                     </LinearLayout>
@@ -227,7 +227,7 @@
                             android:layout_height="1.0dip"
                             android:layout_weight="1.0" />
 
-                        <example.mysmallexample.customview.switchbutton.SwitchButton
+                        <com.mysmallexample.customview.switchbutton.SwitchButton
                             android:id="@+id/notify_switcher"
                             style="@style/MaterialDesignStyle" />
                     </LinearLayout>
@@ -246,7 +246,7 @@
                             android:layout_height="1.0dip"
                             android:layout_weight="1.0" />
 
-                        <example.mysmallexample.customview.switchbutton.SwitchButton
+                        <com.mysmallexample.customview.switchbutton.SwitchButton
                             android:id="@+id/interactive_switcher"
                             style="@style/MaterialDesignStyle"/>
                     </LinearLayout>
@@ -266,7 +266,7 @@
                             android:layout_height="1.0dip"
                             android:layout_weight="1.0" />
 
-                        <example.mysmallexample.customview.switchbutton.SwitchButton
+                        <com.mysmallexample.customview.switchbutton.SwitchButton
                             android:id="@+id/use_info_structure_switcher"
                             style="@style/MaterialDesignStyle"/>
                     </LinearLayout>
@@ -286,7 +286,7 @@
                             android:layout_height="1.0dip"
                             android:layout_weight="1.0" />
 
-                        <example.mysmallexample.customview.switchbutton.SwitchButton
+                        <com.mysmallexample.customview.switchbutton.SwitchButton
                             android:id="@+id/use_ugc_switcher"
                             style="@style/MaterialDesignStyle" />
                     </LinearLayout>
@@ -305,7 +305,7 @@
                             android:layout_height="1.0dip"
                             android:layout_weight="1.0" />
 
-                        <example.mysmallexample.customview.switchbutton.SwitchButton
+                        <com.mysmallexample.customview.switchbutton.SwitchButton
                             android:id="@+id/permanent_notify_switcher"
                             style="@style/MaterialDesignStyle"/>
                     </LinearLayout>
@@ -324,7 +324,7 @@
                             android:layout_height="1.0dip"
                             android:layout_weight="1.0" />
 
-                        <example.mysmallexample.customview.switchbutton.SwitchButton
+                        <com.mysmallexample.customview.switchbutton.SwitchButton
                             android:id="@+id/share_when_favor_switcher"
                             style="@style/MaterialDesignStyle" />
                     </LinearLayout>
@@ -362,7 +362,7 @@
                             android:layout_height="1.0dip"
                             android:layout_weight="1.0" />
 
-                        <example.mysmallexample.customview.switchbutton.SwitchButton
+                        <com.mysmallexample.customview.switchbutton.SwitchButton
                             android:id="@+id/mini_video_switcher"
                             style="@style/MaterialDesignStyle" />
                     </LinearLayout>
@@ -466,7 +466,7 @@
                             android:layout_height="1.0dip"
                             android:layout_weight="1.0" />
 
-                        <example.mysmallexample.customview.switchbutton.SwitchButton
+                        <com.mysmallexample.customview.switchbutton.SwitchButton
                             android:id="@+id/switch_domain_switcher"
                             style="@style/MaterialDesignStyle"/>
                     </LinearLayout>
@@ -554,7 +554,7 @@
                             android:layout_height="1.0dip"
                             android:layout_weight="1.0" />
 
-                        <example.mysmallexample.customview.switchbutton.SwitchButton
+                        <com.mysmallexample.customview.switchbutton.SwitchButton
                             android:id="@+id/monitor_switcher"
                             style="@style/MaterialDesignStyle"/>
                     </LinearLayout>
@@ -573,7 +573,7 @@
                             android:layout_height="1.0dip"
                             android:layout_weight="1.0" />
 
-                        <example.mysmallexample.customview.switchbutton.SwitchButton
+                        <com.mysmallexample.customview.switchbutton.SwitchButton
                             android:id="@+id/concern_topic_switcher"
                             style="@style/MaterialDesignStyle"/>
                     </LinearLayout>
@@ -596,7 +596,7 @@
                                 android:layout_height="1.0dip"
                                 android:layout_weight="1.0" />
 
-                            <example.mysmallexample.customview.switchbutton.SwitchButton
+                            <com.mysmallexample.customview.switchbutton.SwitchButton
                                 android:id="@+id/test_environment_switcher"
                                 style="@style/MaterialDesignStyle"/>
                         </LinearLayout>

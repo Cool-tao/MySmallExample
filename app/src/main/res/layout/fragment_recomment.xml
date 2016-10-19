@@ -49,7 +49,7 @@
         android:textColor="@color/white"
         android:textSize="16sp" />
 
-    <example.mysmallexample.customview.TimeTextView
+    <com.mysmallexample.customview.TimeTextView
         android:id="@+id/temai_timeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
         android:textColor="@android:color/black"
         android:textSize="18sp" />
 
-    <example.mysmallexample.customview.TimeDownView
+    <com.mysmallexample.customview.TimeDownView
         android:id="@+id/timedownview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

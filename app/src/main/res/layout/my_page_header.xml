@@ -27,7 +27,7 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <example.mysmallexample.customview.CircleImageView
+        <com.mysmallexample.customview.CircleImageView
             android:id="@+id/user_avatar_iv"
             android:layout_width="@dimen/my_page_max_avatar_size"
             android:layout_height="@dimen/my_page_max_avatar_size"

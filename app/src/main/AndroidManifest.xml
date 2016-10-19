@@ -37,31 +37,32 @@
     <!--获取MAC和IMEI值权限-->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <application
-        android:name=".ui.App"
+        android:name="com.mysmallexample.ui.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.MainActivity">
+        <activity android:name="com.mysmallexample.ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.OtherActivity" />
-        <activity android:name=".ui.activity.OpenJpushActivity" />
-        <activity android:name=".ui.activity.SettingActivity" />
-        <activity android:name=".ui.activity.SpecialEfficacyActivity" />
-        <activity android:name=".ui.activity.DevicesInfoActivity" />
-        <activity android:name=".ui.activity.TestActivity" />
-        <activity android:name=".ui.activity.DraftTestActivity"/>
-        <activity android:name=".ui.activity.MyToastActivity"/>
-        <activity android:name=".ui.activity.ListViewItemActivity"/>
+        <activity android:name="com.mysmallexample.ui.activity.OtherActivity" />
+        <activity android:name="com.mysmallexample.ui.activity.OpenJpushActivity" />
+        <activity android:name="com.mysmallexample.ui.activity.SettingActivity" />
+        <activity android:name="com.mysmallexample.ui.activity.SpecialEfficacyActivity" />
+        <activity android:name="com.mysmallexample.ui.activity.DevicesInfoActivity" />
+        <activity android:name="com.mysmallexample.ui.activity.TestActivity" />
+        <activity android:name="com.mysmallexample.ui.activity.DraftTestActivity"/>
+        <activity android:name="com.mysmallexample.ui.activity.MyToastActivity"/>
+        <activity android:name="com.mysmallexample.ui.activity.ListViewItemActivity"/>
+        <activity android:name="com.mysmallexample.ui.activity.PackageActivity"/>
 
         <!--自定义广播-->
-        <receiver android:name=".servers.CommonReceiver">
+        <receiver android:name="com.mysmallexample.servers.CommonReceiver">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -69,7 +70,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".servers.MyBroadcastReceiver">
+        <receiver android:name="com.mysmallexample.servers.MyBroadcastReceiver">
             <intent-filter>
                 <action android:name="com.example.RepeatAlarm" />
                 <action android:name="com.example.Alarm" />
@@ -152,7 +153,7 @@
 
         <!-- User defined. 用户自定义的广播接收器-->
         <receiver
-            android:name=".servers.MyReceiver"
+            android:name="com.mysmallexample.servers.MyReceiver"
             android:enabled="true">
             <intent-filter>
                 <action android:name="cn.jpush.android.intent.REGISTRATION" /> <!--Required 用户注册SDK的intent-->

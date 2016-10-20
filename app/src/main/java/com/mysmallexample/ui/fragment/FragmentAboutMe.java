@@ -20,7 +20,10 @@ import com.mysmallexample.ui.activity.SpecialEfficacyActivity;
 import com.mysmallexample.ui.activity.TestActivity;
 import com.mysmallexample.ui.utils.Log;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 
 import example.mysmallexample.R;
 
@@ -48,7 +51,9 @@ public class FragmentAboutMe extends BaseFragment implements View.OnClickListene
                              Bundle savedInstanceState) {
         View layout = inflater.inflate(R.layout.my_page, null);
         initViews(layout);
-        getAssetsImage();
+//        getAssetsImage();
+        Log.i("FragmentAboutMe", "LogUtils FragmentAboutMe：" + getFromAssets(2, "sample.txt"));
+
         return layout;
     }
 
@@ -70,26 +75,39 @@ public class FragmentAboutMe extends BaseFragment implements View.OnClickListene
         my_page_app_layout.setOnClickListener(this);
     }
 
-    private void getAssetsImage() {
-
-        try {
-
-            AssetManager assetManager = getContext().getAssets();
-            InputStream is = assetManager.open("sample.txt");
-            int size = is.available();
-            Log.i("FragmentAboutMe", "LogUtils FragmentAboutMe：size=" + size);
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-
-            // Convert the buffer into a string.
-            String text = new String(buffer, "UTF-8");
-            Log.i("FragmentAboutMe", "LogUtils FragmentAboutMe：" + text);
-
-        } catch (Exception e) {
-            e.printStackTrace();
+    public String getFromAssets(int type, String name) {
+        String result = "";
+        if (type == 1) {
+            try {
+                AssetManager assetManager = getContext().getAssets();
+                InputStream in = assetManager.open(name);
+                //获取文件字节数
+                int lenght = in.available();
+                byte[] buffer = new byte[lenght];
+                //将文件中的数据读到byte数组中
+                in.read(buffer);
+                in.close();
+                result = new String(buffer, "UTF-8");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else if (type == 2) {
+            try {
+                InputStreamReader inputReader = new InputStreamReader(getResources().getAssets().open(name));
+                BufferedReader bufReader = new BufferedReader(inputReader);
+                String line = "";
+                String Result = "";
+                while ((line = bufReader.readLine()) != null)
+                    Result += line;
+                return Result;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
+        return result;
+    }
 
+    private void getAssetsImage() {
 
         //测试一:获取asset下图片资源
         try {

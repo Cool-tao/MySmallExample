@@ -158,9 +158,11 @@ public class FragmentRank extends BaseFragment implements View.OnClickListener {
             Const.toggleMode();
             checkMode();
             if (Const.isSaveMode()) {
-                Toast.makeText(getContext(), "" + getString(R.string.switch_normal), Toast.LENGTH_SHORT).show();
+                Log.i("FragmentRank","LogUtils FragmentRank："+getString(R.string.switch_normal) );
+//                Toast.makeText(getContext(), "" + getString(R.string.switch_normal), Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(getContext(), "" + getString(R.string.switch_save_flow), Toast.LENGTH_SHORT).show();
+                Log.i("FragmentRank","LogUtils FragmentRank："+ getString(R.string.switch_save_flow));
+//                Toast.makeText(getContext(), "" + getString(R.string.switch_save_flow), Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -168,10 +170,10 @@ public class FragmentRank extends BaseFragment implements View.OnClickListener {
     private void checkMode() {
         if (Const.isSaveMode()) {
             test_net.setText(R.string.page_best_mode);
-            Toast.makeText(getContext(), "" + getString(R.string.page_best_mode), Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getContext(), "" + getString(R.string.page_best_mode), Toast.LENGTH_SHORT).show();
         } else {
             test_net.setText(R.string.page_save_mode);
-            Toast.makeText(getContext(), "" + getString(R.string.page_save_mode), Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getContext(), "" + getString(R.string.page_save_mode), Toast.LENGTH_SHORT).show();
         }
     }
 

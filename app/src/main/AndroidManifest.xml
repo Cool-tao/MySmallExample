@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="example.mysmallexample">
+
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <!--JPush权限设置 start-->
@@ -8,7 +9,7 @@
     <permission
         android:name="${applicationId}.permission.JPUSH_MESSAGE"
         android:protectionLevel="signature" />
-    <uses-permission android:name = "android.permission.DISABLE_KEYGUARD"/><!-- 屏蔽HOME键需要的权限 -->
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" /><!-- 屏蔽HOME键需要的权限 -->
     <!-- Required 一些系统要求的权限，如访问网络等-->
     <uses-permission android:name="${applicationId}.permission.JPUSH_MESSAGE" />
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
@@ -36,6 +37,10 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <!--获取MAC和IMEI值权限-->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!--查看应用是否在后台-->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
     <application
         android:name="com.mysmallexample.ui.App"
         android:allowBackup="true"
@@ -56,10 +61,10 @@
         <activity android:name="com.mysmallexample.ui.activity.SpecialEfficacyActivity" />
         <activity android:name="com.mysmallexample.ui.activity.DevicesInfoActivity" />
         <activity android:name="com.mysmallexample.ui.activity.TestActivity" />
-        <activity android:name="com.mysmallexample.ui.activity.DraftTestActivity"/>
-        <activity android:name="com.mysmallexample.ui.activity.MyToastActivity"/>
-        <activity android:name="com.mysmallexample.ui.activity.ListViewItemActivity"/>
-        <activity android:name="com.mysmallexample.ui.activity.PackageActivity"/>
+        <activity android:name="com.mysmallexample.ui.activity.DraftTestActivity" />
+        <activity android:name="com.mysmallexample.ui.activity.MyToastActivity" />
+        <activity android:name="com.mysmallexample.ui.activity.ListViewItemActivity" />
+        <activity android:name="com.mysmallexample.ui.activity.PackageActivity" />
 
         <!--自定义广播-->
         <receiver android:name="com.mysmallexample.servers.CommonReceiver">

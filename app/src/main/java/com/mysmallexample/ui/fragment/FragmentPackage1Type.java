@@ -31,6 +31,7 @@ import com.mysmallexample.ui.utils.Log;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -107,6 +108,9 @@ public class FragmentPackage1Type extends BaseFragment implements View.OnClickLi
         Intent intent = new Intent(Intent.ACTION_MAIN, null);
         intent.addCategory(Intent.CATEGORY_LAUNCHER);
         List<ResolveInfo> resolveInfos = pm.queryIntentActivities(intent, 0);
+        // 调用系统排序 ， 根据name排序
+        // 该排序很重要，否则只能显示系统应用，而不能列出第三方应用程序
+        Collections.sort(resolveInfos, new ResolveInfo.DisplayNameComparator(pm));
         if (resolveInfos != null && resolveInfos.size() > 0) {
             for (int i = 0; i < resolveInfos.size(); i++) {
                 ResolveInfo resolveInfo = resolveInfos.get(i);

@@ -4,8 +4,6 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
@@ -31,8 +29,6 @@ import com.mysmallexample.ui.utils.SPUtil;
 
 import java.io.FileInputStream;
 import java.lang.reflect.Field;
-import java.util.Collections;
-import java.util.List;
 import java.util.Properties;
 
 import cn.jpush.android.api.JPushInterface;
@@ -140,23 +136,30 @@ public class MainActivity extends BaseActivity implements TestListener {
         }).start();
 
 
-        PackageManager packageManager = getPackageManager();
-        List<ApplicationInfo> installedApplications = packageManager.getInstalledApplications(PackageManager.GET_UNINSTALLED_PACKAGES);
-        Collections.sort(installedApplications,new ApplicationInfo.
-                DisplayNameComparator(packageManager));
-        for (int i = 0; i < installedApplications.size(); i++) {
-            ApplicationInfo applicationInfo = installedApplications.get(i);
-            CharSequence charSequence = applicationInfo.loadLabel(packageManager);
-            Log.i("MainActivity", "LogUtils MainActivity appName:" + charSequence.toString() + ", flags：" + applicationInfo.flags);
-            if ((applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) > 0) {
-                //是系统
-
-            } else {
-                //不是系统
-            }
-        }
+//        PackageManager packageManager = getPackageManager();
+//        List<ApplicationInfo> installedApplications = packageManager.getInstalledApplications(PackageManager.GET_UNINSTALLED_PACKAGES);
+//        Collections.sort(installedApplications, new ApplicationInfo.
+//                DisplayNameComparator(packageManager));
+//        for (int i = 0; i < installedApplications.size(); i++) {
+//            ApplicationInfo applicationInfo = installedApplications.get(i);
+//            CharSequence charSequence = applicationInfo.loadLabel(packageManager);
+//            Log.i("MainActivity", "LogUtils MainActivity appName:" + charSequence.toString() + ", flags：" + applicationInfo.flags);
+//            if ((applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) > 0) {
+//                //是系统
+//
+//            } else {
+//                //不是系统
+//            }
+//        }
     }
 
+    /**
+     * 按键监听
+     *
+     * @param keyCode
+     * @param event
+     * @return
+     */
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 //        if (keyCode == KeyEvent.KEYCODE_BACK) { //监控/拦截/屏蔽返回键

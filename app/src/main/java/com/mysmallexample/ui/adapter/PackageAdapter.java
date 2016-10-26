@@ -22,23 +22,31 @@ public class PackageAdapter extends RecyclerView.Adapter {
     public static final String TAG = "PackageAdapter";
     private Context context;
     private List list;
+    private View.OnClickListener onClickListener;
+    private View.OnLongClickListener longClickListener;
 
 
-    public PackageAdapter(Context context, List list) {
+    public PackageAdapter(Context context, List list, View.OnClickListener onClickListener) {
         this.context = context;
         this.list = list;
+        this.onClickListener = onClickListener;
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewype) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_package_layout, parent, false);
         MyViewHolder myViewHolder = new MyViewHolder(view);
+//        view.setTag(1);
+        view.setOnClickListener(onClickListener);
         return myViewHolder;
     }
+
+    public static final int itemViewId = 0000;
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         Map map = (Map) list.get(position);
+        map.put("position" + position, position);
         String appName = (String) map.get("appName" + position);
         String packageName = (String) map.get("packageName" + position);
         int versionCode = (int) map.get("versionCode" + position);
@@ -48,6 +56,12 @@ public class PackageAdapter extends RecyclerView.Adapter {
         myViewHolder.textView.setText(packageName);
         myViewHolder.image_icon.setBackgroundDrawable(drawable);
         myViewHolder.app_name.setText(appName);
+        //某个控件
+        myViewHolder.tv_start.setTag(myViewHolder);
+        myViewHolder.tv_start.setOnClickListener(onClickListener);
+        //点击一个itemView
+        myViewHolder.itemView.setTag(position);
+        myViewHolder.itemView.setId(itemViewId);
     }
 
     @Override
@@ -57,20 +71,19 @@ public class PackageAdapter extends RecyclerView.Adapter {
         return list.size();
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder {
+    public class MyViewHolder extends RecyclerView.ViewHolder {
 
         public TextView textView;
         public ImageView image_icon;
         public TextView app_name;
+        public TextView tv_start;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             textView = (TextView) itemView.findViewById(R.id.item_tv_name);
             image_icon = (ImageView) itemView.findViewById(R.id.image_icon);
-            app_name= (TextView) itemView.findViewById(R.id.app_name);
-
-
-
+            app_name = (TextView) itemView.findViewById(R.id.app_name);
+            tv_start = (TextView) itemView.findViewById(R.id.tv_start);
         }
     }
 }

@@ -37,15 +37,14 @@
                 android:textSize="16sp" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btn_start"
+        <TextView
+            android:id="@+id/tv_start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:text="启动"
-            android:visibility="gone" />
+            android:text="启动" />
 
     </LinearLayout>
 

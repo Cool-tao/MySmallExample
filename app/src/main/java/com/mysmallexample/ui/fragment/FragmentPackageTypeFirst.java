@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.mysmallexample.ui.adapter.PackageAdapter;
 import com.mysmallexample.ui.utils.Log;
@@ -25,7 +26,7 @@ import example.mysmallexample.R;
 /**
  * Created by taoshuang on 2016/10/19.
  */
-public class FragmentPackageTypeFirst extends BaseFragment {
+public class FragmentPackageTypeFirst extends BaseFragment implements View.OnClickListener {
     public static final String TAG = "FragmentPackageTypeFirst";
 
     private RecyclerView recyclerView;
@@ -73,9 +74,26 @@ public class FragmentPackageTypeFirst extends BaseFragment {
             map.put("drawable" + i, drawable);
             list.add(map);
         }
-        adapter = new PackageAdapter(getContext(), list);
+        adapter = new PackageAdapter(getContext(), list, this);
         recyclerView.setAdapter(adapter);
 
         return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        try {
+            if (v.getTag() != null && v.getTag() instanceof PackageAdapter.MyViewHolder) {
+                PackageAdapter.MyViewHolder myViewHolder = (PackageAdapter.MyViewHolder) v.getTag();
+                Toast.makeText(getContext(), myViewHolder.app_name.getText(), Toast.LENGTH_SHORT).show();
+                Log.i("FragmentPackageTypeFirst", "LogUtils FragmentPackageTypeFirst  app_name:" + myViewHolder.app_name.getText());
+            } else if (v.getId() == PackageAdapter.itemViewId) {
+                Toast.makeText(getContext(), "onClick", Toast.LENGTH_SHORT).show();
+                Integer position = (int) v.getTag();
+                Log.i("FragmentPackageTypeFirst", "LogUtils FragmentPackageTypeFirst  position:" + position);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

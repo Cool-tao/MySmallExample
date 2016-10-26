@@ -21,7 +21,7 @@ import example.mysmallexample.R;
 /**
  * Created by taoshuang on 2016/10/19.
  */
-public class FragmentPackageTypeSecond extends BaseFragment {
+public class FragmentPackage2Type extends BaseFragment {
     public static final String TAG = "FragmentPackageTypeFirst";
 
     private RecyclerView recyclerView;

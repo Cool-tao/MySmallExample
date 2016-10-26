@@ -26,7 +26,7 @@ import example.mysmallexample.R;
 /**
  * Created by taoshuang on 2016/10/19.
  */
-public class FragmentPackageTypeFirst extends BaseFragment implements View.OnClickListener {
+public class FragmentPackage1Type extends BaseFragment implements View.OnClickListener {
     public static final String TAG = "FragmentPackageTypeFirst";
 
     private RecyclerView recyclerView;

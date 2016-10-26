@@ -33,8 +33,8 @@ public class FragmentPackage extends BaseFragment {
         tv_menu[0] = view.findViewById(R.id.menu_type1);
         tv_menu[1] = view.findViewById(R.id.menu_type2);
         fragments = new BaseFragment[2];
-        fragments[0] = new FragmentPackageTypeFirst();
-        fragments[1] = new FragmentPackageTypeSecond();
+        fragments[0] = new FragmentPackage1Type();
+        fragments[1] = new FragmentPackage2Type();
         adapter.add(fragments[0]);
         adapter.add(fragments[1]);
         viewPager.setAdapter(adapter);

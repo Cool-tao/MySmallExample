@@ -36,32 +36,36 @@ public class PackageAdapter extends RecyclerView.Adapter {
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewype) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_package_layout, parent, false);
         MyViewHolder myViewHolder = new MyViewHolder(view);
-//        view.setTag(1);
         view.setOnClickListener(onClickListener);
         return myViewHolder;
     }
 
     public static final int itemViewId = 0000;
 
+
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        Map map = (Map) list.get(position);
-        map.put("position" + position, position);
-        String appName = (String) map.get("appName" + position);
-        String packageName = (String) map.get("packageName" + position);
-        int versionCode = (int) map.get("versionCode" + position);
-        String versionName = (String) map.get("versionName" + position);
-        Drawable drawable = (Drawable) map.get("drawable" + position);
-        MyViewHolder myViewHolder = (MyViewHolder) holder;
-        myViewHolder.textView.setText(packageName);
-        myViewHolder.image_icon.setBackgroundDrawable(drawable);
-        myViewHolder.app_name.setText(appName);
-        //某个控件
-        myViewHolder.tv_start.setTag(myViewHolder);
-        myViewHolder.tv_start.setOnClickListener(onClickListener);
-        //点击一个itemView
-        myViewHolder.itemView.setTag(position);
-        myViewHolder.itemView.setId(itemViewId);
+        try {
+            Map map = (Map) list.get(position);
+            map.put("position" + position, position);
+            String appName = (String) map.get("appName" + position);
+            String activityName = (String) map.get("activityName" + position);
+            String packageName = (String) map.get("packageName" + position);
+            Drawable drawable = (Drawable) map.get("drawable" + position);
+            MyViewHolder myViewHolder = (MyViewHolder) holder;
+            myViewHolder.activityName=activityName;
+            myViewHolder.textView.setText(packageName);
+            myViewHolder.image_icon.setBackgroundDrawable(drawable);
+            myViewHolder.app_name.setText(appName);
+            //某个控件
+            myViewHolder.tv_start.setTag(myViewHolder);
+            myViewHolder.tv_start.setOnClickListener(onClickListener);
+            //点击一个itemView
+            myViewHolder.itemView.setTag(myViewHolder);
+            myViewHolder.itemView.setId(itemViewId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -77,6 +81,7 @@ public class PackageAdapter extends RecyclerView.Adapter {
         public ImageView image_icon;
         public TextView app_name;
         public TextView tv_start;
+        public String activityName;
 
         public MyViewHolder(View itemView) {
             super(itemView);

@@ -40,7 +40,7 @@ public class FragmentPackage2Type extends BaseFragment {
                 ApplicationInfo applicationInfo = packageInfo.applicationInfo;
                 if ((applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) > 0) {
                     //系统应用
-                    Log.i("FragmentPackageTypeSecond", "LogUtils FragmentPackageTypeSecond:" + applicationInfo.loadLabel(packageManager));
+                    Log.i("FragmentPackageTypeSecond", "LogUtils FragmentPackageTypeSecond:");
 
                 } else if ((applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) <= 0) {
                     //非系统应用

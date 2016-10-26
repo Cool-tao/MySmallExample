@@ -41,6 +41,10 @@
     <!--查看应用是否在后台-->
     <uses-permission android:name="android.permission.GET_TASKS" />
 
+    <!--查询缓存必要权限-->
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" />
+    <uses-permission android:name="android.permission.CLEAR_APP_CACHE" />
+
     <application
         android:name="com.mysmallexample.ui.App"
         android:allowBackup="true"

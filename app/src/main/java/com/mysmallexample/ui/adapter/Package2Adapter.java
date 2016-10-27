@@ -78,9 +78,7 @@ public class Package2Adapter extends RecyclerView.Adapter {
                 vhPkg2.app_name.setText("" + applicationInfo.loadLabel(pm));
                 vhPkg2.image_icon.setBackgroundDrawable(applicationInfo.loadIcon(pm));
                 vhPkg2.pkg_name.setText("" + applicationInfo.packageName);
-                vhPkg2.app_type.setText("系统");
-
-
+                vhPkg2.app_type.setText("系统应用");
                 break;
 
             case TYPE_NOT_SYSTEM:
@@ -88,8 +86,7 @@ public class Package2Adapter extends RecyclerView.Adapter {
                 vhPkg3.app_name.setText("" + applicationInfo.loadLabel(pm));
                 vhPkg3.image_icon.setBackgroundDrawable(applicationInfo.loadIcon(pm));
                 vhPkg3.pkg_name.setText("" + applicationInfo.packageName);
-                vhPkg3.app_type.setText("第三方");
-
+                vhPkg3.app_type.setText("第三方应用");
                 break;
         }
     }

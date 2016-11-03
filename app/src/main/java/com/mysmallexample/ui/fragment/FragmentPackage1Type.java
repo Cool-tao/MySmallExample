@@ -5,9 +5,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
 import android.content.pm.IPackageStatsObserver;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageStats;
 import android.content.pm.ResolveInfo;
@@ -23,7 +21,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.mysmallexample.ui.adapter.PackageAdapter;
 import com.mysmallexample.ui.utils.DataCleanManager;
@@ -161,7 +158,6 @@ public class FragmentPackage1Type extends BaseFragment implements View.OnClickLi
                 String pkgName = myViewHolder.textView.getText().toString();
                 String app_name = myViewHolder.app_name.getText().toString();
                 String activityName = myViewHolder.activityName;
-                Toast.makeText(getContext(), "启动：" + app_name, Toast.LENGTH_SHORT).show();
                 Log.i("FragmentPackageTypeFirst", "LogUtils FragmentPackageTypeFirst  Name:" + pkgName + ", " + activityName);
                 //第一种
                 ComponentName componentName = new ComponentName(pkgName, activityName);
@@ -175,7 +171,6 @@ public class FragmentPackage1Type extends BaseFragment implements View.OnClickLi
 //                    getContext().startActivity(launchIntentForPackage);
 //                }
             } else if (v.getId() == PackageAdapter.itemViewId) {
-                Toast.makeText(getContext(), "onClick", Toast.LENGTH_SHORT).show();
                 PackageAdapter.MyViewHolder myViewHolder = (PackageAdapter.MyViewHolder) v.getTag();
                 String pkgName = myViewHolder.textView.getText().toString();
                 String app_name = myViewHolder.app_name.getText().toString();

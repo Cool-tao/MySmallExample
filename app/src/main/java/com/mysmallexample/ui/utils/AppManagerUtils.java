@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 
 /**
- *
+ * 其实android SDK给我们提供了android.provider.Settings类,该类提供android系统各个页面的跳转常量
  */
 public class AppManagerUtils {
     public static final String TAG = "AppManagerUtils";

@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.RemoteViews;
 import android.widget.TextView;
 
+import com.cool.makejarlib.utils.phone.DeviceUtils;
 import com.mysmallexample.ui.EnumDemo;
 import com.mysmallexample.ui.EnumTypeDemo;
 import com.mysmallexample.ui.LoadJosnTask;
@@ -24,6 +25,7 @@ import com.mysmallexample.ui.fragment.FragmentRank;
 import com.mysmallexample.ui.fragment.FragmentRecommend;
 import com.mysmallexample.ui.listener.TestListener;
 import com.mysmallexample.ui.utils.DeviceUtil;
+import com.mysmallexample.ui.utils.EmulateCheckUtil;
 import com.mysmallexample.ui.utils.Log;
 import com.mysmallexample.ui.utils.SPUtil;
 
@@ -54,6 +56,26 @@ public class MainActivity extends BaseActivity implements TestListener {
 
         setContentView(R.layout.activity_main);
         changeStatusBar();
+
+        String iesi = DeviceUtils.getIESI(this);
+        Log.i("MainActivity", "LogUtils MainActivity iesi:" + iesi);
+        EmulateCheckUtil.isValidDevice(this, new EmulateCheckUtil.ResultCallBack() {
+            @Override
+            public void isEmulator() {
+                Log.i("MainActivity", "LogUtils MainActivity isEmulator");
+            }
+
+            @Override
+            public void isDevice() {
+                Log.i("MainActivity", "LogUtils MainActivity isDevice");
+            }
+
+            @Override
+            public void notSure() {
+                Log.i("MainActivity", "LogUtils MainActivity notSure");
+            }
+        });
+
         viewPager = (MyViewPager) findViewById(R.id.main_pager);
         adapter = new MainPagerAdapter(getSupportFragmentManager());
         fragments = new BaseFragment[4];

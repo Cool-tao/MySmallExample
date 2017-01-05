@@ -86,14 +86,14 @@ public class DeviceUtils {
     /**
      * 获取手机IESI号
      */
-    public static String getIESI(Context context) {
+    public static String getIMSI(Context context) {
         if (context == null) {
-            LogUtils.e("getIESI  context为空");
+            LogUtils.e("getIMSI  context为空");
         }
         TelephonyManager telecomManager = (TelephonyManager) context
                 .getSystemService(Context.TELEPHONY_SERVICE);
         String imsi = telecomManager.getSubscriberId();
-        LogUtils.i("IESI标识：" + imsi);
+        LogUtils.i("IMSI标识：" + imsi);
         return imsi;
     }
 

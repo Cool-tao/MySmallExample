@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -20,47 +19,140 @@ import java.util.concurrent.Executors;
 public class TestSingleThreadExecutor {
     public static void main(String[] args) {
 
-        List list = new ArrayList();
 
-        //https://ra.namibox.com/tina/static/lesson/milesson352/image/namisj1a_0001.png
-        String urlBefore = "https://ra.namibox.com/tina/static/lesson/milesson352/image/namisj1a_0";
-        String savePath = "f:\\namisj1a";
-        String fileName = "namisj1a_0";
-        //https://ra.namibox.com/tina/static/lesson/milesson352/image/nami_sj3a0055.png
-        String urlBefore1 = "https://ra.namibox.com/tina/static/lesson/milesson352/image/nami_sj3a0";
-        String savePath1 = "f:\\nami_sj3a";
-        String fileName1 = "nami_sj3a0";
-        //https://ra.namibox.com/tina/static/lesson/milesson352/image/namishox0014.png
-        String urlBefore2 = "https://ra.namibox.com/tina/static/lesson/milesson352/image/namishox0";
-        String savePath2 = "f:\\namishox";
-        String fileName2 = "namishox0";
+        //六年级上
+        //https://ra.namibox.com/tina/static/lesson/milesson394/audio/box_0000000415.mp3
+        //五年级上
+        //https://ra.namibox.com/tina/static/lesson/milesson356/audio/box_0000002373.mp3
+        //五年级下
+        //https://ra.namibox.com/tina/static/lesson/milesson143/audio/box_0000003621.mp3
+        //四年级上 人教版
+        //https://ra.namibox.com/tina/static/lesson/milesson350/audio/box_0000000452.mp3
+        // 四年级下 人教版
+        //https://ra.namibox.com/tina/static/lesson/milesson144/audio/box_0000001802.mp3
+        //四年级上 苏教版
+        //https://ra.namibox.com/tina/static/lesson/milesson357/audio/box_0000000586.mp3
+        // 四年级下 苏教版
+        //https://ra.namibox.com/tina/static/lesson/milesson357/audio/box_0000000586.mp3
+
+        final String grade = "milesson144";//年级
+        final String savePath = "f:\\box_" + grade + "_mp3";
+
         //创建一个可重用固定线程数的线程池
-        ExecutorService pool = Executors.newSingleThreadExecutor();
+//        ExecutorService pool = Executors.newSingleThreadExecutor();
 //        //创建一个可重用固定线程数的线程池
-//        ExecutorService pool = Executors.newFixedThreadPool(2);
+        ExecutorService pool = Executors.newFixedThreadPool(5);
 
 //        //创建一个可重用固定线程数的线程池
 //        ExecutorService pool = Executors.newCachedThreadPool();
         //创建实现了Runnable接口对象
-        Thread tt1 = new Thread(new Runnable() {
+        Thread tt1 = getThread1(grade, savePath);
+        Thread tt2 = getThread2(grade, savePath);
+        Thread tt3 = getThread3(grade, savePath);
+        Thread tt4 = getThread4(grade, savePath);
+        Thread tt5 = getThread5(grade, savePath);
+        //将线程放入池中并执行
+        pool.execute(tt1);
+        pool.execute(tt2);
+        pool.execute(tt3);
+        pool.execute(tt4);
+        pool.execute(tt5);
+
+        //关闭
+        pool.shutdown();
+    }
+
+    private static Thread getThread5(final String grade, final String savePath) {
+        return new Thread(new Runnable() {
             @Override
             public void run() {
                 String url;
-                for (int i = 0; i < 5; i++) {
+                for (int i = 2; i < 3; i++) {
                     for (int j = 0; j < 5; j++) {
                         for (int k = 0; k < 10; k++) {
-                            url = urlBefore + i + "" + j + "" + k + ".png";
-                            boolean b = downLoadFromUrl(url, fileName + i + "" + j + "" + k + ".png", savePath);
-                            String s = "url:" + url + ", result:" + b;
-                            list.add(s);
+                            for (int l = 0; l < 10; l++) {
+                                for (int m = 0; m < 10; m++) {
+                                    url = "https://ra.namibox.com/tina/static/lesson/" + grade + "/audio/box_00000"
+                                            + i + ""
+                                            + j + ""
+                                            + k + ""
+                                            + l + ""
+                                            + m + ""
+                                            + ".mp3";
+                                    boolean b = downLoadFromUrl(url, "box_00000" + i + "" + j + "" + k + "" + l + "" + m + "" + ".mp3", savePath);
+                                    System.out.println(i + "" + j + "" + k + "" + l + "" + m + ", url:" + url + ", result:" + b);
+                                }
+
+                            }
                         }
                     }
-                    System.out.println("i:" + i);
                 }
-                saveLogToTxt(list, savePath);
             }
         });
-        Thread tt2 = new Thread(new Runnable() {
+    }
+
+    private static Thread getThread4(final String grade, final String savePath) {
+        return new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String url;
+                for (int i = 1; i < 2; i++) {
+                    for (int j = 5; j < 10; j++) {
+                        for (int k = 0; k < 10; k++) {
+                            for (int l = 0; l < 10; l++) {
+                                for (int m = 0; m < 10; m++) {
+                                    url = "https://ra.namibox.com/tina/static/lesson/" + grade + "/audio/box_00000"
+                                            + i + ""
+                                            + j + ""
+                                            + k + ""
+                                            + l + ""
+                                            + m + ""
+                                            + ".mp3";
+                                    boolean b = downLoadFromUrl(url, "box_00000" + i + "" + j + "" + k + "" + l + "" + m + "" + ".mp3", savePath);
+                                    System.out.println(i + "" + j + "" + k + "" + l + "" + m + ", url:" + url + ", result:" + b);
+                                }
+
+                            }
+
+
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    private static Thread getThread3(final String grade, final String savePath) {
+        return new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String url;
+                for (int i = 1; i < 2; i++) {
+                    for (int j = 0; j < 5; j++) {
+                        for (int k = 0; k < 10; k++) {
+                            for (int l = 0; l < 10; l++) {
+                                for (int m = 0; m < 10; m++) {
+                                    url = "https://ra.namibox.com/tina/static/lesson/" + grade + "/audio/box_00000"
+                                            + i + ""
+                                            + j + ""
+                                            + k + ""
+                                            + l + ""
+                                            + m + ""
+                                            + ".mp3";
+                                    boolean b = downLoadFromUrl(url, "box_00000" + i + "" + j + "" + k + "" + l + "" + m + "" + ".mp3", savePath);
+                                    System.out.println(i + "" + j + "" + k + "" + l + "" + m + ", url:" + url + ", result:" + b);
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    private static Thread getThread2(final String grade, final String savePath) {
+        return new Thread(new Runnable() {
             @Override
             public void run() {
                 String url;
@@ -69,88 +161,50 @@ public class TestSingleThreadExecutor {
                         for (int k = 0; k < 10; k++) {
                             for (int l = 0; l < 10; l++) {
                                 for (int m = 0; m < 10; m++) {
-                                    url = "https://ra.namibox.com/tina/static/lesson/milesson352/audio/box_00000"
+                                    url = "https://ra.namibox.com/tina/static/lesson/" + grade + "/audio/box_00000"
                                             + i + ""
                                             + j + ""
                                             + k + ""
                                             + l + ""
                                             + m + ""
                                             + ".mp3";
-                                    downLoadFromUrl(url, "box_00000" + i + "" + j + "" + k + "" + l + "" + m + "" + ".mp3", "f:\\box_mp3");
-                                    System.out.println(i + "" + j + "" + k + "" + l + "" + m + "");
+                                    boolean b = downLoadFromUrl(url, "box_00000" + i + "" + j + "" + k + "" + l + "" + m + "" + ".mp3", savePath);
+                                    System.out.println(i + "" + j + "" + k + "" + l + "" + m + ", url:" + url + ", result:" + b);
                                 }
                             }
                         }
                     }
-                    System.out.println("i:" + i);
                 }
             }
         });
-        Thread tt3 = new Thread(new Runnable() {
+    }
+
+    private static Thread getThread1(final String grade, final String savePath) {
+        return new Thread(new Runnable() {
             @Override
             public void run() {
                 String url;
-                for (int i = 1; i < 2; i++) {
+                for (int i = 0; i < 1; i++) {
                     for (int j = 0; j < 5; j++) {
                         for (int k = 0; k < 10; k++) {
                             for (int l = 0; l < 10; l++) {
                                 for (int m = 0; m < 10; m++) {
-                                    url = "https://ra.namibox.com/tina/static/lesson/milesson352/audio/box_00000"
+                                    url = "https://ra.namibox.com/tina/static/lesson/" + grade + "/audio/box_00000"
                                             + i + ""
                                             + j + ""
                                             + k + ""
                                             + l + ""
                                             + m + ""
                                             + ".mp3";
-                                    boolean b = downLoadFromUrl(url, "box_00000" + i + "" + j + "" + k + "" + l + "" + m + "" + ".mp3", "f:\\box_mp3");
-                                    String s = "url:" + url + ", result:" + b;
-//                                        list.add(s);
-                                    System.out.println(i + "" + j + "" + k + "" + l + "" + m + "");
+                                    boolean b = downLoadFromUrl(url, "box_00000" + i + "" + j + "" + k + "" + l + "" + m + "" + ".mp3", savePath);
+                                    System.out.println(i + "" + j + "" + k + "" + l + "" + m + ", url:" + url + ", result:" + b);
                                 }
-
                             }
                         }
                     }
                 }
             }
         });
-        Thread tt4 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                String url;
-                for (int i = 1; i < 2; i++) {
-                    for (int j = 5; j < 10; j++) {
-                        for (int k = 0; k < 10; k++) {
-                            for (int l = 0; l < 10; l++) {
-                                for (int m = 0; m < 10; m++) {
-                                    url = "https://ra.namibox.com/tina/static/lesson/milesson352/audio/box_00000"
-                                            + i + ""
-                                            + j + ""
-                                            + k + ""
-                                            + l + ""
-                                            + m + ""
-                                            + ".mp3";
-                                    boolean b = downLoadFromUrl(url, "box_00000" + i + "" + j + "" + k + "" + l + "" + m + "" + ".mp3", "f:\\box_mp3");
-                                    String s = "url:" + url + ", result:" + b;
-//                                        list.add(s);
-                                    System.out.println(i + "" + j + "" + k + "" + l + "" + m + "");
-                                }
-
-                            }
-
-
-                        }
-                    }
-                }
-            }
-        });
-        //将线程放入池中并执行
-        pool.execute(tt1);
-        pool.execute(tt2);
-        pool.execute(tt3);
-        pool.execute(tt4);
-        //关闭
-        pool.shutdown();
     }
 
 
